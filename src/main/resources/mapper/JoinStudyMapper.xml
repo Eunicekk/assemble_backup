@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.JoinStudyMapper">
+    <insert id="insert">
+        INSERT INTO T_JOIN_STUDY(JOIN_STUDY_ID, STUDY_ID, USER_ID)
+        VALUES(S_JOIN_STUDY.NEXTVAL, #{studyId}, #{userId})
+    </insert>
+    <delete id="delete">
+        DELETE FROM T_JOIN_STUDY
+        WHERE STUDY_ID = #{studyId} AND USER_ID = #{userId}
+    </delete>
+
+
+
+    <select id="selectAllByUser" resultType="studyVO">
+        SELECT S.STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_NOTICE, STUDY_SEARCH, STUDY_COMPLETE, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE
+        FROM T_STUDY S JOIN T_JOIN_STUDY J ON S.STUDY_ID = J.STUDY_ID
+        WHERE J.USER_ID = #{userId}
+        ORDER BY JOIN_STUDY_REGISTER_DATE
+    </select>
+    <select id="selectAllByStudy" resultType="userVO">
+        SELECT U.USER_ID, USER_NAME, USER_NICKNAME, USER_EMAIL
+        FROM T_JOIN_STUDY J JOIN T_USER U ON J.USER_ID = U.USER_ID
+        WHERE STUDY_ID = #{studyId}
+        ORDER BY JOIN_STUDY_REGISTER_DATE
+    </select>
+</mapper>
