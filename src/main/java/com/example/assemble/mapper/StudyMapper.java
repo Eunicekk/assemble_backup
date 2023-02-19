@@ -22,5 +22,5 @@ public interface StudyMapper {
     public void update(StudyVO studyVO);
 
     // 스터디 삭제
-    public void delete(StudyVO studyVO);
+    public void delete(Long studyId);
 }
