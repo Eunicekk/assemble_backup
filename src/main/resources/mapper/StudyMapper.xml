@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.StudyMapper">
+    <select id="select" resultType="studyVO">
+        SELECT STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_NOTICE, STUDY_SEARCH, STUDY_COMPLETE, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE
+        FROM T_STUDY
+        WHERE STUDY_ID = #{studyId}
+    </select>
+
+
+    <insert id="insert">
+        INSERT INTO T_STUDY(STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_SEARCH)
+        VALUES(S_STUDY.NEXTVAL, #{studyName}, #{studyOnline}, #{studyArea}, #{studyTopic}, #{studySearch})
+    </insert>
+
+    <update id="update">
+        UPDATE T_STUDY
+        SET STUDY_NAME = #{studyName}, STUDY_ONLINE = #{studyOnline}, STUDY_AREA = #{studyArea}, STUDY_TOPIC = #{studyTopic}, STUDY_NOTICE = #{studyNotice}, STUDY_SEARCH = #{studySearch}, STUDY_COMPLETE = #{studyComplete}, STUDY_UPDATE_DATE = SYSDATE
+        WHERE STUDY_ID = #{studyId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM T_STUDY
+        WHERE STUDY_ID = #{studyId}
+    </delete>
+</mapper>
