@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.NoticeMapper">
+    <select id="selectAll" resultType="noticeVO">
+        SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_DATE
+        FROM TBL_NOTICE
+    </select>
+
+    <insert id="insert">
+        INSERT INTO TBL_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG)
+        VALUES(NOTICE_SEQ.NEXTVAL, #{noticeTitle}, #{noticeContent}, #{noticeImg})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM TBL_NOTICE
+        WHERE NOTICE_ID = #{noticeId}
+    </delete>
+
+    <select id="select" resultType="noticeVO">
+        SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_DATE
+        FROM TBL_NOTICE
+        WHERE NOTICE_ID = #{noticeId}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_NOTICE
+        SET NOTICE_TITLE = #{noticeTitle}, NOTICE_CONTENT = #{noticeContent}, NOTICE_IMG = #{noticeImg}
+        WHERE NOTICE_ID = #{noticeId}
+    </update>
+</mapper>
