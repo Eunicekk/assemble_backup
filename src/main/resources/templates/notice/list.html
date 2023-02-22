@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>공지글 목록</title>
+    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
+</head>
+<body class="is-preload">
+<!-- Main -->
+<div id="main">
+    <div class="wrapper">
+        <div class="inner">
+            <!-- Elements -->
+            <header class="major">
+                <h1>Board</h1>
+                <p>게시판 목록</p>
+            </header>
+            <!-- Table -->
+            <h3><a href="/notice/write" class="write button small">글 등록</a></h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr class="tHead">
+                        <th class="boardNumber">번호</th>
+                        <th class="boardTitle">제목</th>
+                        <th class="boardRegisterDate">작성일</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="notice:${notices}">
+                        <tr class="tBody" th:object="${notice}">
+                            <td class="boardNumber" th:text="*{noticeId}"></td>
+                            <td class="boardTitle"><a th:href="@{/notice/read(noticeId=*{noticeId})}" class="read" th:text="*{noticeTitle}"></a></td>
+                            <td class="boardRegisterDate" th:text="*{noticeDate}"></td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.dropotron.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<script src="/js/breakpoints.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+<script th:inline="javascript">
+
+    $(document).ready(function(){
+        let boardNumber = [[${boardNumber}]];
+        if(!boardNumber || history.state){
+            return;
+        }
+        alert(boardNumber + "번 게시글이 등록되었습니다.");
+
+        history.replaceState({}, null, null);
+    });
+
+    $("a.changePage").on("click", function(e){
+        e.preventDefault();
+        $("input#page").val($(this).attr("href"));
+        $("form[name='page-form']").submit();
+    });
+
+</script>
+</html>
