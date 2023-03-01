@@ -52,3 +52,8 @@ loginPwInput.addEventListener('blur', function(){
     icon04.style.color = "#777777";
     loginPwDiv.style.border = "1px solid #dadada";
 })
+
+let loginErrorMsg = document.querySelector('login-error');
+let idErrorMsg = document.querySelector('id-error');
+let pwErrorMsg = document.querySelector('pw-error');
+
