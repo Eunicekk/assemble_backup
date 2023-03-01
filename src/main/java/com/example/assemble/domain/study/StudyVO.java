@@ -1,4 +1,4 @@
-package com.example.assemble.domain;
+package com.example.assemble.domain.study;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +16,7 @@ public class StudyVO {
     private String studyNotice;
     private boolean studySearch;
     private boolean studyComplete;
+    private String studyLeader;
     private String studyRegisterDate;
     private String studyUpdateDate;
 

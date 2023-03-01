@@ -2,9 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.example.assemble.domain.UserVO" alias="userVO"/>
-        <typeAlias type="com.example.assemble.domain.StudyVO" alias="studyVO"/>
-        <typeAlias type="com.example.assemble.domain.JoinStudyVO" alias="joinStudyVO"/>
+        <typeAlias type="com.example.assemble.domain.user.UserVO" alias="userVO"/>
+        <typeAlias type="com.example.assemble.domain.study.StudyVO" alias="studyVO"/>
+        <typeAlias type="com.example.assemble.domain.study.JoinStudyVO" alias="joinStudyVO"/>
+        <typeAlias type="com.example.assemble.domain.study.StudyTalkVO" alias="studyTalkVO"/>
+        <typeAlias type="com.example.assemble.domain.study.StudyTalkDTO" alias="studyTalkDTO"/>
         <typeAlias type="com.example.assemble.domain.NoticeVO" alias="noticeVO" />
         <typeAlias type="com.example.assemble.domain.BoardVO" alias="boardVO" />
     </typeAliases>
