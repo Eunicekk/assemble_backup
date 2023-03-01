@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>게시글 등록</title>
+</head>
+<body class="is-preload">
+<!-- Main -->
+<div id="main">
+    <div class="wrapper">
+        <div class="inner">
+            <!-- Elements -->
+            <header class="major">
+                <h1>Board</h1>
+                <p>게시글 등록</p>
+            </header>
+            <!-- Table -->
+            <h3><a class="list button small">목록 보기</a></h3>
+            <div class="content">
+                <div class="form">
+                    <form method="post" th:action="@{/notice/write}" id="writeForm" th:object="${noticeVO}">
+                        <div class="fields">
+                            <div class="field">
+                                <h4>제목</h4>
+                                <input th:field="*{noticeTitle}" placeholder="Title" type="text" />
+                            </div>
+                            <div class="field">
+                                <h4>내용</h4>
+                                <textarea th:field="*{noticeContent}" rows="6" placeholder="Content" style="resize:none"></textarea>
+                            </div>
+                        </div>
+                        <ul class="actions special">
+                            <li><input type="submit" class="button" value="등록" /></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.dropotron.min.js"></script>
+<script src="/js/browser.min.js"></script>
+<script src="/js/breakpoints.min.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/main.js"></script>
+</html>
