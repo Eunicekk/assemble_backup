@@ -8,5 +8,6 @@
         <typeAlias type="com.example.assemble.domain.study.StudyTalkVO" alias="studyTalkVO"/>
         <typeAlias type="com.example.assemble.domain.study.StudyTalkDTO" alias="studyTalkDTO"/>
         <typeAlias type="com.example.assemble.domain.NoticeVO" alias="noticeVO" />
+        <typeAlias type="com.example.assemble.domain.BoardVO" alias="boardVO" />
     </typeAliases>
 </configuration>
