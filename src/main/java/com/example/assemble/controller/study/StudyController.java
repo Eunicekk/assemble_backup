@@ -1,8 +1,10 @@
-package com.example.assemble.controller;
+package com.example.assemble.controller.study;
 
-import com.example.assemble.domain.StudyVO;
-import com.example.assemble.domain.UserVO;
-import com.example.assemble.service.StudyService;
+import com.example.assemble.domain.study.StudyVO;
+import com.example.assemble.domain.user.UserVO;
+import com.example.assemble.service.study.JoinStudyService;
+import com.example.assemble.service.study.StudyService;
+import com.example.assemble.service.study.StudyTalkService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,20 +21,23 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/study")
 public class StudyController {
     private final StudyService studyService;
+    private final StudyTalkService studyTalkService;
+    private final JoinStudyService joinStudyService;
 
-    public String sessionUserId(HttpServletRequest request) {
+    public UserVO getSessionUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        String userId = "";
+        UserVO user = null;
         if(session != null) {
-            userId = (String)session.getAttribute("userId");
+            user = (UserVO)session.getAttribute("user");
         }
-        return userId;
+        return user;
     }
 
     @GetMapping("/list")
     public String getStudyList(Model model, HttpServletRequest request) {
-        if(sessionUserId(request) == null) return "/login";
-        model.addAttribute("studyList", studyService.studyList(sessionUserId(request)));
+        UserVO sessionUser = getSessionUser(request);
+        if(sessionUser == null) return "/login";
+        model.addAttribute("studyList", joinStudyService.studyList(sessionUser.getUserId()));
         return "/study/list";
     }
 
@@ -43,7 +48,8 @@ public class StudyController {
 
     @GetMapping("/add")
     public String add(StudyVO studyVO, UserVO userVO, HttpServletRequest request) {
-        if(sessionUserId(request) == "") return "/login";
+        UserVO sessionUser = getSessionUser(request);
+        if(sessionUser == null) return "/login";
         return "/study/add";
     }
     @PostMapping("/add")
@@ -53,14 +59,18 @@ public class StudyController {
     }
     @GetMapping("/update")
     public String update(StudyVO studyVO, HttpServletRequest request) {
-        if(sessionUserId(request) == "") return "/login";
+        UserVO sessionUser = getSessionUser(request);
+        if(sessionUser == null) return "/login";
         return "/study/update";
     }
     @PostMapping("/update")
-    public String update(StudyVO studyVO, Model model, HttpServletRequest request) {
+    public String update(StudyVO studyVO, Model model) {
         studyService.updateStudy(studyVO);
-        model.addAttribute("userId", sessionUserId(request));
 
         return "/";
+    }
+    @GetMapping("/talk")
+    public void talk(Long studyId, Model model) {
+        model.addAttribute("talks", studyTalkService.viewTalkList(studyId));
     }
 }

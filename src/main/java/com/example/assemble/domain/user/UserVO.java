@@ -1,4 +1,4 @@
-package com.example.assemble.domain;
+package com.example.assemble.domain.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

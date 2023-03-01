@@ -1,7 +1,7 @@
-package com.example.assemble.repository;
+package com.example.assemble.repository.study;
 
-import com.example.assemble.domain.StudyVO;
-import com.example.assemble.mapper.StudyMapper;
+import com.example.assemble.domain.study.StudyVO;
+import com.example.assemble.mapper.study.StudyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +18,12 @@ public class StudyDAO {
     }
     public void setStudy(StudyVO studyVO) {
         studyMapper.update(studyVO);
+    }
+    public void setStudyNotice(StudyVO studyVO) {
+        studyMapper.updateNotice(studyVO);
+    }
+    public void setStudyLeader(StudyVO studyVO) {
+        studyMapper.updateLeader(studyVO);
     }
     public void remove(Long studyId) {
         studyMapper.delete(studyId);

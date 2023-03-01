@@ -1,6 +1,7 @@
 package com.example.assemble.mapper;
 
-import com.example.assemble.domain.JoinStudyVO;
+import com.example.assemble.domain.study.JoinStudyVO;
+import com.example.assemble.mapper.study.JoinStudyMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
