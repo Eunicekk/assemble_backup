@@ -13,6 +13,7 @@ public class BoardVO {
     private Clob boardContent;
     private String boardRegisterDate;
     private String updateRegisterDate;
+    private Long boardViews;
     private String userId;
 
 }

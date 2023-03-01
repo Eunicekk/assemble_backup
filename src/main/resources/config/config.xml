@@ -6,5 +6,6 @@
         <typeAlias type="com.example.assemble.domain.StudyVO" alias="studyVO"/>
         <typeAlias type="com.example.assemble.domain.JoinStudyVO" alias="joinStudyVO"/>
         <typeAlias type="com.example.assemble.domain.NoticeVO" alias="noticeVO" />
+        <typeAlias type="com.example.assemble.domain.BoardVO" alias="boardVO" />
     </typeAliases>
 </configuration>
