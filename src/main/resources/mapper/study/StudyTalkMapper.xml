@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.study.StudyTalkMapper">
+    <select id="selectAll" resultType="studyTalkDTO">
+        SELECT STUDY_TALK_ID, STUDY_ID, T.USER_ID, USER_NICKNAME, STUDY_TALK_CONTENT, STUDY_TALK_REGISTER_DATE
+        FROM T_STUDY_TALK T JOIN T_USER U ON T.USER_ID = U.USER_ID
+        WHERE STUDY_ID = #{studyId}
+        ORDER BY STUDY_TALK_REGISTER_DATE DESC
+    </select>
+    <insert id="insert">
+        INSERT INTO T_STUDY_TALK(STUDY_TALK_ID, STUDY_ID, USER_ID, STUDY_TALK_CONTENT)
+        VALUES(S_STUDY_TALK.NEXTVAL, #{studyId}, #{userId}, #{studyTalkContent})
+    </insert>
+    <delete id="delete">
+        DELETE FROM T_STUDY_TALK
+        WHERE STUDY_TALK_ID = #{studyTalkId}
+    </delete>
+</mapper>
