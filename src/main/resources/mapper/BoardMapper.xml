@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.BoardMapper">
+    <select id="selectAll" resultType="boardVO">
+        SELECT  BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, USER_ID
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, USER_ID
+                FROM TBL_BOARD2
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 10
+        )
+        WHERE R > (#{page} - 1) * 10
+        ]]>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO TBL_BOARD2(BOARD_ID, BOARD_TITLE, BOARD_CONTENT,USER_ID)
+        VALUES(NOTICE_SEQ.NEXTVAL, #{boardTitle}, #{boardContent}, #{userId})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM TBL_BOARD2
+        WHERE BOARD_ID = #{noticeId}
+    </delete>
+
+    <select id="select" resultType="boardVO">
+        SELECT BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, USER_ID
+        FROM TBL_BOARD2
+        WHERE BOARD_ID = #{boardId}
+    </select>
+
+    <update id="update">
+        UPDATE TBL_BOARD2
+        SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}
+        WHERE BOARD_ID = #{boardId}
+    </update>
+</mapper>

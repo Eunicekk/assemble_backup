@@ -14,7 +14,7 @@ public class NoticeDAO {
     // 목록
     public List<NoticeVO> noticeAll(){return noticeMapper.selectAll();}
     // 추가
-    public void add(NoticeVO noticeVO){noticeMapper.insert(noticeVO);};
+    public void add(NoticeVO noticeVO){noticeMapper.insert(noticeVO);}
     // 삭제
     public void remove(Long noticeId){noticeMapper.delete(noticeId);}
     // 조회

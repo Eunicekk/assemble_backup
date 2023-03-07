@@ -94,7 +94,7 @@ main{
     border-radius: 6px;
     cursor: pointer;
 }
-.login-error{
+.login-error, .id-error, .pw-error{
     font-size: 14px;
     color: red;
     margin-top: 10px;
