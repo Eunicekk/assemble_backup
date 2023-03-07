@@ -22,7 +22,11 @@
         WHERE STUDY_ID = #{studyId} AND USER_ID = #{userId}
     </delete>
 
-
+    <select id="selectUser" resultType="joinStudyVO">
+        SELECT USER_ID
+        FROM T_JOIN_STUDY
+        WHERE USER_ID = #{userId} AND STUDY_ID = #{studyId} AND JOIN_STUDY_JOIN = 1
+    </select>
 
     <select id="selectAllByUser" resultType="studyVO">
         SELECT S.STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_NOTICE, STUDY_SEARCH, STUDY_COMPLETE, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE

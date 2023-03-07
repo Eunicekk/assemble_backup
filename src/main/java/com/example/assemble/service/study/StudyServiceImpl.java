@@ -19,6 +19,11 @@ public class StudyServiceImpl implements StudyService {
     private final StudyDAO studyDAO;
 
     @Override
+    public List<StudyVO> list() {
+        return studyDAO.getStudyAll();
+    }
+
+    @Override
     public StudyVO viewDetail(Long studyId) {
         return studyDAO.getStudy(studyId);
     }
@@ -39,7 +44,17 @@ public class StudyServiceImpl implements StudyService {
     }
 
     @Override
+    public void updateStudyLeader(StudyVO studyVO) {
+        studyDAO.setStudyLeader(studyVO);
+    }
+
+    @Override
     public void deleteStudy(Long studyId) {
         studyDAO.remove(studyId);
+    }
+
+    @Override
+    public List<StudyVO> search(StudyVO studyVO) {
+        return studyDAO.search(studyVO);
     }
 }

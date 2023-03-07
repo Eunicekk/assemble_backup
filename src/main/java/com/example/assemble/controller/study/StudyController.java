@@ -24,6 +24,7 @@ public class StudyController {
     private final StudyTalkService studyTalkService;
     private final JoinStudyService joinStudyService;
 
+    // 세션 유저 정보 가져오기
     public UserVO getSessionUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
         UserVO user = null;
@@ -33,6 +34,7 @@ public class StudyController {
         return user;
     }
 
+    // 해당 유저가 가입 되어 있는 스터디 목록
     @GetMapping("/list")
     public String getStudyList(Model model, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
@@ -41,36 +43,62 @@ public class StudyController {
         return "/study/list";
     }
 
+    // 스터디 상세 보기
     @GetMapping("/")
     public void getStudy(StudyVO studyVO) {
         studyVO = studyService.viewDetail(studyVO.getStudyId());
     }
 
+    // 스터디 생성 페이지 이동
     @GetMapping("/add")
     public String add(StudyVO studyVO, UserVO userVO, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
         if(sessionUser == null) return "/login";
         return "/study/add";
     }
+    // 스터디 생성
     @PostMapping("/add")
     public RedirectView add(StudyVO studyVO) {
         studyService.createStudy(studyVO);
         return new RedirectView("/study/list");
     }
+
+    // 스터디 수정 페이지 이동
     @GetMapping("/update")
     public String update(StudyVO studyVO, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
         if(sessionUser == null) return "/login";
         return "/study/update";
     }
+    // 스터디 수정
     @PostMapping("/update")
     public String update(StudyVO studyVO, Model model) {
         studyService.updateStudy(studyVO);
 
         return "/";
     }
+
+    // 스터디 삭제
+    @PostMapping("/delete")
+    public RedirectView delete(Long studyId) {
+        studyService.deleteStudy(studyId);
+        return new RedirectView("/study/list");
+    }
+
+    // 스터디톡 대화 내용
     @GetMapping("/talk")
     public void talk(Long studyId, Model model) {
         model.addAttribute("talks", studyTalkService.viewTalkList(studyId));
+    }
+
+    // 스터디 검색 페이지
+    @GetMapping("/search")
+    public void search(StudyVO studyVO) {
+
+    }
+    // 스터디 검색(여러 조건 넣어서 검색)
+    @PostMapping("/search")
+    public void search(StudyVO studyVO, Model model){
+        model.addAttribute("studies", studyService.search(studyVO));
     }
 }

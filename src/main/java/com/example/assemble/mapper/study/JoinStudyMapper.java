@@ -20,7 +20,10 @@ public interface JoinStudyMapper {
 
     // 스터디 탈퇴
     public void delete(JoinStudyVO joinStudyVO);
-    
+
+    // 해당 유저가 스터디 그룹원인지 확인
+    public JoinStudyVO selectUser(JoinStudyVO joinStudyVO);
+
     // 해당 유저의 스터디 목록 보기
     public List<StudyVO> selectAllByUser(String userId);
 
