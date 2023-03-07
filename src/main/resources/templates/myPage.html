@@ -3,105 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <title>마이페이지</title>
-    <script src="testjs.js"></script>
+    <link href="../static/css/reset.css" rel="stylesheet">
+    <link href="../static/css/myPage.css" rel="stylesheet">
+    <link href="../static/css/tag.css " rel="stylesheet">
+    <script src="../static/js/selectTag.js"></script>
 </head>
 <body>
-    <header></header>
-    <container>
-        <div class="my_profile">
-            <h2>내 프로필</h2>
-            <div class="myBox">
-                <!-- 수정이 가능한 부분(사진,닉네임,비밀번호,관심기술)-->
-                <div class="variable">
-                    <div class="contents">
-                        <div class="profile-img">
-                            <img src="">
+<div class="header">
+    <a href=#><img class="logo" src="../static/image/logo.png" alt="로고 이미지"></a>
+</div>
+<div class="container">
+    <div class="my_profile">
+        <h2>내 프로필</h2>
+        <div class="myBox">
+            <!-- 수정이 가능한 부분(사진,닉네임,비밀번호,관심기술)-->
+            <div class="variable">
+                <div class="contents">
+                    <div class="profile-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png">
+                        <div class="img-button">
+                            <input type="button" value="이미지 선택">
+                            <input type="button" value="이미지 제거">
                         </div>
-                        <button>이미지 선택</button>
-                        <button>이미지 제거</button>
-                    </div>
-                    <div class="contents">
-                        <p>
-                            <label>닉네임</label>
-                            <input type="text" placeholder="원래아이디">
-                        </p>
-                    </div>
-                    <div class="contents">
-                        <label>관심태그</label>
-                        <form>
-                            <select
-                                    required
-                                    multiple="multiple"
-                                    name="intrest_tag"
-                                    id="tag_select"
-                            >
-                                <optgroup label="백엔드">
-                                    <option value="Java">Java</option>
-                                    <option value="C">C</option>
-                                    <option value="Python">Python</option>
-                                    <option value="Nodejs">Nodejs</option>
-                                    <option value="Spring">Spring</option>
-                                    <option value="Kotlin">Kotlin</option>
-                                    <option value="Express">Express</option>
-                                    <option value="MySQL">MySQL</option>
-                                    <option value="MongoDB">MongoDB</option>
-                                    <option value="Django">Django</option>
-                                    <option value="PHP">PHP</option>
-                                    <option value="GraphQL">GrapQL</option>
-                                    <option value="Firebase">Firebase</option>
-                                </optgroup>
-                                <optgroup label="프론트앤드">
-                                    <option value="JavaScript">JavaScript</option>
-                                    <option value="TypeScript">TypeScript</option>
-                                    <option value="React">React</option>
-                                    <option value="Vue">Vue</option>
-                                    <option value="Svelte">Svelte</option>
-                                    <option value="Nextjs">Nextjs</option>
-                                </optgroup>
-                                <optgroup label="기타">
-                                    <option value="Flutter">Flutter</option>
-                                    <option value="Swift">Swift</option>
-                                    <option value="Unity">Unity</option>
-                                    <option value="AWS">AWS</option>
-                                    <option value="Docker">Docker</option>
-                                    <option value="git">git</option>
-                                    <option value="Figma">Figma</option>
-                                    <option value="Jest">Jest</option>
-                                </optgroup>
-                            </select>
-                        </form>
-                    </div>
-                    <div class="contents">
-
-                    </div>
-
-                </div>
-                <!-- 수정이 불가능한 부분(아이디,이름,번호)-->
-                <div class="immutability">
-                    <div class="contents">
-                        <label>아이디</label>
-                        <p>아이디</p>
-                    </div>
-                    <div class="contents">
-                        <label>이름</label>
-                        <p>이름</p>
-                    </div>
-                    <div class="contents">
-                        <label>번호</label>
-                        <p>번호</p>
                     </div>
                 </div>
-                <button>수정하기</button>
-                <button>탈퇴하기</button>
-            </div>
-        </div>
-        <div class="my_scrap">
-            <h2>내 스크랩</h2>
-            <div class="myBox">
+                <div class="contents">
+                    <p>
+                        <label>닉네임</label>
+                        <input type="text" placeholder="원래아이디">
+                    </p>
+                </div>
+                <div class="contents">
+                    <label>관심태그</label>
+                    <form>
+                        <select
+                                required
+                                multiple="multiple"
+                                name="intrest_tag"
+                                id="tag_select"
+                        >
+                            <optgroup label="백엔드">
+                                <option value="Java">Java</option>
+                                <option value="C">C</option>
+                                <option value="Python">Python</option>
+                                <option value="Nodejs">Nodejs</option>
+                                <option value="Spring">Spring</option>
+                                <option value="Kotlin">Kotlin</option>
+                                <option value="Express">Express</option>
+                                <option value="MySQL">MySQL</option>
+                                <option value="MongoDB">MongoDB</option>
+                                <option value="Django">Django</option>
+                                <option value="PHP">PHP</option>
+                                <option value="GraphQL">GrapQL</option>
+                                <option value="Firebase">Firebase</option>
+                            </optgroup>
+                            <optgroup label="프론트앤드">
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="TypeScript">TypeScript</option>
+                                <option value="React">React</option>
+                                <option value="Vue">Vue</option>
+                                <option value="Svelte">Svelte</option>
+                                <option value="Nextjs">Nextjs</option>
+                            </optgroup>
+                            <optgroup label="기타">
+                                <option value="Flutter">Flutter</option>
+                                <option value="Swift">Swift</option>
+                                <option value="Unity">Unity</option>
+                                <option value="AWS">AWS</option>
+                                <option value="Docker">Docker</option>
+                                <option value="git">git</option>
+                                <option value="Figma">Figma</option>
+                                <option value="Jest">Jest</option>
+                            </optgroup>
+                        </select>
+                    </form>
+                </div>
+                <div class="contents">
+
+                </div>
 
             </div>
+            <!-- 수정이 불가능한 부분(아이디,이름,번호)-->
+            <div class="immutability">
+                <div class="contents">
+                    <label>아이디</label>
+                    <span>아이디</span>
+                </div>
+                <div class="contents">
+                    <label>이름</label>
+                    <span>이름</span>
+                </div>
+                <div class="contents">
+                    <label>번호</label>
+                    <spanp>번호</spanp>
+                </div>
+            </div>
+            <input type="button" value="수정하기">
         </div>
-    </container>
+    </div>
+    <div class="my_scrap">
+        <h2>내 스크랩</h2>
+        <div class="myBox">
+            <p>😢 보여드릴 내용이 없어요<br>
+                관심가는 게시글을 모아보세요</p>
+        </div>
+    </div>
+</div>
 </body>
 <script>
     var select = document.getElementById("tag_select");
