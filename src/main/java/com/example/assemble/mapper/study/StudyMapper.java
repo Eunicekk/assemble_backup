@@ -3,9 +3,12 @@ package com.example.assemble.mapper.study;
 import com.example.assemble.domain.study.StudyVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface StudyMapper {
-
+    // 스터디 전체 목록
+    public List<StudyVO> selectAll();
 
     // 스터디 상세보기
     public StudyVO select(Long studyId);
@@ -24,4 +27,7 @@ public interface StudyMapper {
 
     // 스터디 삭제
     public void delete(Long studyId);
+
+    // 스터디 검색
+    public List<StudyVO> search(StudyVO studyVO);
 }

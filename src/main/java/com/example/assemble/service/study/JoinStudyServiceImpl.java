@@ -33,6 +33,11 @@ public class JoinStudyServiceImpl implements JoinStudyService {
     }
 
     @Override
+    public JoinStudyVO checkUser(JoinStudyVO joinStudyVO) {
+        return joinStudyDAO.getUser(joinStudyVO);
+    }
+
+    @Override
     public List<UserVO> requestList(Long studyId) {
         return joinStudyDAO.getJoinRequests(studyId);
     }

@@ -16,6 +16,9 @@ public interface JoinStudyService {
     // 참가 요청 수락
     public void join(Long joinStudyId);
 
+    // 사용자가 해당 스터디의 구성 멤버인지 확인
+    public JoinStudyVO checkUser(JoinStudyVO joinStudyVO);
+
     // 참가 요청 목록
     public List<UserVO> requestList(Long studyId);
 
