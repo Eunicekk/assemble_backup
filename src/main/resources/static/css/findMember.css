@@ -33,7 +33,7 @@ header p{
 }
 .member-find form{
     width: 400px;
-    margin: 60px auto 40px;
+    margin: 50px auto 40px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -52,10 +52,11 @@ header p{
 .member-find span{
     margin-right: 6px;
 }
-.login-error{
+.find-error, .name-error, .email-error{
     font-size: 14px;
     color: red;
     margin-top: 10px;
+    display: none;
 }
 .member-find button{
     display: flex;
