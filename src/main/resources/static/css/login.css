@@ -83,6 +83,7 @@ main{
     width: 340px;
 }
 .login-id button{
+    width: 400px;
     margin: 40px 0;
     font-size: 18px;
     font-weight: 700;
@@ -98,6 +99,7 @@ main{
     font-size: 14px;
     color: red;
     margin-top: 10px;
+    display: none;
 }
 
 /* login-sns */
