@@ -1,0 +1,36 @@
+ul{
+    display: flex;
+}
+article{
+}
+.header{
+    width: 100%;
+    height: 60px;
+    background-color: wheat;
+}
+.tag-box{
+    margin: 30px 30px 30px 30px;;
+}
+.field-select{
+    font-weight: bold;
+    font-size: 26px;
+    gap: 30px;
+    border-bottom: 3px solid #f2f2f2;
+}
+
+.tag{
+    gap: 10px;
+}
+.tag>li{
+    width: auto;
+    padding: 15px;
+    gap: 10px;
+    border: solid 1px rgba(179, 178, 178, 0.41);
+    border-radius: 30px;
+    text-align: center;
+}
+.at-box{
+    border: solid 1px #888888;
+    border-radius: 10px;
+    display: inline-block;
+}
