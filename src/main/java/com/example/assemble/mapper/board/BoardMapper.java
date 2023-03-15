@@ -1,7 +1,6 @@
-package com.example.assemble.mapper;
+package com.example.assemble.mapper.board;
 
-import com.example.assemble.domain.BoardVO;
-import com.example.assemble.domain.NoticeVO;
+import com.example.assemble.domain.Board.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -18,4 +17,6 @@ public interface BoardMapper {
     public BoardVO select(Long BoardId);
     // 게시글 수정
     public void update(BoardVO boardVO);
+    // 게시글 조회 수 증가
+    public void updateView(Long BoardId);
 }

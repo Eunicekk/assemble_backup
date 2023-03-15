@@ -1,6 +1,6 @@
-package com.example.assemble.service;
+package com.example.assemble.service.board;
 
-import com.example.assemble.domain.BoardVO;
+import com.example.assemble.domain.Board.BoardVO;
 
 import java.util.List;
 
