@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 html,
 body,
@@ -90,11 +91,10 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: Pretendard,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     /* box-sizing: border-box; */
 }
 /* HTML5 display-role reset for older browsers */
-article,
 aside,
 details,
 figcaption,
