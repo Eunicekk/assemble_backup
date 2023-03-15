@@ -1,4 +1,4 @@
-package com.example.assemble.domain;
+package com.example.assemble.domain.Board;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,5 @@ public class BoardPageDTO {
     private boolean prev, next;
     private int total;
     private int page;
-
-    public BoardPageDTO
 
 }

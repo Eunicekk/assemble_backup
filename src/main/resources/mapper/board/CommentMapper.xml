@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.board.CommentMapper">
+    <select id="selectComment" resultType="commentVO">
+        SELECT COMMENT_ID, COMMENT_CONTENT, COMMENT_REGISTER_DATE, COMMENT_UPDATE_DATE, USER_ID
+        FROM TBL_COMMENT
+        WHERE BOARD_ID = #{boardId}
+    </select>
+    <insert id="insert">
+        INSERT INTO TBL_COMMENT(COMMENT_ID, COMMENT_CONTENT, COMMENT_REGISTER_DATE, COMMENT_UPDATE_DATE, BOARD_ID, USER_ID)
+        VALUES(COMMENT_SEQ.NEXTVAL, #{commentContent}, #{commentRegisterDate}, #{commentUpdateDate}, #{boardId}, #{userId})
+    </insert>
+    <delete id="delete">
+        DELETE FROM TBL_COMMENT
+        WHERE COMMENT_ID = #{commentId}
+    </delete>
+    <update id="update">
+        UPDATE TBL_COMMENT
+        SET COMMENT_CONTENT = #{commentContent}
+        WHERE COMMENT_ID = #{commentId}
+    </update>
+</mapper>
