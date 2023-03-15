@@ -1,4 +1,4 @@
-package com.example.assemble.domain;
+package com.example.assemble.domain.Board;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ public class BoardVO {
     private String boardTitle;
     private Clob boardContent;
     private String boardRegisterDate;
-    private String updateRegisterDate;
+    private String boardUpdateDate;
     private Long boardViews;
     private String userId;
 
