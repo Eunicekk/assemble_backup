@@ -1,0 +1,157 @@
+
+/* header */
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 900px;
+    margin: 0 auto;
+}
+.back{
+    margin-top: 40px;
+}
+.header h1{
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 700;
+}
+.study-title{
+    width: 900px;
+    border-bottom: 3px solid #f2f2f2;
+    display: flex;
+    align-items: center;
+}
+.study-title img{
+    /* border: 1px solid black; */
+    border-radius: 100%;
+}
+.study-title span{
+    display: inline-block;
+    margin: 27px 0;
+    font-size: 18px;
+}
+.title-nickname{
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 15px 5px;
+    border-right: 2px solid #f2f2f2;
+}
+.title-date{
+    color: #717171;
+    padding-left: 15px;
+}
+
+/* study-details */
+.study-details{
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    margin: 60px auto;
+}
+.study-info{
+    font-size: 22px;
+    font-weight: 700;
+    width: 450px;
+    margin-bottom: 30px;
+}
+.info-title{
+    color: #333333;
+    margin-right: 40px;
+}
+.info-text{
+    color: #717171;
+}
+
+/* study-content */
+.study-content{
+    width: 900px;
+    margin: 0 auto;
+}
+.study-content h2{
+    color: #333333;
+    font-size: 26px;
+    font-weight: 700;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #f2f2f2;
+}
+.study-content p{
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+/* study-comment-write */
+.study-comment-write{
+    width: 900px;
+    margin: 100px auto 0;
+    position: relative;
+}
+.study-comment-write h3{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+/*.study-comment-write textarea{
+    padding: 16px 16px 24px;
+    border-radius: 16px;
+    border: 2px solid #e1e1e1;
+    font-size: 16px;
+    width: 866px;
+    font-family: 'Pretendard';
+    outline: none;
+    resize: none;
+    white-space: pre-line;
+}*/
+.study-comment-write button{
+    background-color: #1B4568;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 30px;
+    height: 40px;
+    border-radius: 50px;
+    font-family: 'Pretendard';
+    position: absolute;
+    margin: 0 auto;
+    right: 0; bottom: -60px;
+    cursor: pointer;
+}
+
+/* study-comment-read */
+.study-comment-read{
+    width: 900px;
+    margin: 80px auto 0;
+}
+.study-comment{
+    border-bottom: 2px solid #e1e1e1;
+    padding: 28px 0;
+}
+.comment-profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.comment-profile img{
+    margin-right: 16px;
+}
+.comment-profile div{
+    display: flex;
+    flex-direction: column;
+}
+.comment-writer{
+    font-size: 16px;
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.comment-date{
+    font-size: 14px;
+    color: #9f9f9f;
+}
+.study-comment p{
+    font-size: 18px;
+}
+
+.body{
+    padding-bottom: 80px;
+}
