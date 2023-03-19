@@ -7,6 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface NoticeMapper {
+    // 공지글 개수
+    public Integer countNotice();
     // 공지글 목록
     public List<NoticeVO> selectAll();
     // 공지글 추가
