@@ -5,6 +5,8 @@ import com.example.assemble.domain.NoticeVO;
 import java.util.List;
 
 public interface NoticeService {
+    // 공지글 개수
+    public Integer countNotice();
     // 공지글 목록
     public List<NoticeVO> getList();
     // 공지글 추가

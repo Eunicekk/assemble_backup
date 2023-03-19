@@ -1,5 +1,6 @@
 package com.example.assemble.controller;
 
+import com.example.assemble.domain.Board.BoardPageDTO;
 import com.example.assemble.domain.NoticeVO;
 import com.example.assemble.service.NoticeService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,11 @@ public class NoticeController {
 
     // 공지글 목록
     @GetMapping("/list")
-    public void getNotice(Model model){
+    public void getNotice(Integer page, Model model){
+        if(page == null){page = 1;}
+         Integer pageTotal = noticeService.countNotice();
+        BoardPageDTO bp =new BoardPageDTO().createPageBoardDTO(page, pageTotal);
+        model.addAttribute("paging", bp);
         model.addAttribute("notices", noticeService.getList());
     }
 

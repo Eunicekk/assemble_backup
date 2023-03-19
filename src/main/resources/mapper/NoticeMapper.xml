@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.assemble.mapper.NoticeMapper">
+    <select id="countNotice" resultType="Integer">
+        SELECT COUNT(NOTICE_ID) FROM TBL_NOTICE
+    </select>
+
     <select id="selectAll" resultType="noticeVO">
         SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_DATE
-        FROM TBL_NOTICE
+        FROM
+        (
+            SELECT ROWNUM R, NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_DATE
+            FROM
+            (
+                SELECT NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG, NOTICE_DATE
+                FROM TBL_NOTICE
+                ORDER BY NOTICE_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 10
+        )
+        WHERE R > (#{page} - 1) * 10
+        ]]>
     </select>
 
     <insert id="insert">

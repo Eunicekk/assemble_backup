@@ -1,0 +1,74 @@
+.notice{
+    text-align: center;
+    width: 300px;
+}
+.notice-by-number{
+    border-top: 1px solid #e5e7eb;
+    padding: 16px 10px;
+    height: 100px;
+}
+.first-line{
+    height: 20px;
+}
+.first-line>img{
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+.admin-name{
+    padding-left: 4px;
+    font-size: 14px;
+    line-height: 20px;
+}
+.register-date{
+    padding-left: 4px;
+    font-size: 14px;
+    line-height: 20px;
+}
+.second-line{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    height: 24px;
+}
+.notice-title-link{
+    font-size: 16px;
+    line-height: 24px;
+}
+/*page*/
+.paging {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    position: relative;
+}
+.paging > a {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 0 solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+.paging > a:hover {
+    color: #8BC34A;
+}
+
+.paging > a > svg {
+    width: 20px;
+    margin: 0 10px;
+}
+#page > div > a {
+    position: relative;
+    padding: 20px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#page > div > a:hover {
+    color: #8BC34A;
+}
+
+#page svg {
+    width: 20px;
+}
