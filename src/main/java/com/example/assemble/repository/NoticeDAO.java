@@ -11,6 +11,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NoticeDAO {
     private final NoticeMapper noticeMapper;
+    // 개수
+    public Integer countNotice(){return noticeMapper.countNotice();}
     // 목록
     public List<NoticeVO> noticeAll(){return noticeMapper.selectAll();}
     // 추가

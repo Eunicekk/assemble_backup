@@ -2,72 +2,70 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>공지글 목록</title>
-    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
+    <link href="/css/notice/list.css">
+
+    <title>assemble-notice-list</title>
 </head>
-<body class="is-preload">
-<!-- Main -->
-<div id="main">
-    <div class="wrapper">
-        <div class="inner">
-            <!-- Elements -->
-            <header class="major">
-                <h1>Board</h1>
-                <p>게시판 목록</p>
-            </header>
-            <!-- Table -->
-            <h3><a href="/notice/write" class="write button small">글 등록</a></h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                    <tr class="tHead">
-                        <th class="boardNumber">번호</th>
-                        <th class="boardTitle">제목</th>
-                        <th class="boardRegisterDate">작성일</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <th:block th:each="notice:${notices}">
-                        <tr class="tBody" th:object="${notice}">
-                            <td class="boardNumber" th:text="*{noticeId}"></td>
-                            <td class="boardTitle"><a th:href="@{/notice/read(noticeId=*{noticeId})}" class="read" th:text="*{noticeTitle}"></a></td>
-                            <td class="boardRegisterDate" th:text="*{noticeDate}"></td>
-                        </tr>
-                    </th:block>
-                    </tbody>
-                </table>
+<body>
+<div class="notice">
+    <!-- 받은 데이터 값에 따라 div 생성 -->
+    <th:block th:each="notice:${notices}">
+        <div class="notice-by-number">
+            <div class="first-line">
+                <img src="" alt=""> <!-- assemble 관리자 프로필 사진 -->
+                <div class="admin-name">ASSEMBLE</div>
+                <div class="register-date" th:text="*{notice.noticeDate}"></div>
+            </div>
+            <div class="second-line">
+                <a class="notice-title-link" th:href="@{/notice/read/{id}(id= ${notice.noticeId})" th:text="*{notice.noticeTitle}"></a>
             </div>
         </div>
-    </div>
+    </th:block>
 </div>
+<!-- 페이징 처리 -->
+<div class="paging" th:object="${paging}">
+    <a class="prev" th:href="@{/notice/list/{page}(page=*{page}-1)}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg>
+    이전</a>
+    <div class="page">
+        <div th:if="*{page} < 5">
+            <a class="change-page" th:href="@{/notice/list/{page}(page = 1)}">1</a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = 2)}">2</a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = 3)}">3</a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = 4)}">4</a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = 5)}">5</a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page + 3})}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+        <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage})}" th:text="*{endPage}"></a>
+    </div>
+
+        <div th:if="*{page} > *{endPage - 4}">
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{startPage})}" th:text="*{startPage}"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page} - 3)}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage - 4})}" th:text="*{endPage} - 4"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage - 3})}" th:text="*{endPage} - 3"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage - 2})}" th:text="*{endPage} - 2"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage - 1})}" th:text="*{endPage} - 1"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage})}" th:text="*{endPage}"></a>
+        </div>
+
+
+        <div th:if="*{page} >= 5 and *{page} <= *{endPage - 4}">
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{startPage})}" th:text="*{startPage}"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page - 3})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page - 1})}" th:text="*{page} - 1"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page})}" th:text="*{page}"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page + 1})}" th:text="*{page} + 1"></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{page + 3})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+            <a class="change-page" th:href="@{/notice/list/{page}(page = *{endPage})}" th:text="*{endPage}"></a>
+        </div>
+    </div>
+    <a class="next" th:href="@{/notice/list/{page}(page=*{page}+1)}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg>
+        다음</a>
+</div>
+
 </body>
-<!-- Scripts -->
-<script src="/js/jquery.min.js"></script>
-<script src="/js/jquery.dropotron.min.js"></script>
-<script src="/js/browser.min.js"></script>
-<script src="/js/breakpoints.min.js"></script>
-<script src="/js/util.js"></script>
-<script src="/js/main.js"></script>
-<script th:inline="javascript">
 
-    $(document).ready(function(){
-        let boardNumber = [[${boardNumber}]];
-        if(!boardNumber || history.state){
-            return;
-        }
-        alert(boardNumber + "번 게시글이 등록되었습니다.");
 
-        history.replaceState({}, null, null);
-    });
-
-    $("a.changePage").on("click", function(e){
-        e.preventDefault();
-        $("input#page").val($(this).attr("href"));
-        $("form[name='page-form']").submit();
-    });
-
-</script>
 </html>
