@@ -17,6 +17,9 @@ public class NoticeServiceImpl implements NoticeService {
     private final NoticeDAO noticeDAO;
 
     @Override
+    public Integer countNotice(){return noticeDAO.countNotice();}
+
+    @Override
     public List<NoticeVO> getList() {
         return noticeDAO.noticeAll();
     }
