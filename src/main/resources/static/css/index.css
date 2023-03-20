@@ -14,15 +14,74 @@
     transition: 0.5s;
 }
 #banner1 {
-    background-color: #1a4568;
+    background-color: #dbecf4;
     width: 100vw;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#banner1 > div {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 30px;
+}
+#banner1 h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+#banner1 p {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+#banner1 p > img {
+    width: 200px;
+}
+#banner1 svg {
+    color: #ff0000;
+    width: 50px;
+}
+#banner1 > img {
     height: 300px;
 }
 #banner2 {
-    background-color: #9f9f9f;
+    background-color: #ffe579;
     width: 100vw;
-    height: 300px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+#banner2 > div > button {
+    background-color: #a259ff;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 5px 30px;
+}
+#banner2 > div > h1 {
+    margin-top: 40px;
+    font-size: 25px;
+}
+#banner2 span {
+    font-size: 30px;
+    font-weight: bold;
+}
+#banner2 p {
+    margin-top: 30px;
+    font-weight: 400;
+}
+#banner2 img {
+    width: 220px;
+    margin-left: 250px;
+}
+
 #banner-select {
     display: flex;
     justify-content: center;
