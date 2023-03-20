@@ -14,5 +14,5 @@ public class BoardMapperTest {
     private BoardMapper boardMapper;
 
     @Test
-    public void selectAllTest(){boardMapper.selectAll().stream().map(BoardVO::toString).forEach(log::info);}
+    public void selectAllTest(){boardMapper.selectAll(1).stream().map(BoardVO::toString).forEach(log::info);}
 }

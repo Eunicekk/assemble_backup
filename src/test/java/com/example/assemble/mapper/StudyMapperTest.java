@@ -24,4 +24,9 @@ public class StudyMapperTest {
         StudyVO studyVO = new StudyVO("토익3", false, "", "토익", false);
         studyMapper.insert(studyVO);
     }
+
+    @Test
+    public void selectAllTest() {
+        studyMapper.selectAll();
+    }
 }
