@@ -1,3 +1,9 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+*, .body{
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
 /* post-title */
 .post-title{
     width: 900px;
@@ -9,70 +15,10 @@
     padding-bottom: 16px;
     border-bottom: 3px solid #f2f2f2;
 }
-.post-title span{
-    display: inline-block;
-    background-color: #1B4568;
-    color: white;
-    font-weight: 700;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 28px;
-    margin-right: 8px;
-}
 .post-title h3{
     font-size: 24px;
     font-weight: 700;
     color: #333;
-}
-
-/* post-info */
-.post-info{
-    width: 900px;
-    margin: 0 auto;
-}
-.post-info ul{
-    display: flex;
-    flex-wrap: wrap;
-}
-.post-info li{
-    width: 440px;
-    margin-bottom: 28px;
-}
-.post-info li:nth-child(1), .post-info li:nth-child(3){
-    margin-right: 10px;
-}
-.post-info li:nth-child(2), .post-info li:nth-child(4){
-    margin-left: 10px;
-}
-.info-select label{
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-}
-.select-details{
-    display: flex;
-    margin-top: 6px;
-    position: relative;
-}
-.select-details input{
-    width: 100%;
-    height: 50px;
-    padding: 2px 12px;
-    font-family: 'Pretendard';
-    border-style: none;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 4px;
-}
-.select-details svg{
-    position: absolute;
-    top: 17px; right: 10px;
-    /* hover 색상 변환 제이쿼리 (테두리도 같이) */
-    fill: rgb(204, 204, 204);
-}
-.info-select select{
-    /* 제이쿼리 넣기 */
-    display: none;
 }
 
 /* post-content */
@@ -94,7 +40,7 @@
     width: 876px;
     height: 50px;
     padding: 2px 12px;
-    font-family: 'Pretendard';
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     border-style: none;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 4px;
@@ -104,7 +50,7 @@
     width: 876px;
     padding: 14px 12px;
     border: 2px solid #e1e1e1;
-    font-family: 'Pretendard';
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     outline: none;
     resize: none;
     white-space: pre-wrap;
@@ -113,6 +59,7 @@
     display: flex;
     justify-content: flex-end;
     margin: 8px 0;
+    margin-bottom: 60px;
 }
 .buttons .back{
     background-color: #e9ecef;
@@ -134,8 +81,4 @@
     padding: 0 20px;
     line-height: 2;
     margin-left: 8px;
-}
-
-.body{
-    padding-bottom: 80px;
 }

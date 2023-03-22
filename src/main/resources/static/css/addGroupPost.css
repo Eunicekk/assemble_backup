@@ -1,0 +1,159 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+*, .body{
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+/* post-title */
+.post-title{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #f2f2f2;
+}
+.post-title span{
+    display: inline-block;
+    background-color: #1B4568;
+    color: white;
+    font-weight: 700;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    margin-right: 8px;
+}
+.post-title h3{
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* post-info */
+.post-info{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.post-info label{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+.select-wrap{
+    width: 440px;
+    margin-bottom: 28px;
+    position: relative;
+}
+.select-wrap:nth-child(2n-1){
+    margin-right: 20px;
+}
+.select-wrap button{
+    width: 440px; height: 50px;
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    color: rgb(130, 130, 130);
+}
+.select-wrap span{
+    position: absolute;
+    top: 42px; right: 10px;
+    fill: rgb(204, 204, 204);
+}
+.select-wrap ul{
+    width: 439px;
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    margin-top: 8px;
+    padding: 4px 0;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 0 5px rgb(200, 200, 200);
+}
+.select-wrap li{
+    list-style: none;
+    font-size: 14px;
+    padding: 8px;
+}
+.select-wrap li:hover{
+    background-color: #1B4568;
+    color: white;
+}
+
+.select-area{
+    visibility: hidden;
+}
+
+/* post-content */
+.post-content{
+    width: 900px;
+    margin: 0 auto;
+}
+.content-title{
+    display: flex;
+    flex-direction: column;
+}
+.content-title label{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+.content-title input{
+    width: 876px;
+    height: 50px;
+    padding: 2px 12px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    border-style: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    margin-bottom: 14px;
+}
+.content-title input:focus{
+    outline: none;
+}
+.post-content textarea{
+    width: 876px;
+    padding: 14px 12px;
+    border: 2px solid #e1e1e1;
+    outline: none;
+    white-space: pre-wrap;
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    margin-bottom: 60px;
+}
+.buttons .back{
+    background-color: #e9ecef;
+    color: #1B4568;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    line-height: 2;
+}
+.buttons .submit{
+    background-color: #1B4568;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    padding: 0 20px;
+    line-height: 2;
+    margin-left: 8px;
+}
