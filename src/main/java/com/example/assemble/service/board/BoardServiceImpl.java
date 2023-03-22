@@ -18,8 +18,11 @@ public class BoardServiceImpl implements BoardService {
     private final BoardDAO boardDAO;
 
     @Override
-    public List<BoardVO> getList(int page) {
-        return boardDAO.boardAll(page);
+    public Integer countBoard(){return boardDAO.countBoard();}
+
+    @Override
+    public List<BoardVO> getList() {
+        return boardDAO.boardAll();
     }
 
     @Override

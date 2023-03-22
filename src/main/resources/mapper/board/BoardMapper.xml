@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.assemble.mapper.board.BoardMapper">
+    <select id="countBoard" resultType="Integer">
+        SELECT COUNT(Board_ID) FROM TBL_BOARD2
+    </select>
     <select id="selectAll" resultType="boardVO">
         SELECT  BOARD_ID, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, USER_ID
         FROM
