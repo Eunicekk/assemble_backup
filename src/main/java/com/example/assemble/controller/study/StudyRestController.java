@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 public class StudyRestController {
     private final StudyService studyService;
 
+    // 세션 유저 정보 가져오기
     public UserVO getSessionUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
         UserVO user = null;
@@ -27,6 +28,7 @@ public class StudyRestController {
         return user;
     }
 
+    // 스터디 공지사항 수정(스터디장만 가능)
     @GetMapping("/notice")
     public String setNotice(StudyVO studyVO, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
@@ -37,6 +39,7 @@ public class StudyRestController {
         return studyVO.getStudyNotice();
     }
 
+    // 스터디장 변경(스터디장만 가능)
     @PostMapping("/leader")
     public String setLeader(StudyVO studyVO, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);

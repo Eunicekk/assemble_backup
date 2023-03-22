@@ -1,9 +1,7 @@
-package com.example.assemble.repository;
+package com.example.assemble.repository.board;
 
-import com.example.assemble.domain.BoardVO;
-import com.example.assemble.domain.NoticeVO;
-import com.example.assemble.mapper.BoardMapper;
-import com.example.assemble.mapper.NoticeMapper;
+import com.example.assemble.domain.Board.BoardVO;
+import com.example.assemble.mapper.board.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -23,4 +21,6 @@ public class BoardDAO {
     public BoardVO findById(Long boardId){return boardMapper.select(boardId);}
     // 수정
     public void update(BoardVO boardVO){boardMapper.update(boardVO);}
+    // 조회수
+    public void updateBoardView(Long boardId){boardMapper.updateView(boardId);}
 }

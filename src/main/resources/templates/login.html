@@ -16,13 +16,16 @@
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
 </head>
 <body>
+<!-- 로고 -->
 <header>
+<!--    클릭 시 메인 페이지로 이동-->
     <a href="#">
         <img src="../static/image/logo.png" width="240px">
     </a>
 </header>
 
 <main>
+<!--    ID 로그인 / SNS 로그인 버튼-->
     <section class="login-button">
         <div class="login-id-button">
             <span class="material-symbols-rounded icon01">
@@ -38,41 +41,45 @@
         </div>
     </section>
 
+<!--    로그인 폼-->
     <section class="login-id">
-        <label>
-            <div>
+        <form>
+            <label>
+                <div id="id-div">
                 <span class="material-symbols-rounded icon03">
                     person
                 </span>
-                <input type="text" placeholder="아이디">
-            </div>
-        </label>
-        <label>
-            <div>
+                    <input type="text" placeholder="아이디" id="id-input">
+                </div>
+            </label>
+            <label>
+                <div id="password-div">
                 <span class="material-symbols-outlined icon04">
                     lock
                 </span>
-                <input type="password" placeholder="비밀번호">
-            </div>
-        </label>
-        <p class="login-error">아이디 혹은 비밀번호를 잘못 입력하셨습니다.</p>
-        <p class="id-error">아이디를 입력해 주세요.</p>
-        <p class="pw-error">비밀번호를 입력해 주세요.</p>
-        <button>로그인</button>
+                    <input type="password" placeholder="비밀번호" id="pw-input">
+                </div>
+            </label>
+            <p class="login-error">아이디 혹은 비밀번호를 잘못 입력하셨습니다.</p>
+            <p class="id-error">아이디를 입력해 주세요.</p>
+            <p class="pw-error">비밀번호를 입력해 주세요.</p>
+            <button>로그인</button>
+        </form>
     </section>
 
+<!--    SNS 로그인 연결 버튼-->
     <section class="login-sns">
-        <button>
+        <button type="button">
             <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_naver.png" alt="sns아이콘"
                  class="width-30px margin-right-5" width="28px">
             네이버 간편 로그인
         </button>
-        <button>
+        <button type="button">
             <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_kakao.png" alt="sns아이콘"
                  class="width-30px margin-right-5" width="28px">
             카카오톡 간편 로그인
         </button>
-        <button>
+        <button type="button">
             <img src="https://d2v80xjmx68n4w.cloudfront.net/assets/icon/icon_google.png" alt="sns아이콘"
                  class="width-30px margin-right-5" width="28px">
             구글 간편 로그인
@@ -80,17 +87,21 @@
     </section>
 </main>
 
+<!--계정찾기 / 회원가입-->
 <section class="login-service">
     <ul>
         <li>
+<!--            클릭 시 계정 찾기로 이동-->
             <a href="#">계정찾기</a>
         </li>
         <li>
+<!--            클릭 시 회원 가입으로 이동-->
             <a href="#">회원가입</a>
         </li>
     </ul>
 </section>
 
+<!--하단 배너-->
 <section class="login-banner">
     <a href="#">
         <img src="https://ssl.pstatic.net/melona/libs/1378/1378592/9baf2c4b14aec68ea800_20220902161708847.jpg"
@@ -98,6 +109,7 @@
     </a>
 </section>
 
+<!--푸터-->
 <footer>
     <ul>
         <li><a href="#">이용약관</a></li>
@@ -106,6 +118,7 @@
         <li><a href="#">회원정보 고객센터</a></li>
     </ul>
     <div class="login-copyright">
+<!--        클릭 시 메인으로 이동-->
         <a href="#">
             <img src="../static/image/logo.png" width="90px">
         </a>

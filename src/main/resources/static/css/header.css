@@ -1,0 +1,84 @@
+*{
+    font-family: 'Pretendard';
+}
+header {
+    margin: 0 auto;
+    max-width: 1180px;
+    height: 85px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav > a {
+    font-size: 20px;
+    font-weight: bold;
+}
+nav > div {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding-right: 30px;
+    font-size: 20px;
+}
+nav > div > div {
+    position: relative;
+}
+nav > div > div > button {
+    margin-left: 20px;
+    background-color: inherit;
+    border: 0px solid #fff;
+    color: #1a4568;
+    width: 40px;
+    cursor: pointer;
+}
+
+/*알림함*/
+#notification-box {
+    width: 360px;
+    height: 480px;
+    overflow-y: scroll;
+    background-color: #fff;
+    box-shadow: 0 5px 25px rgba(0,0,0,.15);
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    display: none;
+}
+#notification-box > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #999;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+#notification-box > div > button {
+    background-color: transparent;
+    border: 0px solid transparent;
+    cursor: pointer;
+}
+#notification-box > p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*마이 메뉴*/
+#my-menu-box {
+    width: 150px;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 5px 25px rgba(0,0,0,.15);
+    padding: 10px 20px;
+    display: none;
+    flex-direction: column;
+}
+#my-menu-box > a {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}

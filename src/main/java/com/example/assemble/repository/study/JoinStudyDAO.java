@@ -30,6 +30,10 @@ public class JoinStudyDAO {
         joinStudyMapper.deleteByJoinId(joinStudyId);
     }
 
+    public JoinStudyVO getUser(JoinStudyVO joinStudyVO) {
+        return joinStudyMapper.selectUser(joinStudyVO);
+    }
+
     public List<StudyVO> getStudies(String userId) {
         return joinStudyMapper.selectAllByUser(userId);
     }

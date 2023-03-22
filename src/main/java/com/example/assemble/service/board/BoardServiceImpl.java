@@ -1,9 +1,8 @@
-package com.example.assemble.service;
+package com.example.assemble.service.board;
 
-import com.example.assemble.domain.BoardVO;
-import com.example.assemble.domain.NoticeVO;
-import com.example.assemble.repository.BoardDAO;
-import com.example.assemble.repository.NoticeDAO;
+import com.example.assemble.domain.Board.BoardVO;
+import com.example.assemble.repository.board.BoardDAO;
+import com.example.assemble.service.board.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -14,7 +13,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Qualifier("board") @Primary
-public class BoardServiceImpl implements BoardService{
+public class BoardServiceImpl implements BoardService {
 
     private final BoardDAO boardDAO;
 
@@ -35,6 +34,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public BoardVO getBoard(Long boardId) {
+        boardDAO.updateBoardView(boardId);
         return boardDAO.findById(boardId);
     }
 

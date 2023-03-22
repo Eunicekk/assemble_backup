@@ -7,6 +7,9 @@ import com.example.assemble.domain.user.UserVO;
 import java.util.List;
 
 public interface StudyService {
+    // 스터디 목록
+    public List<StudyVO> list();
+
     // 스터디 상세 보기
     public StudyVO viewDetail(Long studyId);
 
@@ -24,4 +27,7 @@ public interface StudyService {
 
     // 스터디 삭제
     public void deleteStudy(Long studyId);
+
+    // 스터디 검색
+    public List<StudyVO> search(StudyVO studyVO);
 }
