@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assemble</title>
+    <link rel="stylesheet" href="../static/css/addCommunityPost.css">
+    <!--    <link rel="stylesheet" href="../static/css/reset.css">-->
+    <link rel="stylesheet" href="../static/css/summernote/summernote-lite.css">
+</head>
+<body>
+<div class="body">
+    <!-- 폼 주소 입력 -->
+    <form action="">
+        <div class="post-title">
+            <h3>커뮤니티에서 자유롭게 이야기하세요.</h3>
+        </div>
+
+        <!-- 스터디 상세 내용 입력 -->
+        <section class="post-content">
+            <div class="content-title">
+                <label for="title">제목</label>
+                <input type="text" id="title" placeholder="글 제목을 입력해주세요!" required>
+            </div>
+            <!-- Summnernote -->
+            <textarea name="editordata" id="summernote"></textarea>
+            <div class="buttons">
+                <button type="button" class="back">취소</button>
+                <button type="button" class="submit">글 등록</button>
+            </div>
+        </section>
+    </form>
+</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../static/js/summernote/summernote-lite.js"></script>
+<script src="../static/js/summernote/lang/summernote-ko-KR.js"></script>
+</html>

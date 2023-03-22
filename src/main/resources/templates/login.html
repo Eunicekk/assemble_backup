@@ -60,10 +60,9 @@
                     <input type="password" placeholder="비밀번호" id="pw-input">
                 </div>
             </label>
-            <p class="login-error">아이디 혹은 비밀번호를 잘못 입력하셨습니다.</p>
-            <p class="id-error">아이디를 입력해 주세요.</p>
-            <p class="pw-error">비밀번호를 입력해 주세요.</p>
-            <button>로그인</button>
+<!--            오류 메세지 삽입-->
+            <p class="error-msg"></p>
+            <button type="button">로그인</button>
         </form>
     </section>
 
@@ -126,6 +125,7 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../static/js/login.js"></script>
 </body>
 </html>
