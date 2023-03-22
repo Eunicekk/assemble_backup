@@ -11,8 +11,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardDAO {
     private final BoardMapper boardMapper;
+    // 개수
+    public Integer countBoard(){return boardMapper.countBoard();}
     // 목록
-    public List<BoardVO> boardAll(int page){return boardMapper.selectAll(page);}
+    public List<BoardVO> boardAll(){return boardMapper.selectAll();}
     // 추가
     public void add(BoardVO boardVO){boardMapper.insert(boardVO);}
     // 삭제

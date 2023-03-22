@@ -1,5 +1,6 @@
 package com.example.assemble.controller.board;
 
+import com.example.assemble.domain.Board.BoardPageDTO;
 import com.example.assemble.domain.Board.BoardVO;
 import com.example.assemble.service.board.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,13 @@ public class BoardController {
 
     // 게시글 목록
     @GetMapping("/list")
-    public void getBoard(Model model, int page){
-        model.addAttribute("boards", boardService.getList(page));
+    public void getBoard(Integer page, Model model) {
+        if(page == null){page = 1;}
+        Integer pageTotal = boardService.countBoard();
+        BoardPageDTO bp =new BoardPageDTO().createPageBoardDTO(page, pageTotal);
+        model.addAttribute("paging", bp);
+        model.addAttribute("boards", boardService.getList());
+
     }
 
     // 게시글 추가

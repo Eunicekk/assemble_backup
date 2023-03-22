@@ -5,8 +5,10 @@ import com.example.assemble.domain.Board.BoardVO;
 import java.util.List;
 
 public interface BoardService {
+    // 공지글 개수
+    public Integer countBoard();
     // 게시글 목록
-    public List<BoardVO> getList(int page);
+    public List<BoardVO> getList();
     // 게시글 추가
     public void add(BoardVO boardVO);
     // 게시글 삭제

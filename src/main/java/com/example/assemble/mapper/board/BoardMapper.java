@@ -7,8 +7,10 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
+    // 게시글 개수
+    public Integer countBoard();
     // 게시글 목록
-    public List<BoardVO> selectAll(int page);
+    public List<BoardVO> selectAll();
     // 게시글 추가
     public void insert(BoardVO boardVO);
     // 게시글 삭제
