@@ -1,0 +1,41 @@
+.navbar{
+    width: 250px;
+    background-color: #313f80;
+    height: 100vh;
+    padding-left: 60px;
+    float: left;
+}
+.navbar>span{
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+    height: 110px;
+    line-height: 110px;
+}
+.container{
+    background-color: #eaeaea;
+    height: 100vh;
+    width: auto;
+}
+.menu > li {
+    width: 100%;
+    line-height: 30px;
+}
+.menu>li>span{
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+}
+
+.menu a {
+    color: #fff;
+}
+.submenu{
+    margin-bottom: 20px;
+}
+
+.submenu>li>a:hover{
+    color: black;
+    transition: 0.3s;
+}
+
