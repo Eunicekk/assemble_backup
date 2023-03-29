@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
@@ -96,7 +97,6 @@ video {
     /* box-sizing: border-box; */
 }
 /* HTML5 display-role reset for older browsers */
-article,
 aside,
 details,
 figcaption,

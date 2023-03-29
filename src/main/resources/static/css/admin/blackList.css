@@ -1,0 +1,24 @@
+.submenu>li:nth-child(2)>a{
+    color: black;
+}
+.container{
+    display: flex;
+}
+.contents{
+    margin: 0 auto;
+}
+.list-box{
+    background-color: #fff;
+    width: 950px;
+    height: 550px;
+    border-radius: 10px;
+}
+.mainTitle{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 40px 0 40px -40px;
+}
+#add-black{
+    margin-top : 5px;
+    float: right;
+}

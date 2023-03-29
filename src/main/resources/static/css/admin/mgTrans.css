@@ -1,0 +1,91 @@
+.submenu>li:nth-child(3)>a{
+    color: black;
+}
+.container{
+    display: flex;
+}
+.mainTitle{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 40px 0 40px -40px;
+}
+.contents{
+    margin: 0 auto;
+}
+.list{
+    display: flex;
+    gap: 50px;
+}
+.box-wrap>div{
+    font-weight: bold;
+    font-size: 16px;
+}
+.box-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+}
+.search{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px 2px 5px 10px;
+    border: solid 3px #c7c7c7;
+    border-radius: 5px;
+    gap: 10px;
+}
+.search>input{
+    border: none;
+    outline: none;
+}
+.search>button{
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: white;
+    padding: 0;
+}
+#search-button{
+    cursor: pointer;
+}
+.search-box{
+    background-color: white;
+    width: 450px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.mg-list-box{
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    margin-right: 100px;
+}
+.button{
+    display: flex;
+    float: right;
+    margin: 20px 100px 0;
+    gap: 10px;
+}
+.button>button{
+    width: 100px;
+    height: 30px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button>button:first-child{
+    background-color: #9f9f9f;
+    color: white;
+}
+.button>button:last-child{
+    background-color: white;
+}
