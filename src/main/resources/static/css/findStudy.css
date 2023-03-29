@@ -124,3 +124,9 @@ ul{
     gap: 10px;
     flex-direction: column;
 }
+.favorites {
+    background-color: transparent;
+    border: 0px solid transparent;
+    cursor: pointer;
+    color: #9f9f9f;
+}
