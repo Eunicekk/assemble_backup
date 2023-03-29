@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/study")
 public class StudyController {
     private final StudyService studyService;
     private final StudyTalkService studyTalkService;
@@ -34,9 +33,17 @@ public class StudyController {
         return user;
     }
 
+    @GetMapping("/")
+    public String getStudyAll(Model model, HttpServletRequest request) {
+        UserVO sessionUser = getSessionUser(request);
+        model.addAttribute("userVO", sessionUser);
+        model.addAttribute("studyList", studyService.list());
+        return "/index";
+    }
+
     // 해당 유저가 가입 되어 있는 스터디 목록
     @GetMapping("/list")
-    public String getStudyList(Model model, HttpServletRequest request) {
+    public String getStudyListByUserId(Model model, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
         if(sessionUser == null) return "/login";
         model.addAttribute("studyList", joinStudyService.studyList(sessionUser.getUserId()));
@@ -44,7 +51,7 @@ public class StudyController {
     }
 
     // 스터디 상세 보기
-    @GetMapping("/")
+    @GetMapping("/study")
     public void getStudy(StudyVO studyVO) {
         studyVO = studyService.viewDetail(studyVO.getStudyId());
     }

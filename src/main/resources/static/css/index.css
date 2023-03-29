@@ -190,7 +190,7 @@
 }
 
 #main {
-    max-width: 1180px;
+    max-width: 1300px;
     margin: 50px auto 0;
 }
 #option {
@@ -293,9 +293,12 @@
 }
 #study-list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
+    grid-gap: 27px;
+    gap: 27px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin-top: 20px;
 }
 .study {
     padding: 20px 20px 0;
@@ -303,8 +306,8 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 340px;
+    width: 260px;
+    height: 320px;
     transition: 0.2s;
 }
 .study:hover {
@@ -370,18 +373,17 @@
     margin-top: 30px;
 }
 .tech > span {
-    width: 32px;
-    height: 32px;
-    border: 2px solid #9f9f9f;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
+    height: 100px;
+    padding: 10px 20px;
+    border: 1px solid #d0d0d0;
+    border-radius: 100px;
+    cursor: pointer;
 }
 .tech  img {
     width: 25px;
 }
 .last-line {
-    margin-top: 40px;
+    margin-top: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -467,3 +469,4 @@
     font-weight: bold;
     color: #999;
 }
+
