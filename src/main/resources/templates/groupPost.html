@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>assemble</title>
-    <link rel="stylesheet" href="../static/css/groupPost.css">
-    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="/css/groupPost.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
 </head>
 <body>
-<div class="body">
+<div class="body" th:object="${studyVO}">
+    <header>
+        <nav>
+            <a href="/"><img src="/image/logo.png" width="240px" alt="assemble"></a>
+            <div id="menu">
+                <a href="">커뮤니티</a>
+                <a href="">스터디</a>
+            </div>
+            <div>
+                <a href="">새 글 쓰기</a>
+                <!--            알림 버튼-->
+                <div>
+                    <button id="notification-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                        </svg>
+                    </button>
+                    <div id="notification-box">
+                        <div>
+                            <h1>읽지 않은 알림 (0)</h1>
+                            <button id="notification-box-close-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p>알림함이 비어있습니다.</p>
+                    </div>
+                    <input type="checkbox" id="notification-check" hidden>
+                </div>
+                <!--            내 정보 메뉴 버튼-->
+                <div>
+                    <button id="my-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                        </svg>
+                    </button>
+                    <div id="my-menu-box">
+                        <a href="">내 작성글</a>
+                        <a href="">내 관심글</a>
+                        <a href="">설정</a>
+                        <a href="">로그아웃</a>
+                    </div>
+                    <input type="checkbox" id="my-menu-check" hidden>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="header">
         <div class="back">
             <!-- 뒤로가기 버튼 링크 삽입 -->
@@ -15,37 +63,43 @@
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
             </a>
         </div>
-        <h1>스터디 모집 게시물 제목</h1>
+        <h1 th:text="*{studyName}"></h1>
         <div class="study-title">
             <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="48px" height="48px">
-            <span class="title-nickname">닉네임</span>
-            <span class="title-date">2023-03-02</span>
+            <span class="title-nickname" th:text="*{studyLeader}"></span>
+            <span class="title-date" th:text="*{studyRegisterDate}"></span>
         </div>
     </div>
 
     <section class="study-details">
         <div class="study-info">
-            <span class="info-title">진행 방식</span>
-            <span class="info-text">온라인</span>
-        </div>
-        <div class="study-info">
-            <span class="info-title">모임 지역</span>
-            <span class="info-text">서울</span>
-        </div>
-        <div class="study-info">
             <span class="info-title">진행 분야</span>
-            <span class="info-text">어학</span>
+            <span class="info-text" th:text="*{studyTopic}"></span>
         </div>
         <div class="study-info">
             <span class="info-title">모집 인원</span>
-            <span class="info-text">3명</span>
+            <span class="info-text" th:text="*{studyMaxNumber}">3명</span>
+        </div>
+        <div class="study-info">
+            <span class="info-title">진행 방식</span>
+            <span class="info-text" th:if="*{studyOnline}">비대면</span>
+            <span class="info-text" th:unless="*{studyOnline}">대면</span>
+        </div>
+        <div class="study-info" th:unless="*{studyOnline}">
+            <span class="info-title">모임 지역</span>
+            <span class="info-text" th:text="*{studyArea}">서울</span>
         </div>
     </section>
 
     <article class="study-content">
         <h2>프로젝트 소개</h2>
-        <p>프로젝트 소개 상세 내용입니다. 다양한 이야기를 할 수 있습니다.</p>
+        <p th:text="*{studyRecruitment}"></p>
     </article>
+
+    <div id="study-register-button">
+        <button>참가 요청</button>
+    </div>
+
 
     <section class="study-comment-write">
         <h3>0개의 댓글이 있습니다.</h3>

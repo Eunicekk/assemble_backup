@@ -247,7 +247,7 @@
     </div>
     <div id="study-list">
         <th:block th:each="study:${studyList}">
-            <a class="study" th:href="@{/study(studyId = *{studyId})}" th:object="${study}">
+            <a class="study" th:href="@{|/study/${study.studyId}|}" th:object="${study}">
                 <div class="first-line">
                     <div>
                         <p class="study-icon" th:if="*{studyOnline}">

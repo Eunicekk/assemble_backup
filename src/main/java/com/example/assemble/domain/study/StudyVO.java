@@ -14,17 +14,21 @@ public class StudyVO {
     private String studyArea;
     private String studyTopic;
     private String studyNotice;
-    private boolean studySearch;
     private boolean studyComplete;
     private String studyLeader;
+    private String studyMaxNumber;
+    private String studyCurrentNumber;
+    private String studyRecruitment;
     private String studyRegisterDate;
     private String studyUpdateDate;
 
-    public StudyVO(String studyName, boolean studyOnline, String studyArea, String studyTopic, boolean studySearch){
+
+
+
+    public StudyVO(String studyName, boolean studyOnline, String studyArea, String studyTopic){
         this.studyName = studyName;
         this.studyOnline = studyOnline;
         this.studyArea = studyArea;
         this.studyTopic = studyTopic;
-        this.studySearch = studySearch;
     }
 }
