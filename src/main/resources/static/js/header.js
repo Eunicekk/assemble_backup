@@ -1,3 +1,4 @@
+let body = document.body;
 let notification = document.getElementById("notification-box");
 let notificationBtn = document.getElementById("notification-button");
 let notificationCheck = document.getElementById("notification-check");
@@ -17,7 +18,6 @@ notificationBtn.addEventListener("click", ()=> {
         notificationCheck.checked = true;
     }
 })
-
 // x 표시 클릭 시, 알림창 제거
 notificationCloseBtn.addEventListener("click", () => {
     notification.style.display = "none";
@@ -33,5 +33,21 @@ myMenuBtn.addEventListener("click", () => {
     else {
         myMenu.style.display = "flex";
         myMenuCheck.checked = true;
+    }
+})
+
+// 영역 외 클릭시, 알림창, 메뉴창 제거
+$(document).mouseup((e) => {
+    if(notificationCheck.checked) {
+        if($('#notification-box').has(e.target).length === 0) {
+            notification.style.display = "none";
+            notificationCheck.checked = false;
+        }
+    }
+    if(myMenuCheck.checked) {
+        if($('#my-menu-box').has(e.target).length === 0) {
+            myMenu.style.display = "none";
+            myMenuCheck.checked = false;
+        }
     }
 })
