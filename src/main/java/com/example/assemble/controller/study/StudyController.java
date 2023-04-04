@@ -55,7 +55,9 @@ public class StudyController {
     @GetMapping("/study/{studyId}")
     public String getStudy(@PathVariable Long studyId, Model model) {
         model.addAttribute("studyVO", studyService.viewDetail(studyId));
-        System.out.println("*****************" + studyService.viewDetail(studyId).getStudyRegisterDate());
+        UserVO userVO = new UserVO();
+        userVO.setUserId("id");
+        model.addAttribute("userVO", userVO);
         return "/groupPost";
     }
 

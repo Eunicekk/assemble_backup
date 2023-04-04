@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/groupPost.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/header.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="body" th:object="${studyVO}">
@@ -97,7 +98,7 @@
     </article>
 
     <div id="study-register-button">
-        <button>참가 요청</button>
+        <button id="join-study-button">참가 요청</button>
     </div>
 
 
@@ -124,5 +125,24 @@
         </div>
     </section>
 </div>
+<script th:inline="javascript">
+    $('#join-study-button').click(() => {
+        const userId =[[${userVO.userId}]];
+        const studyId = [[${studyVO.studyId}]];
+        console.log(userId)
+        console.log(studyId)
+        $.ajax({
+            type: "put",
+            url: "/study/join",
+            data: {
+                userId: userId,
+                studyId: studyId
+            },
+            success: () => {
+                alert("신청 완료!");
+            }
+        })
+    })
+</script>
 </body>
 </html>
