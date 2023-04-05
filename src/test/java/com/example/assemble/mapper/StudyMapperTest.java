@@ -29,4 +29,5 @@ public class StudyMapperTest {
     public void selectAllTest() {
         studyMapper.selectAll();
     }
+
 }
