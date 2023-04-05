@@ -154,3 +154,19 @@
 .body{
     padding-bottom: 80px;
 }
+#study-register-button {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#study-register-button > button {
+    background-color: #1B4568;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    cursor: pointer;
+}

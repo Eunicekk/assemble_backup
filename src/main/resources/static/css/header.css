@@ -1,6 +1,10 @@
 *{
     font-family: 'Pretendard';
 }
+a {
+    color: #000;
+    text-decoration: none;
+}
 header {
     margin: 0 auto;
     max-width: 1180px;

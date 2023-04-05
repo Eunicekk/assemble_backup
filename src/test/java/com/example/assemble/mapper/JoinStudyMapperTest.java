@@ -2,6 +2,7 @@ package com.example.assemble.mapper;
 
 import com.example.assemble.domain.study.JoinStudyVO;
 import com.example.assemble.mapper.study.JoinStudyMapper;
+import com.example.assemble.service.study.JoinStudyService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +13,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class JoinStudyMapperTest {
     @Autowired
     private JoinStudyMapper joinStudyMapper;
+    @Autowired
+    private JoinStudyService joinStudyService;
 
     @Test
     public void insertTest(){
         JoinStudyVO joinStudyVO = new JoinStudyVO();
-        joinStudyVO.setStudyId(3L);
-        joinStudyVO.setUserId("bbb");
+        joinStudyVO.setStudyId(21L);
+        joinStudyVO.setUserId("id");
 
-        joinStudyMapper.insert(joinStudyVO);
+        joinStudyService.request(joinStudyVO);
     }
 
     @Test
     public void selectAllByUserTest(){
-        String userId = "bbb";
+        String userId = "id";
         joinStudyMapper.selectAllByUser(userId);
     }
     @Test
