@@ -29,8 +29,11 @@ $selectUl01.children().on('click', function(){
     $btn01.css('color', '#333333');
 
     // 진행 방식 '오프라인' 선택 시 모임 지역 노출
-    if(text == "오프라인"){
+    if(text === "오프라인"){
         $('.select-area').css('visibility', 'visible');
+    }
+    else {
+        $('.select-area').css('visibility', 'hidden');
     }
 });
 $selectUl02.children().on('click', function(){

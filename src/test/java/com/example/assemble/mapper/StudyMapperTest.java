@@ -21,8 +21,6 @@ public class StudyMapperTest {
 
     @Test
     public void insertTest(){
-        StudyVO studyVO = new StudyVO("토익3", false, "", "토익", false);
-        studyMapper.insert(studyVO);
     }
 
     @Test

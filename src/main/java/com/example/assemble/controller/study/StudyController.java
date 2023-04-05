@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -50,10 +51,21 @@ public class StudyController {
         return "/study/list";
     }
 
-    // 스터디 상세 보기
-    @GetMapping("/study")
-    public void getStudy(StudyVO studyVO) {
+    // 스터디 상세 보기(일반 유저)
+    @GetMapping("/study/{studyId}")
+    public String getStudy(@PathVariable Long studyId, Model model) {
+        model.addAttribute("studyVO", studyService.viewDetail(studyId));
+        UserVO userVO = new UserVO();
+        userVO.setUserId("id");
+        model.addAttribute("userVO", userVO);
+        return "/groupPost";
+    }
+
+    // 스터디 상세 보기(스터디 멤버)
+    @GetMapping("/study/member")
+    public String getStudyMember(StudyVO studyVO) {
         studyVO = studyService.viewDetail(studyVO.getStudyId());
+        return "/groupPost";
     }
 
     // 스터디 생성 페이지 이동
