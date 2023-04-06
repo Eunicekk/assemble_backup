@@ -15,13 +15,13 @@
 <!--================================================ 헤더 ====================================================================-->
 <header>
     <nav>
-        <a href=""><img src="/image/logo.png" width="240px" alt="assemble"></a>
+        <a href="/"><img src="/image/logo.png" width="240px" alt="assemble"></a>
         <div id="menu">
             <a href="">커뮤니티</a>
             <a href="">스터디</a>
         </div>
         <div>
-            <a href="">새 글 쓰기</a>
+            <a href="/study/add">스터디 만들기</a>
 <!--            알림 버튼-->
             <div>
                 <button id="notification-button">
@@ -44,7 +44,7 @@
             </div>
 <!--            내 정보 메뉴 버튼-->
             <div>
-                <button id="my-menu-button">
+                <button id="my-menu-button" th:if="${userVO}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                     </svg>
@@ -56,6 +56,10 @@
                     <a href="">로그아웃</a>
                 </div>
                 <input type="checkbox" id="my-menu-check" hidden>
+                <div th:unless="${userVO}">
+                    <a href="/login" id="login">로그인</a>
+                    <a href="/signup" id="signup">회원가입</a>
+                </div>
             </div>
         </div>
     </nav>

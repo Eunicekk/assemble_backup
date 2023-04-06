@@ -16,8 +16,8 @@
 
 
     <insert id="insert">
-        INSERT INTO T_STUDY(STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_SEARCH, STUDY_LEADER)
-        VALUES(S_STUDY.NEXTVAL, #{studyName}, #{studyOnline}, #{studyArea}, #{studyTopic}, #{studySearch}, #{studyLeader})
+        INSERT INTO T_STUDY(STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_LEADER, STUDY_MAX_NUMBER, STUDY_RECRUITMENT)
+        VALUES(S_STUDY.NEXTVAL, #{studyName}, #{studyOnline}, #{studyArea}, #{studyTopic}, #{studyLeader}, #{studyMaxNumber}, #{studyRecruitment})
     </insert>
 
     <update id="update">
