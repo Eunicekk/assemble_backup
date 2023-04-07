@@ -17,6 +17,7 @@ import java.util.List;
 @Qualifier("study") @Primary
 public class StudyServiceImpl implements StudyService {
     private final StudyDAO studyDAO;
+    private final JoinStudyDAO joinStudyDAO;
 
     @Override
     public List<StudyVO> list() {
@@ -31,6 +32,8 @@ public class StudyServiceImpl implements StudyService {
     @Override
     public void createStudy(StudyVO studyVO) {
         studyDAO.add(studyVO);
+        JoinStudyVO joinStudyVO = new JoinStudyVO(studyVO.getStudyId(), studyVO.getStudyLeader());
+        joinStudyDAO.addMember(joinStudyVO);
     }
 
     @Override

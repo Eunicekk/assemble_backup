@@ -43,12 +43,15 @@ public class StudyController {
     }
 
     // 해당 유저가 가입 되어 있는 스터디 목록
-    @GetMapping("/list")
+    @GetMapping("/study")
     public String getStudyListByUserId(Model model, HttpServletRequest request) {
-        UserVO sessionUser = getSessionUser(request);
+//        UserVO sessionUser = getSessionUser(request);
+        UserVO sessionUser = new UserVO();
+        sessionUser.setUserId("id");
         if(sessionUser == null) return "/login";
         model.addAttribute("studyList", joinStudyService.studyList(sessionUser.getUserId()));
-        return "/study/list";
+        model.addAttribute("userVO", sessionUser);
+        return "/study/groupList";
     }
 
     // 스터디 상세 보기(일반 유저)
