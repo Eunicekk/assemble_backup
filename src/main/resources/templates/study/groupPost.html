@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>assemble</title>
-    <link rel="stylesheet" href="/css/groupPost.css">
+    <link rel="stylesheet" href="/css/study/groupPost.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/header.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -94,7 +94,7 @@
 
     <article class="study-content">
         <h2>프로젝트 소개</h2>
-        <p th:text="*{studyRecruitment}"></p>
+        <div th:utext="*{studyRecruitment}"></div>
     </article>
 
     <div id="study-register-button">

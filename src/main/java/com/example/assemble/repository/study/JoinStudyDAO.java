@@ -18,6 +18,10 @@ public class JoinStudyDAO {
         joinStudyMapper.insert(joinStudyVO);
     }
 
+    public void addMember(JoinStudyVO joinStudyVO) {
+        joinStudyMapper.insertMember(joinStudyVO);
+    }
+
     public void remove(JoinStudyVO joinStudyVO) {
         joinStudyMapper.delete(joinStudyVO);
     }

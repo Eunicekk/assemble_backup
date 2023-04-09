@@ -12,6 +12,9 @@ public interface JoinStudyMapper {
     // 스터디 가입 요청 보내기
     public void insert(JoinStudyVO joinStudyVO);
 
+    // 스터디 멤버 즉시 추가
+    public void insertMember(JoinStudyVO joinStudyVO);
+
     // 스터디 요청 거절
     public void deleteByJoinId(Long joinStudyId);
 
