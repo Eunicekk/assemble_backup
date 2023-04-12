@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assemble</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/communityPost.css">
+</head>
+<body>
+<header>
+    <div class="back">
+        <!-- 뒤로가기 버튼 링크 삽입 -->
+        <a href="#">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
+        </a>
+    </div>
+    <h1>커뮤니티 게시물 제목</h1>
+    <div class="community-title">
+        <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="48px" height="48px">
+        <span class="title-nickname">닉네임</span>
+        <span class="title-date">2023-03-02</span>
+    </div>
+</header>
+
+<article class="community-content">
+    <p>커뮤니티에서 다양한 이야기를 나눌 수 있습니다.</p>
+</article>
+
+<section class="community-comment-write">
+    <h3>0개의 댓글이 있습니다.</h3>
+    <!-- 댓글 입력 폼 -->
+    <form action="">
+        <textarea name="comment" id="comment" cols="80" rows="4" placeholder="댓글을 입력하세요."></textarea>
+        <br>
+        <button>댓글 등록</button>
+    </form>
+</section>
+
+<section class="community-comment-read">
+    <div class="community-comment">
+        <div class="comment-profile">
+            <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="52px" height="52px">
+            <div>
+                <span class="comment-writer">댓쓴이</span>
+                <span class="comment-date">2023-03-02 13:42:55</span>
+            </div>
+        </div>
+        <p>댓글 내용입니다.</p>
+    </div>
+</section>
+
+</body>
+</html>
