@@ -85,5 +85,10 @@ h2{
 .myBox:last-child>p{
     text-align: center;
 }
-
+/*#none-post{*/
+/*    display: none;*/
+/*}*/
+/*#none-script{*/
+/*    display: none;*/
+/*}*/
 
