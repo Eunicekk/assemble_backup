@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/ratingScore.css" rel="stylesheet">
+</head>
+<body>
+<button id="open-modal">열기</button>
+<div id="modalWrap">
+    <div id="modalBox">
+        <div class="contents">
+            <form id="userScore" method="post" action="./save">
+                <fieldset>
+                    <legend>유저 평가</legend>
+                    <input type="radio" name="rating" value="5" id="rate1"> <label for="rate1">⭐</label>
+                    <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
+                    <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+                    <input type="radio" name="rating" value="3" id="rate4"><label for="rate4">⭐</label>
+                    <input type="radio" name="rating" value="2" id="rate5"><label for="rate5">⭐</label>
+                </fieldset>
+            </form>
+        </div>
+        <button id="close-modal">닫기</button>
+    </div>
+</div>
+<script src="../static/js/ratingScore.js"></script>
+</body>
+</html>
