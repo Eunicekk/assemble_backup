@@ -1,0 +1,280 @@
+/* header */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 900px;
+    margin: 0 auto;
+}
+.back{
+    margin-top: 40px;
+}
+h1{
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 700;
+}
+.study-info{
+    width: 900px;
+    border-bottom: 3px solid #f2f2f2;
+    display: flex;
+    align-items: center;
+}
+.study-info span{
+    display: inline-block;
+    margin: 27px 0;
+    font-size: 18px;
+}
+.info-field{
+    color: #333333;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 15px 5px 0;
+    border-right: 2px solid #f2f2f2;
+}
+.info-count{
+    color: #717171;
+    padding-left: 15px;
+}
+
+/* user-score-tab */
+.user-score-tab{
+    width: 900px;
+    margin: 0 auto;
+}
+
+h2{
+    color: #333333;
+    font-size: 20px;
+    margin: 40px 0;
+    font-weight: 700;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #f2f2f2;
+    position: relative;
+}
+
+.user-info span{
+    margin-left: 20px;
+    color: #333333;
+    font-family: 500;
+}
+
+.user-info .material-symbols-rounded{
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    color: #717171;
+}
+
+.user-info img{
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+.user-info .leader{
+    margin-left: 10px;
+    background-color: #1B4568;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+}
+
+/* 별점 */
+.user-score{
+    padding: 40px 0 80px;
+    position: relative;
+    border-bottom: 2px solid #f2f2f2;
+    display: none;
+}
+
+h3{
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.star-score{
+    letter-spacing: -8px;
+    display: flex;
+    align-items: center;
+}
+
+fieldset{
+    margin-bottom: 10px;
+}
+
+.star-text{
+    letter-spacing: 0;
+    font-size: 16px;
+    color: #242424;
+}
+
+.user-score .material-symbols-rounded {
+    color: transparent;
+    text-shadow: 0 0 0 rgb(203, 203, 203);
+    cursor: pointer;
+    font-variation-settings:
+            'FILL' 100,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+}
+
+.star-score input[type=radio]{
+    display: none;
+}
+
+.content{
+    width: 900px;
+    height: 100px;
+    resize: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans Neo';
+    padding: 12px;
+    outline: none;
+    border: 1px solid rgb(212, 219, 226);
+    box-sizing: border-box;
+}
+
+.score-btn{
+    font-family: 'Spoqa Han Sans Neo';;
+    font-size: 14px;
+    background-color: #1B4568;
+    padding: 6px 12px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    position: absolute;
+    right: 1px; bottom: 41px;
+    cursor: pointer;
+}
+
+/* group-talk */
+.group-talk{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.group-talk li{
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgb(227, 238, 248);
+    border-radius: 10px;
+}
+
+.group-talk img{
+    border-radius: 50%;
+}
+
+.group-profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.group-profile span{
+    font-size: 15px;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.talk-text{
+    margin: 0 20px 10px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.my-talk-read{
+    background-color: #1B4568!important;
+    color: white!important;
+    position: relative;
+}
+
+.my-talk-update{
+    position: absolute;
+    right: 20px; top: 20px;
+}
+
+.my-talk-update button{
+    padding: 0;
+    margin: 0 4px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: 'Spoqa Han Sans Neo';
+}
+
+.my-talk-read .group-profile span{
+    color: white!important;
+}
+
+.talk-write{
+    border-top: 3px solid #f2f2f2;
+    position: relative;
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+.msg-btn{
+    font-family: 'Spoqa Han Sans Neo';;
+    font-size: 14px;
+    background-color: #1B4568;
+    padding: 6px 12px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    position: absolute;
+    right: 1px; bottom: 1px;
+    cursor: pointer;
+}
+
+/* page */
+#paging {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paging>a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    border-radius: 100%;
+    height: 32px;
+    width: 32px;
+    font-size: 14px;
+}
+
+#paging>a:hover {
+    background-color: rgb(227, 227, 227);
+}
+
+#left-side-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 3px solid #1a4568;
+    border-radius: 100%;
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 5%;
+    left: 3%;
+    color: #1a4568;
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assemble</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/groupPostDetail.css">
+</head>
+<body>
+<header>
+    <div class="back">
+        <!-- 뒤로가기 버튼 링크 삽입 -->
+        <a href="#">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
+        </a>
+    </div>
+    <h1>스터디그룹명</h1>
+    <div class="study-info">
+        <span class="info-field">스터디그룹 분야</span>
+        <span class="info-count"><span class="count">0</span>명</span>
+    </div>
+</header>
+
+<section class="user-score-tab">
+    <h2>스터디그룹 구성원</h2>
+    <ul class="user-list">
+        <li class="user-info">
+            <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="48px" height="48px">
+            <span>닉네임</span>
+            <span class="leader">조장</span>
+            <span class="material-symbols-rounded">
+                    expand_more
+                </span>
+        </li>
+        <div class="user-score">
+            <h3>스터디그룹 구성원 <span>닉네임</span>에 대한 평가를 등록해주세요.</h3>
+            <form action="">
+                <fieldset>
+                    <div class="star-score">
+                        <span class="star-text">별점&nbsp; | &nbsp;</span>
+                        <label for="star1">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star2">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star3">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star4">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star5">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <input type="radio" value="1" id="star1">
+                        <input type="radio" value="2" id="star2">
+                        <input type="radio" value="3" id="star3">
+                        <input type="radio" value="4" id="star4">
+                        <input type="radio" value="5" id="star5">
+                    </div>
+                </fieldset>
+                <div>
+                    <textarea name="content" class="content" placeholder="구성원에 대한 평가를 작성하세요."></textarea>
+                </div>
+                <button type="button" class="score-btn">평가 등록</button>
+            </form>
+        </div>
+
+        <li class="user-info">
+            <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="48px" height="48px">
+            <span>닉네임</span>
+            <span class="material-symbols-rounded">
+                    expand_more
+                </span>
+        </li>
+        <div class="user-score">
+            <h3>스터디그룹 구성원 <span>닉네임</span>에 대한 평가를 등록해주세요.</h3>
+            <form action="">
+                <fieldset>
+                    <div class="star-score">
+                        <span class="star-text">별점&nbsp; | &nbsp;</span>
+                        <label for="star1">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star2">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star3">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star4">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star5">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <input type="radio" value="1" id="star1">
+                        <input type="radio" value="2" id="star2">
+                        <input type="radio" value="3" id="star3">
+                        <input type="radio" value="4" id="star4">
+                        <input type="radio" value="5" id="star5">
+                    </div>
+                </fieldset>
+                <div>
+                    <textarea name="content" class="content" placeholder="구성원에 대한 평가를 작성하세요."></textarea>
+                </div>
+                <button type="button" class="score-btn">평가 등록</button>
+            </form>
+        </div>
+
+        <li class="user-info">
+            <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="48px" height="48px">
+            <span>닉네임</span>
+            <span class="material-symbols-rounded">
+                    expand_more
+                </span>
+        </li>
+        <div class="user-score">
+            <h3>스터디그룹 구성원 <span>닉네임</span>에 대한 평가를 등록해주세요.</h3>
+            <form action="">
+                <fieldset>
+                    <div class="star-score">
+                        <span class="star-text">별점&nbsp; | &nbsp;</span>
+                        <label for="star1">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star2">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star3">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star4">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <label for="star5">
+                            <span class="material-symbols-rounded">star</span>
+                        </label>
+                        <input type="radio" value="1" id="star1">
+                        <input type="radio" value="2" id="star2">
+                        <input type="radio" value="3" id="star3">
+                        <input type="radio" value="4" id="star4">
+                        <input type="radio" value="5" id="star5">
+                    </div>
+                </fieldset>
+                <div>
+                    <textarea name="content" class="content" placeholder="구성원에 대한 평가를 작성하세요."></textarea>
+                </div>
+                <button type="button" class="score-btn">평가 등록</button>
+            </form>
+        </div>
+    </ul>
+</section>
+
+<section class="group-talk">
+    <h2>스터디그룹 메세지</h2>
+    <ul class="group-talk-list">
+        <li class="group-talk-read">
+            <div class="group-profile">
+                <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="32px" height="32px">
+                <span>닉네임</span>
+                <span>2023-04-10 10:00:00</span>
+            </div>
+            <div class="talk-text">
+                메세지에 담긴 내용 1
+            </div>
+        </li>
+        <li class="group-talk-read">
+            <div class="group-profile">
+                <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="32px" height="32px">
+                <span>닉네임</span>
+                <span>2023-04-10 10:00:00</span>
+            </div>
+            <div class="talk-text">
+                메세지에 담긴 내용 2
+            </div>
+        </li>
+        <li class="group-talk-read">
+            <div class="group-profile">
+                <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="32px" height="32px">
+                <span>닉네임</span>
+                <span>2023-04-10 10:00:00</span>
+            </div>
+            <div class="talk-text">
+                메세지에 담긴 내용 3
+            </div>
+        </li>
+        <li class="group-talk-read">
+            <div class="group-profile">
+                <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="32px" height="32px">
+                <span>닉네임</span>
+                <span>2023-04-10 10:00:00</span>
+            </div>
+            <div class="talk-text">
+                메세지에 담긴 내용 4
+            </div>
+        </li>
+        <li class="my-talk-read">
+            <div class="group-profile">
+                <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="32px" height="32px">
+                <span>닉네임</span>
+                <span>2023-04-10 10:00:00</span>
+            </div>
+            <div class="my-talk-update">
+                <button type="button">수정</button>
+                <button type="button">삭제</button>
+            </div>
+            <div class="talk-text">
+                메세지에 담긴 내용 5
+            </div>
+        </li>
+    </ul>
+
+    <section id="paging">
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z" />
+            </svg>
+        </a>
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor"
+                 class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            </svg>
+        </a>
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+            </svg>
+        </a>
+        <a href="">29</a>
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor"
+                 class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </a>
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z" />
+            </svg>
+        </a>
+    </section>
+
+    <div class="talk-write">
+        <h3>스터디그룹 구성원들에게 전달할 메세지를 등록해주세요.</h3>
+        <form action="">
+            <div>
+                <textarea name="content" class="content" placeholder="전달할 메세지를 작성하세요."></textarea>
+            </div>
+            <button type="button" class="msg-btn">메세지 등록</button>
+        </form>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+<script src="../static/js/groupPostDetail.js"></script>
+</body>
+</html>
