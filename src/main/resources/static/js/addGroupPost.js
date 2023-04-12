@@ -31,9 +31,11 @@ $selectUl01.children().on('click', function(){
     // 진행 방식 '오프라인' 선택 시 모임 지역 노출
     if(text === "오프라인"){
         $('.select-area').css('visibility', 'visible');
+        $("#online-check").prop("checked", false);
     }
     else {
         $('.select-area').css('visibility', 'hidden');
+        $("#online-check").prop("checked", true);
     }
 });
 $selectUl02.children().on('click', function(){
@@ -41,18 +43,26 @@ $selectUl02.children().on('click', function(){
     $btn02.html(text);
     $btn02.next().toggle();
     $btn02.css('color', '#333333');
+    $("#area").val(text);
+    console.log(document.getElementById("area").innerText);
 });
 $selectUl03.children().on('click', function(){
     var text = $(this).html();
     $btn03.html(text);
     $btn03.next().toggle();
     $btn03.css('color', '#333333');
+    $("#topic").val(text);
+    console.log(document.getElementById("topic").innerText);
 });
 $selectUl04.children().on('click', function(){
     var text = $(this).html();
     $btn04.html(text);
     $btn04.next().toggle();
     $btn04.css('color', '#333333');
+    text = text.slice(0, -1);
+    text = Number(text);
+    $("#number").val(text);
+    console.log(document.getElementById("number").value);
 });
 
 // 셀렉트 박스 이외 선택 시 셀렉트 박스 비노출

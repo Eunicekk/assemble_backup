@@ -43,12 +43,15 @@ public class StudyController {
     }
 
     // 해당 유저가 가입 되어 있는 스터디 목록
-    @GetMapping("/list")
+    @GetMapping("/study")
     public String getStudyListByUserId(Model model, HttpServletRequest request) {
-        UserVO sessionUser = getSessionUser(request);
+//        UserVO sessionUser = getSessionUser(request);
+        UserVO sessionUser = new UserVO();
+        sessionUser.setUserId("id");
         if(sessionUser == null) return "/login";
         model.addAttribute("studyList", joinStudyService.studyList(sessionUser.getUserId()));
-        return "/study/list";
+        model.addAttribute("userVO", sessionUser);
+        return "/study/groupList";
     }
 
     // 스터디 상세 보기(일반 유저)
@@ -58,7 +61,7 @@ public class StudyController {
         UserVO userVO = new UserVO();
         userVO.setUserId("id");
         model.addAttribute("userVO", userVO);
-        return "/groupPost";
+        return "/study/groupPost";
     }
 
     // 스터디 상세 보기(스터디 멤버)
@@ -69,17 +72,20 @@ public class StudyController {
     }
 
     // 스터디 생성 페이지 이동
-    @GetMapping("/add")
-    public String add(StudyVO studyVO, UserVO userVO, HttpServletRequest request) {
-        UserVO sessionUser = getSessionUser(request);
+    @GetMapping("/study/add")
+    public String add(StudyVO studyVO, UserVO userVO, HttpServletRequest request, Model model) {
+//        UserVO sessionUser = getSessionUser(request);
+        UserVO sessionUser = new UserVO();
+        sessionUser.setUserId("id");
         if(sessionUser == null) return "/login";
-        return "/study/add";
+        model.addAttribute("userVO", sessionUser);
+        return "/study/addGroupPost";
     }
     // 스터디 생성
-    @PostMapping("/add")
+    @PostMapping("/study/add")
     public RedirectView add(StudyVO studyVO) {
         studyService.createStudy(studyVO);
-        return new RedirectView("/study/list");
+        return new RedirectView("/");
     }
 
     // 스터디 수정 페이지 이동

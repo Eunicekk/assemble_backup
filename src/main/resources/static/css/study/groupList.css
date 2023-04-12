@@ -288,3 +288,127 @@
     left: 3%;
     color: #1a4568;
 }
+
+
+
+
+#study-list {
+    display: flex;
+    grid-gap: 27px;
+    gap: 27px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin-top: 20px;
+}
+.study {
+    padding: 20px 20px 0;
+    border: 2px solid #999;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 320px;
+    transition: 0.2s;
+}
+.study:hover {
+    transform: scale(1.01);
+}
+.first-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.first-line > div {
+    display: flex;
+    align-items: center;
+}
+.first-line p {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.study-icon {
+    background-color: rgb(227, 227, 227);
+    color: #000;
+    margin-right: 5px;
+}
+.new-icon {
+    background-color: #b6d0e1;
+    color: #1a4568;
+}
+.favorites {
+    background-color: transparent;
+    border: 0px solid transparent;
+    cursor: pointer;
+    color: #9f9f9f;
+}
+.second-line {
+    margin-top: 10px;
+}
+.second-line > p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #999;
+}
+.title {
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 28px;
+    min-height: 50px;
+}
+.tag > span {
+    background-color: rgb(227, 227, 227);
+    color: #007bff;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.tech {
+    margin-top: 30px;
+}
+.tech > span {
+    height: 100px;
+    padding: 10px 20px;
+    border: 1px solid #d0d0d0;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.tech  img {
+    width: 25px;
+}
+.last-line {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid rgb(227, 227, 227);
+    padding-top: 20px;
+}
+.views-comment {
+    display: flex;
+    align-items: center;
+}
+.views-comment > p {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    color: #999;
+}
+.views-comment span {
+    margin-left: 10px;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user > span {
+    margin-left: 10px;
+    font-weight: bold;
+}
