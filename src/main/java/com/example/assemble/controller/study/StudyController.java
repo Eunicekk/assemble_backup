@@ -35,10 +35,10 @@ public class StudyController {
     }
 
     @GetMapping("/")
-    public String getStudyAll(Model model, HttpServletRequest request) {
+    public String getStudyAll(StudyVO studyVO, Model model, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
         model.addAttribute("userVO", sessionUser);
-        model.addAttribute("studyList", studyService.list());
+        model.addAttribute("studyList", studyService.list(studyVO));
         return "/index";
     }
 

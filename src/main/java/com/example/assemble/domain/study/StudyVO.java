@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 public class StudyVO {
     private Long studyId;
     private String studyName;
-    private boolean studyOnline;
+    private Boolean studyOnline;
     private String studyArea;
     private String studyTopic;
     private String studyNotice;
-    private boolean studyComplete;
+    private Boolean studyComplete;
     private String studyLeader;
     private String studyMaxNumber;
     private String studyCurrentNumber;
@@ -25,7 +25,7 @@ public class StudyVO {
 
 
 
-    public StudyVO(String studyName, boolean studyOnline, String studyArea, String studyTopic){
+    public StudyVO(String studyName, Boolean studyOnline, String studyArea, String studyTopic){
         this.studyName = studyName;
         this.studyOnline = studyOnline;
         this.studyArea = studyArea;

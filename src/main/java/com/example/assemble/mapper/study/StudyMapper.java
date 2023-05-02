@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface StudyMapper {
     // 스터디 전체 목록
-    public List<StudyVO> selectAll();
+    public List<StudyVO> selectAll(StudyVO studyVO);
 
     // 스터디 상세보기
     public StudyVO select(Long studyId);

@@ -20,8 +20,8 @@ public class StudyServiceImpl implements StudyService {
     private final JoinStudyDAO joinStudyDAO;
 
     @Override
-    public List<StudyVO> list() {
-        return studyDAO.getStudyAll();
+    public List<StudyVO> list(StudyVO studyVO) {
+        return studyDAO.getStudyAll(studyVO);
     }
 
     @Override

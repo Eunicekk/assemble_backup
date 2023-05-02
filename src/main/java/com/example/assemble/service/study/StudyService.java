@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface StudyService {
     // 스터디 목록
-    public List<StudyVO> list();
+    public List<StudyVO> list(StudyVO studyVO);
 
     // 스터디 상세 보기
     public StudyVO viewDetail(Long studyId);

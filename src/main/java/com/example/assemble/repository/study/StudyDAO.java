@@ -13,8 +13,8 @@ public class StudyDAO {
     private final StudyMapper studyMapper;
 
     // 스터디 목록
-    public List<StudyVO> getStudyAll() {
-        return studyMapper.selectAll();
+    public List<StudyVO> getStudyAll(StudyVO studyVO) {
+        return studyMapper.selectAll(studyVO);
     }
     
     // 스터디 상세 보기

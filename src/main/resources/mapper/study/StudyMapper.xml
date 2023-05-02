@@ -4,7 +4,13 @@
     <select id="selectAll" resultType="studyVO">
         SELECT STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_NOTICE, STUDY_COMPLETE, STUDY_LEADER, STUDY_MAX_NUMBER, STUDY_CURRENT_NUMBER, STUDY_RECRUITMENT, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE
         FROM T_STUDY
-        WHERE STUDY_COMPLETE = 0 AND STUDY_MAX_NUMBER != STUDY_CURRENT_NUMBER
+        WHERE STUDY_MAX_NUMBER != STUDY_CURRENT_NUMBER AND STUDY_TOPIC LIKE NVL(#{studyTopic, jdbcType=VARCHAR}, '%')
+        <if test="studyOnline != null">
+            AND STUDY_ONLINE = #{studyOnline}
+        </if>
+        <if test="studyComplete == null or studyComplete == false">
+            AND STUDY_COMPLETE = 0
+        </if>
         ORDER BY STUDY_REGISTER_DATE DESC
     </select>
 

@@ -102,22 +102,9 @@ for(let i = 0; i < subject.length; i++) {
 
 
 
-// 스터디 완료된 그룹들만 나열
-let completeCheckButton = document.getElementById("complete-check-button");
-let completeCheckButtonCircle = document.getElementById("complete-check-button-circle");
-let completeCheck = document.getElementById("complete-check");
 
-completeCheckButton.addEventListener("click", () => {
-    if(completeCheck.checked) {
-        completeCheckButtonCircle.style.transform = "translate(-20px)";
-        completeCheckButton.style.backgroundColor = "#c1cbd8";
-        completeCheck.checked = false;
-    } else {
-        completeCheckButtonCircle.style.transform = "translate(0)";
-        completeCheckButton.style.backgroundColor = "#1a4568";
-        completeCheck.checked = true;
-    }
-})
+
+console.log(5)
 
 let searchButton = document.getElementById("search-button");
 let searchInput = document.getElementById("search-input");
