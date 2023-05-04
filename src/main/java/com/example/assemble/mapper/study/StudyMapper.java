@@ -1,14 +1,19 @@
 package com.example.assemble.mapper.study;
 
+import com.example.assemble.domain.study.StudyDTO;
 import com.example.assemble.domain.study.StudyVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface StudyMapper {
+    // 스터디 총 갯수
+    public Integer countAll(StudyDTO studyDTO);
+    
     // 스터디 전체 목록
-    public List<StudyVO> selectAll(StudyVO studyVO);
+    public List<StudyVO> selectAll(StudyDTO studyDTO);
 
     // 스터디 상세보기
     public StudyVO select(Long studyId);

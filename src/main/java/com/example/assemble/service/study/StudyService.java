@@ -1,14 +1,18 @@
 package com.example.assemble.service.study;
 
 import com.example.assemble.domain.study.JoinStudyVO;
+import com.example.assemble.domain.study.StudyDTO;
 import com.example.assemble.domain.study.StudyVO;
 import com.example.assemble.domain.user.UserVO;
 
 import java.util.List;
 
 public interface StudyService {
+    // 스터디 수
+    public Integer countStudy(StudyDTO studyDTO);
+    
     // 스터디 목록
-    public List<StudyVO> list(StudyVO studyVO);
+    public List<StudyVO> list(StudyDTO studyDTO);
 
     // 스터디 상세 보기
     public StudyVO viewDetail(Long studyId);

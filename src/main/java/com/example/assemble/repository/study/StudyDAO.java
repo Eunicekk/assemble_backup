@@ -1,5 +1,6 @@
 package com.example.assemble.repository.study;
 
+import com.example.assemble.domain.study.StudyDTO;
 import com.example.assemble.domain.study.StudyVO;
 import com.example.assemble.mapper.study.StudyMapper;
 import lombok.RequiredArgsConstructor;
@@ -12,9 +13,14 @@ import java.util.List;
 public class StudyDAO {
     private final StudyMapper studyMapper;
 
+    // 스터디 총 수
+    public Integer getStudyCount(StudyDTO studyDTO) {
+        return studyMapper.countAll(studyDTO);
+    }
+
     // 스터디 목록
-    public List<StudyVO> getStudyAll(StudyVO studyVO) {
-        return studyMapper.selectAll(studyVO);
+    public List<StudyVO> getStudyAll(StudyDTO studyDTO) {
+        return studyMapper.selectAll(studyDTO);
     }
     
     // 스터디 상세 보기

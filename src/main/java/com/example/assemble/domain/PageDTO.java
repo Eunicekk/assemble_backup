@@ -14,7 +14,7 @@ public class PageDTO {
     private int total;
     private int page = 1;
 
-    public PageDTO createPageBoardDTO(int page, int total) {
+    public PageDTO createPageDTO(int page, int total) {
         this.page = page;
         this.total = total;
         this.startPage = 1;

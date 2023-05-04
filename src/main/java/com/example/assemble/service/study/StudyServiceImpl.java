@@ -1,6 +1,7 @@
 package com.example.assemble.service.study;
 
 import com.example.assemble.domain.study.JoinStudyVO;
+import com.example.assemble.domain.study.StudyDTO;
 import com.example.assemble.domain.study.StudyVO;
 import com.example.assemble.domain.user.UserVO;
 import com.example.assemble.repository.study.JoinStudyDAO;
@@ -20,8 +21,13 @@ public class StudyServiceImpl implements StudyService {
     private final JoinStudyDAO joinStudyDAO;
 
     @Override
-    public List<StudyVO> list(StudyVO studyVO) {
-        return studyDAO.getStudyAll(studyVO);
+    public Integer countStudy(StudyDTO studyDTO) {
+        return studyDAO.getStudyCount(studyDTO);
+    }
+
+    @Override
+    public List<StudyVO> list(StudyDTO studyDTO) {
+        return studyDAO.getStudyAll(studyDTO);
     }
 
     @Override

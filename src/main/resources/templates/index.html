@@ -196,7 +196,7 @@
     </div>
 </div>
 
-<div id="main" th:object="${studyVO}">
+<div id="main" th:object="${studyDTO}">
     <div id="option">
         <div id="category">
             <!--    활동(대면 | 비대면) 필터링-->
@@ -376,34 +376,68 @@
             </div>
         </a>
     </div>
-    <div id="paging">
-        <a href="">
+    <div id="paging" th:object="${pagination}">
+        <a th:href="@{/}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
             </svg>
         </a>
-        <a href="">
+        <a th:href="@{/(page = *{prevNo})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
             </svg>
         </a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a>
-        <a href="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-            </svg>
-        </a>
-        <a href="">29</a>
-        <a href="">
+
+        <th:block th:if="*{page} < 5">
+            <th:block th:each="i : ${#numbers.sequence(1, 5)}">
+                <a th:href="@{/(page = ${i})}" th:text="${i}"></a>
+            </th:block>
+            <a th:href="@{/(page = *{page + 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+        </th:block>
+
+        <th:block th:if="*{page} >= 5 and *{page} <= *{endPage - 4}">
+            <a th:href="@{/}">1</a>
+            <a th:href="@{/(page = *{page - 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{page - 1})}" th:text="*{page - 1}"></a>
+            <a th:href="@{/(page = *{page})}" th:text="*{page}"></a>
+            <a th:href="@{/(page = *{page + 1})}" th:text="*{page + 1}"></a>
+            <a th:href="@{/(page = *{page + 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+        </th:block>
+
+        <th:block th:if="*{page} > *{endPage - 4}">
+            <a th:href="@{/}">1</a>
+            <a th:href="@{/(page = *{page - 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{endPage - 4})}" th:text="*{endPage - 4}"></a>
+            <a th:href="@{/(page = *{endPage - 3})}" th:text="*{endPage - 3}"></a>
+            <a th:href="@{/(page = *{endPage - 2})}" th:text="*{endPage - 2}"></a>
+            <a th:href="@{/(page = *{endPage - 1})}" th:text="*{endPage - 1}"></a>
+            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+        </th:block>
+
+        <a th:href="@{/(page = *{nextNo})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
             </svg>
         </a>
-        <a href="">
+        <a th:href="@{/(page = *{endPage})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
             </svg>
@@ -417,9 +451,9 @@
     <p>TOP</p>
 </button>
 <script th:inline="javascript">
-    let studyOnline = [[${studyVO.studyOnline}]]
-    let studyTopic = [[${studyVO.studyTopic}]]
-    let studyComplete = [[${studyVO.studyComplete}]]
+    let studyOnline = [[${studyDTO.studyOnline}]]
+    let studyTopic = [[${studyDTO.studyTopic}]]
+    let studyComplete = [[${studyDTO.studyComplete}]]
 
     if(studyTopic === null) {
         studyTopic = '';
