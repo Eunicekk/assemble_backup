@@ -377,12 +377,12 @@
         </a>
     </div>
     <div id="paging" th:object="${pagination}">
-        <a th:href="@{/}">
+        <a class="start-page" th:href="@{/(studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
             </svg>
         </a>
-        <a th:href="@{/(page = *{prevNo})}">
+        <a th:href="@{/(page = *{prevNo}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" class="prev">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
             </svg>
@@ -390,54 +390,54 @@
 
         <th:block th:if="*{page} < 5">
             <th:block th:each="i : ${#numbers.sequence(1, 5)}">
-                <a th:href="@{/(page = ${i})}" th:text="${i}"></a>
+                <a class="change-page" th:href="@{/(page = ${i}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="${i}" th:if="${i} < *{endPage}"></a>
             </th:block>
-            <a th:href="@{/(page = *{page + 3})}">
+            <a th:href="@{/(page = *{page + 3}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:if="*{endPage} > 5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
-            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+            <a th:href="@{/(page = *{endPage}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage}"></a>
         </th:block>
 
         <th:block th:if="*{page} >= 5 and *{page} <= *{endPage - 4}">
-            <a th:href="@{/}">1</a>
-            <a th:href="@{/(page = *{page - 3})}">
+            <a class="change-page" th:href="@{/(studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">1</a>
+            <a th:href="@{/(page = *{page - 3}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
-            <a th:href="@{/(page = *{page - 1})}" th:text="*{page - 1}"></a>
-            <a th:href="@{/(page = *{page})}" th:text="*{page}"></a>
-            <a th:href="@{/(page = *{page + 1})}" th:text="*{page + 1}"></a>
-            <a th:href="@{/(page = *{page + 3})}">
+            <a class="change-page" th:href="@{/(page = *{page - 1}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{page - 1}"></a>
+            <a class="change-page" th:href="@{/(page = *{page}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{page}"></a>
+            <a class="change-page" th:href="@{/(page = *{page + 1}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{page + 1}"></a>
+            <a class="change-page" th:href="@{/(page = *{page + 3}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
-            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+            <a th:href="@{/(page = *{endPage}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage}"></a>
         </th:block>
 
-        <th:block th:if="*{page} > *{endPage - 4}">
-            <a th:href="@{/}">1</a>
-            <a th:href="@{/(page = *{page - 3})}">
+        <th:block th:if="*{page} > *{endPage - 4} and *{endPage} > 5">
+            <a th:href="@{/(studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">1</a>
+            <a th:href="@{/(page = *{page - 3}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                 </svg>
             </a>
-            <a th:href="@{/(page = *{endPage - 4})}" th:text="*{endPage - 4}"></a>
-            <a th:href="@{/(page = *{endPage - 3})}" th:text="*{endPage - 3}"></a>
-            <a th:href="@{/(page = *{endPage - 2})}" th:text="*{endPage - 2}"></a>
-            <a th:href="@{/(page = *{endPage - 1})}" th:text="*{endPage - 1}"></a>
-            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+            <a class="change-page" th:href="@{/(page = *{endPage - 4}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage - 4}"></a>
+            <a class="change-page" th:href="@{/(page = *{endPage - 3}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage - 3}"></a>
+            <a class="change-page" th:href="@{/(page = *{endPage - 2}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage - 2}"></a>
+            <a class="change-page" th:href="@{/(page = *{endPage - 1}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage - 1}"></a>
+            <a class="change-page" th:href="@{/(page = *{endPage}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" th:text="*{endPage}"></a>
         </th:block>
 
-        <a th:href="@{/(page = *{nextNo})}">
+        <a th:href="@{/(page = *{nextNo}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}" class="next">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
             </svg>
         </a>
-        <a th:href="@{/(page = *{endPage})}">
+        <a class="end-page" th:href="@{/(page = *{endPage}, studyTopic = ${studyDTO.studyTopic}, studyOnline = ${studyDTO.studyOnline}, studyComplete = ${studyDTO.studyComplete})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
             </svg>
@@ -451,6 +451,7 @@
     <p>TOP</p>
 </button>
 <script th:inline="javascript">
+    // 초기 페이지 설정
     let studyOnline = [[${studyDTO.studyOnline}]]
     let studyTopic = [[${studyDTO.studyTopic}]]
     let studyComplete = [[${studyDTO.studyComplete}]]
@@ -464,6 +465,53 @@
     if(studyComplete === null) {
         studyComplete = '';
     }
+
+    // 현재 페이지가 첫 페이지 혹은 끝 페이지 일 때, 색 변경
+    let page = [[${pagination.page}]]
+    let start = [[${pagination.startPage}]];
+    let end = [[${pagination.endPage}]];
+    let prev = document.getElementsByClassName("prev");
+    let next = document.getElementsByClassName("next");
+    let startPage = document.getElementsByClassName("start-page");
+    let endPage = document.getElementsByClassName("end-page");
+
+    if (page === start) {
+        prev[0].style.color = "hsla(220, 9%, 46%, 0.7)";
+        prev[0].style.cursor = "default";
+        prev[0].addEventListener("click", function (e) {
+            e.preventDefault();
+        })
+        startPage[0].style.color = "hsla(220, 9%, 46%, 0.7)";
+        startPage[0].style.cursor = "default";
+        startPage[0].addEventListener("click", function (e) {
+            e.preventDefault();
+        })
+    }
+    if (page === end) {
+        next[0].style.color = "hsla(220, 9%, 46%, 0.7)";
+        next[0].style.cursor = "default";
+        next[0].addEventListener("click", function (e) {
+            e.preventDefault();
+        })
+        endPage[0].style.color = "hsla(220, 9%, 46%, 0.7)";
+        endPage[0].style.cursor = "default";
+        endPage[0].addEventListener("click", function (e) {
+            e.preventDefault();
+        })
+    }
+
+    // 현재 페이지 색 변경
+    let changePage = document.getElementsByClassName("change-page");
+    let i = 0;
+    for(; i < changePage.length; i++){
+        if(changePage[i].innerText == page) break;
+    }
+    changePage[i].style.color = "#1a4568";
+    changePage[i].style.cursor = "default";
+    changePage[i].style.fontWeight = "bold";
+    changePage[i].addEventListener("click", function (e) {
+        e.preventDefault();
+    })
 
     // 필터링 시, 체크 상태 유지
     if(studyOnline === '') {
