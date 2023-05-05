@@ -7,16 +7,16 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="../static/css/findUser.css">
-    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="/css/findUser.css">
+    <link rel="stylesheet" href="/css/reset.css">
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
 </head>
 <body>
 <!--로고 및 계정찾기 상세 안내-->
 <header>
 <!--    클릭 시 메인 페이지로 이동-->
-    <a href="#">
-        <img src="../static/image/logo.png" width="240px">
+    <a href="/">
+        <img src="/image/logo.png" width="240px">
     </a>
     <h1>계정찾기</h1>
     <p>회원 가입시 입력하신 이름과 이메일 주소를 입력하시면,<br>
@@ -25,7 +25,7 @@
 
 <!--계정찾기 폼-->
 <section class="member-find">
-    <form>
+    <form action="/findUser" method="post" >
         <label>
             <div class="find-id">
                     <span class="material-symbols-rounded">
@@ -45,7 +45,7 @@
         <p class="find-error">해당 회원 정보가 존재하지 않습니다.</p>
         <p class="name-error">이름을 입력해 주세요.</p>
         <p class="email-error">이메일을 입력해 주세요.</p>
-        <button type="button">계정찾기</button>
+        <button type="submit">계정찾기</button>
     </form>
 </section>
 
@@ -54,8 +54,8 @@
     <ul>
         <li>
 <!--            클릭 시 메인 페이지로 이동-->
-            <a href="#">
-                <img src="../static/image/logo.png" width="90px">
+            <a href="/">
+                <img src="/image/logo.png" width="90px">
             </a>
         </li>
         <li>
@@ -66,6 +66,6 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="../static/js/findUser.js"></script>
+<script src="/js/findUser.js"></script>
 </body>
 </html>
