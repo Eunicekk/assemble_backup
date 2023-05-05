@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class StudyVO {
+public class StudyDTO {
     private Long studyId;
     private String studyName;
     private Boolean studyOnline;
@@ -21,11 +21,12 @@ public class StudyVO {
     private String studyRecruitment;
     private String studyRegisterDate;
     private String studyUpdateDate;
+    private Integer page = 1;
 
 
 
 
-    public StudyVO(String studyName, Boolean studyOnline, String studyArea, String studyTopic){
+    public StudyDTO(String studyName, Boolean studyOnline, String studyArea, String studyTopic){
         this.studyName = studyName;
         this.studyOnline = studyOnline;
         this.studyArea = studyArea;

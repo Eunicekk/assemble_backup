@@ -1,5 +1,7 @@
 package com.example.assemble.controller.study;
 
+import com.example.assemble.domain.PageDTO;
+import com.example.assemble.domain.study.StudyDTO;
 import com.example.assemble.domain.study.StudyVO;
 import com.example.assemble.domain.user.UserVO;
 import com.example.assemble.service.study.JoinStudyService;
@@ -35,10 +37,14 @@ public class StudyController {
     }
 
     @GetMapping("/")
-    public String getStudyAll(Model model, HttpServletRequest request) {
+    public String getStudyAll(StudyDTO studyDTO, Model model, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
         model.addAttribute("userVO", sessionUser);
-        model.addAttribute("studyList", studyService.list());
+        model.addAttribute("studyList", studyService.list(studyDTO));
+
+        Integer pageTotal = studyService.countStudy(studyDTO);
+        model.addAttribute("pagination", new PageDTO().createPageDTO(studyDTO.getPage(), pageTotal));
+
         return "/index";
     }
 

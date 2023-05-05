@@ -196,30 +196,33 @@
     </div>
 </div>
 
-<div id="main">
+<div id="main" th:object="${studyDTO}">
     <div id="option">
         <div id="category">
-            <!--    활동(프로젝트 | 스터디) 필터링-->
+            <!--    활동(대면 | 비대면) 필터링-->
             <input type="radio" id="all2" name="category" checked>
-            <label for="all2">
+            <label for="all2" id="all2-label">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
                     <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
                     <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
                 </svg>
-                전체</label>
+                전체
+                </label>
             <input type="radio" id="project" name="category">
-            <label for="project">
+            <label for="project" id="project-label">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                 </svg>
-                대면</label>
+                대면
+                </label>
             <input type="radio" id="study" name="category">
-            <label for="study">
+            <label for="study" id="study-label">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-wifi" viewBox="0 0 16 16">
                     <path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.518.518 0 0 0 .668.05A11.448 11.448 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049z"/>
                     <path d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.455 9.455 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065zm-2.183 2.183c.226-.226.185-.605-.1-.75A6.473 6.473 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.478 5.478 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091l.016-.015zM9.06 12.44c.196-.196.198-.52-.04-.66A1.99 1.99 0 0 0 8 11.5a1.99 1.99 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z"/>
                 </svg>
-                비대면</label>
+                비대면
+            </label>
         </div>
         <div id="option-else">
             <div>
@@ -230,13 +233,13 @@
                     </svg>
                 </button>
                 <div id="find-position-box">
-                    <button>전체</button>
-                    <button>어학</button>
-                    <button>취업</button>
-                    <button>고시</button>
-                    <button>취미</button>
-                    <button>프로그래밍</button>
-                    <button>자율</button>
+                    <a th:href="@{/(studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">전체</a>
+                    <a th:href="@{/(studyTopic = '어학', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">어학</a>
+                    <a th:href="@{/(studyTopic = '취업', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">취업</a>
+                    <a th:href="@{/(studyTopic = '고시', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">고시</a>
+                    <a th:href="@{/(studyTopic = '취미', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">취미</a>
+                    <a th:href="@{/(studyTopic = '프로그래밍', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">프로그래밍</a>
+                    <a th:href="@{/(studyTopic = '자율', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}">자율</a>
                 </div>
                 <input type="checkbox" id="find-position-check" hidden>
             </div>
@@ -373,34 +376,68 @@
             </div>
         </a>
     </div>
-    <div id="paging">
-        <a href="">
+    <div id="paging" th:object="${pagination}">
+        <a th:href="@{/}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
             </svg>
         </a>
-        <a href="">
+        <a th:href="@{/(page = *{prevNo})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
             </svg>
         </a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a>
-        <a href="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-            </svg>
-        </a>
-        <a href="">29</a>
-        <a href="">
+
+        <th:block th:if="*{page} < 5">
+            <th:block th:each="i : ${#numbers.sequence(1, 5)}">
+                <a th:href="@{/(page = ${i})}" th:text="${i}"></a>
+            </th:block>
+            <a th:href="@{/(page = *{page + 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+        </th:block>
+
+        <th:block th:if="*{page} >= 5 and *{page} <= *{endPage - 4}">
+            <a th:href="@{/}">1</a>
+            <a th:href="@{/(page = *{page - 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{page - 1})}" th:text="*{page - 1}"></a>
+            <a th:href="@{/(page = *{page})}" th:text="*{page}"></a>
+            <a th:href="@{/(page = *{page + 1})}" th:text="*{page + 1}"></a>
+            <a th:href="@{/(page = *{page + 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+        </th:block>
+
+        <th:block th:if="*{page} > *{endPage - 4}">
+            <a th:href="@{/}">1</a>
+            <a th:href="@{/(page = *{page - 3})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </a>
+            <a th:href="@{/(page = *{endPage - 4})}" th:text="*{endPage - 4}"></a>
+            <a th:href="@{/(page = *{endPage - 3})}" th:text="*{endPage - 3}"></a>
+            <a th:href="@{/(page = *{endPage - 2})}" th:text="*{endPage - 2}"></a>
+            <a th:href="@{/(page = *{endPage - 1})}" th:text="*{endPage - 1}"></a>
+            <a th:href="@{/(page = *{endPage})}" th:text="*{endPage}"></a>
+        </th:block>
+
+        <a th:href="@{/(page = *{nextNo})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
             </svg>
         </a>
-        <a href="">
+        <a th:href="@{/(page = *{endPage})}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
             </svg>
@@ -413,5 +450,76 @@
     </svg>
     <p>TOP</p>
 </button>
+<script th:inline="javascript">
+    let studyOnline = [[${studyDTO.studyOnline}]]
+    let studyTopic = [[${studyDTO.studyTopic}]]
+    let studyComplete = [[${studyDTO.studyComplete}]]
+
+    if(studyTopic === null) {
+        studyTopic = '';
+    }
+    if(studyOnline === null) {
+        studyOnline = '';
+    }
+    if(studyComplete === null) {
+        studyComplete = '';
+    }
+
+    // 필터링 시, 체크 상태 유지
+    if(studyOnline === '') {
+        document.getElementById("all2").checked = true;
+    } else if(studyOnline === false) {
+        document.getElementById("project").checked = true;
+    } else {
+        document.getElementById("study").checked = true;
+    }
+
+    //대면, 비대면 필터 클릭 시, 이동
+    const allButton = document.getElementById("all2-label")
+    const studyButton = document.getElementById("study-label")
+    const projectButton = document.getElementById("project-label")
+    allButton.addEventListener("click", ()=>{
+        studyOnline = '';
+        location.href = "http://localhost:10000/?studyComplete=" + studyComplete + "&studyTopic=" + studyTopic + "&studyOnline=" + studyOnline;
+    })
+    studyButton.addEventListener("click", ()=>{
+        studyOnline = true;
+        location.href = "http://localhost:10000/?studyComplete=" + studyComplete + "&studyTopic=" + studyTopic + "&studyOnline=" + studyOnline;
+    })
+    projectButton.addEventListener("click", ()=>{
+        studyOnline = false;
+        location.href = "http://localhost:10000/?studyComplete=" + studyComplete + "&studyTopic=" + studyTopic + "&studyOnline=" + studyOnline;
+    })
+
+
+
+
+    // 스터디 완료된 그룹들만 나열
+    let completeCheckButton = document.getElementById("complete-check-button");
+    let completeCheckButtonCircle = document.getElementById("complete-check-button-circle");
+    let completeCheck = document.getElementById("complete-check");
+
+    if(studyComplete) {
+        completeCheckButtonCircle.style.transform = "translate(-20px)";
+        completeCheckButton.style.backgroundColor = "#c1cbd8";
+        completeCheck.checked = false;
+    }
+
+    completeCheckButton.addEventListener("click", () => {
+        if(completeCheck.checked) {
+            completeCheckButtonCircle.style.transform = "translate(-20px)";
+            completeCheckButton.style.backgroundColor = "#c1cbd8";
+            completeCheck.checked = false;
+            studyComplete = true;
+            location.href = "http://localhost:10000/?studyComplete=" + studyComplete + "&studyTopic=" + studyTopic + "&studyOnline=" + studyOnline;
+        } else {
+            completeCheckButtonCircle.style.transform = "translate(0)";
+            completeCheckButton.style.backgroundColor = "#1a4568";
+            completeCheck.checked = true;
+            studyComplete = false;
+            location.href = "http://localhost:10000/?studyComplete=" + studyComplete + "&studyTopic=" + studyTopic + "&studyOnline=" + studyOnline;
+        }
+    })
+</script>
 </body>
 </html>
