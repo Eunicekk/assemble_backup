@@ -31,7 +31,7 @@ public class StudyController {
         HttpSession session = request.getSession();
         UserVO user = null;
         if(session != null) {
-            user = (UserVO)session.getAttribute("user");
+            user = (UserVO)session.getAttribute("userVO");
         }
         return user;
     }
@@ -51,9 +51,7 @@ public class StudyController {
     // 해당 유저가 가입 되어 있는 스터디 목록
     @GetMapping("/study")
     public String getStudyListByUserId(Model model, HttpServletRequest request) {
-//        UserVO sessionUser = getSessionUser(request);
-        UserVO sessionUser = new UserVO();
-        sessionUser.setUserId("id");
+        UserVO sessionUser = getSessionUser(request);
         if(sessionUser == null) return "/login";
         model.addAttribute("studyList", joinStudyService.studyList(sessionUser.getUserId()));
         model.addAttribute("userVO", sessionUser);
@@ -80,9 +78,7 @@ public class StudyController {
     // 스터디 생성 페이지 이동
     @GetMapping("/study/add")
     public String add(StudyVO studyVO, UserVO userVO, HttpServletRequest request, Model model) {
-//        UserVO sessionUser = getSessionUser(request);
-        UserVO sessionUser = new UserVO();
-        sessionUser.setUserId("id");
+        UserVO sessionUser = getSessionUser(request);
         if(sessionUser == null) return "/login";
         model.addAttribute("userVO", sessionUser);
         return "/study/addGroupPost";
