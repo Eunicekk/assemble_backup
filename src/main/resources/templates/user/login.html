@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>assemble</title>
@@ -49,7 +49,7 @@
                 <span class="material-symbols-rounded icon03">
                     person
                 </span>
-                    <input type="text" placeholder="아이디" id="id-input" th:object="${userId}">
+                    <input type="text" placeholder="아이디" id="id-input" th:field="*{userId}">
                 </div>
             </label>
             <label>
@@ -57,7 +57,7 @@
                 <span class="material-symbols-outlined icon04">
                     lock
                 </span>
-                    <input type="password" placeholder="비밀번호" id="pw-input" th:object="${userPassword}">
+                    <input type="password" placeholder="비밀번호" id="pw-input" th:field="*{userPassword}">
                 </div>
             </label>
 <!--            오류 메세지 삽입-->

@@ -6,8 +6,8 @@
     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/header.css">
-    <script src="/js/index.js" defer></script>
-    <script src="/js/header.js" defer></script>
+    <script th:src="@{/js/index.js}" defer></script>
+    <script th:src="@{/js/header.js}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -53,7 +53,7 @@
                     <a href="">내 작성글</a>
                     <a href="">내 관심글</a>
                     <a href="">설정</a>
-                    <a href="">로그아웃</a>
+                    <a href="/logout">로그아웃</a>
                 </div>
                 <input type="checkbox" id="my-menu-check" hidden>
                 <div th:unless="${userVO}">
@@ -114,23 +114,13 @@
     </div>
 </div>
 <!--주제-->
-<div id="topic">
+<div id="topic" th:object="${studyDTO}">
     <div id="topic-search">
 <!--        주제 필터링-->
         <div id="topic-radio">
-            <input type="radio" id="popular" name="topic-radio" value="popular" checked>
+            <input type="radio" id="popular" name="topic-radio" value="popular">
             <label for="popular">인기</label>
-            <input type="radio" id="language" name="topic-radio" value="language">
-            <label for="language">어학</label>
-            <input type="radio" id="employment" name="topic-radio" value="employment">
-            <label for="employment">취업</label>
-            <input type="radio" id="public" name="topic-radio" value="public">
-            <label for="public">고시</label>
-            <input type="radio" id="hobby" name="topic-radio" value="hobby">
-            <label for="hobby">취미</label>
-            <input type="radio" id="programming" name="topic-radio" value="programming">
-            <label for="programming">프로그래밍</label>
-            <input type="radio" id="all" name="topic-radio" value=" ">
+            <input type="radio" id="all" name="topic-radio" value="filter-label" checked>
             <label for="all">모두</label>
         </div>
 <!--        검색-->
@@ -146,46 +136,20 @@
 
 <!--    주제에 따라서 내용 필터링-->
     <div id="filter">
-        <input type="checkbox" id="english" name="filter">
-        <label for="english" class="filter-label popular language">영어</label>
-        <input type="checkbox" id="japanese" name="filter">
-        <label for="japanese" class="filter-label popular language">일본어</label>
-        <input type="checkbox" id="chinese" name="filter">
-        <label for="chinese" class="filter-label popular language">중국어</label>
-        <input type="checkbox" id="french" name="filter">
-        <label for="french" class="filter-label language">프랑스어</label>
-        <input type="checkbox" id="cpa" name="filter">
-        <label for="cpa" class="filter-label public">CPA</label>
-        <input type="checkbox" id="psat" name="filter">
-        <label for="psat" class="filter-label public">PSAT</label>
-        <input type="checkbox" id="ncs" name="filter">
-        <label for="ncs" class="filter-label public">NCS</label>
-        <input type="checkbox" id="java" name="filter">
-        <label for="java" class="filter-label programming popular">Java</label>
-        <input type="checkbox" id="spring" name="filter">
-        <label for="spring" class="filter-label programming">Spring</label>
-        <input type="checkbox" id="flutter" name="filter">
-        <label for="flutter" class="filter-label programming">React.js</label>
-        <input type="checkbox" id="c" name="filter">
-        <label for="c" class="filter-label programming popular">C</label>
-        <input type="checkbox" id="psychological-test" name="filter">
-        <label for="psychological-test" class="filter-label hobby">심리테스트</label>
-        <input type="checkbox" id="basketball" name="filter">
-        <label for="basketball" class="filter-label hobby">농구</label>
-        <input type="checkbox" id="soccer" name="filter">
-        <label for="soccer" class="filter-label hobby">축구</label>
-        <input type="checkbox" id="book" name="filter">
-        <label for="book" class="filter-label hobby">책읽기</label>
-        <input type="checkbox" id="afpk" name="filter">
-        <label for="afpk" class="filter-label employment">AFPK</label>
-        <input type="checkbox" id="gsat" name="filter">
-        <label for="gsat" class="filter-label employment">GSAT</label>
-        <input type="checkbox" id="computer-use" name="filter">
-        <label for="computer-use" class="filter-label employment">컴퓨터활용능력</label>
-        <input type="checkbox" id="cover-letter" name="filter">
-        <label for="cover-letter" class="filter-label employment">자기소개서</label>
-        <input type="checkbox" id="interview" name="filter">
-        <label for="interview" class="filter-label employment">면접</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '어학', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="english" name="filter" value="어학">
+        <label for="english" class="filter-label">어학</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '자격증', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="japanese" name="filter" value="자격증">
+        <label for="japanese" class="filter-label">자격증</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '프로그래밍', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="chinese" name="filter" value="프로그래밍">
+        <label for="chinese" class="filter-label">프로그래밍</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '고시/공무원', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="french" name="filter" value="고시/공무원">
+        <label for="french" class="filter-label">고시/공무원</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '취미/교양', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="cpa" name="filter" value="취미/교양">
+        <label for="cpa" class="filter-label">취미/교양</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '자율', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="free" name="filter" value="자율">
+        <label for="free" class="filter-label public">자율</label>
+        <input type="checkbox" th:onclick="|location.href='@{/(topics = *{topics}, topics = '기타', studyOnline = *{studyOnline}, studyComplete = *{studyComplete})}'|" id="else" name="filter" value="기타">
+        <label for="else" class="filter-label">기타</label>
     </div>
 
 <!--    필터 조건들 리셋-->
@@ -455,6 +419,7 @@
     let studyOnline = [[${studyDTO.studyOnline}]]
     let studyTopic = [[${studyDTO.studyTopic}]]
     let studyComplete = [[${studyDTO.studyComplete}]]
+    let topics = [[${studyDTO.topics}]]
 
     if(studyTopic === null) {
         studyTopic = '';
@@ -514,6 +479,8 @@
     })
 
     // 필터링 시, 체크 상태 유지
+    let subjects = document.querySelectorAll("input[name=filter]");
+
     if(studyOnline === '') {
         document.getElementById("all2").checked = true;
     } else if(studyOnline === false) {
@@ -521,6 +488,29 @@
     } else {
         document.getElementById("study").checked = true;
     }
+
+    for(let i = 0; i < topics.length; i++) {
+        for(let j = 0; j < subjects.length; j++) {
+            if(topics[i] === subjects[j].value) {
+                subjects[j].checked = true;
+            }
+        }
+    }
+    console.log($("input[name=filter]:checked").length)
+
+    if ($("input[name=filter]:checked").length !== 0) {
+        $(".filter-label").each(function () {
+            this.style.opacity = "0.3";
+        })
+        $("input[name=filter]:checked + label").each(function () {
+            this.style.opacity = "1"
+        })
+    } else {
+        $(".filter-label").each(function () {
+            this.style.opacity = "1";
+        })
+    }
+
 
     //대면, 비대면 필터 클릭 시, 이동
     const allButton = document.getElementById("all2-label")

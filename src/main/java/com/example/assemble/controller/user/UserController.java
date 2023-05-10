@@ -42,9 +42,10 @@ public class UserController {
     public RedirectView login(UserVO userVO, Model model, HttpServletRequest request) {
         boolean userCheck = true;
         HttpSession session = request.getSession();
-        model.addAttribute("userCheck", userCheck);
-        String userId = userVO.getUserId();
-        session.setAttribute("userId", userId);
+        if(userService.login(userVO)) {
+            userVO = userService.findUserById(userVO.getUserId());
+        }
+        session.setAttribute("userVO", userVO);
         return new RedirectView("/");
     }
 
