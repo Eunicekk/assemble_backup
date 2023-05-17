@@ -29,4 +29,9 @@ public class UserDAO {
     public UserVO findUserById(String userId){
         return userMapper.selectUserById(userId);
     }
+
+    public UserVO getUserVOById(String userId) {
+        return userMapper.selectById(userId);
+    }
+
 }

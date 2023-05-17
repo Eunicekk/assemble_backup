@@ -17,4 +17,5 @@ public interface UserMapper {
     // 아이디로 정보조회
     public UserVO selectUserById(String userId);
 
+    public UserVO selectById(String userId);
 }
