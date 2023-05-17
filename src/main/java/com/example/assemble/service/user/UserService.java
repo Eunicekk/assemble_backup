@@ -14,4 +14,6 @@ public interface UserService {
 
     // 아이디로 정보조회
     public UserVO findUserById(String userId);
+
+    public UserVO getUserVOById(String userId);
 }

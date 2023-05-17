@@ -30,4 +30,8 @@ public class UserDAO {
         return userMapper.selectUserById(userId);
     }
 
+    public UserVO getUserVOById(String userId) {
+        return userMapper.selectById(userId);
+    }
+
 }
