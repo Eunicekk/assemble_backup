@@ -16,7 +16,7 @@ body{
     width: 240px;
     height: 72px;
     display: flex;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .textForm>input{

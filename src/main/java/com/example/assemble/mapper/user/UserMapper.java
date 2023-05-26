@@ -17,4 +17,12 @@ public interface UserMapper {
     // 아이디로 정보조회
     public UserVO selectUserById(String userId);
 
+    public UserVO selectById(String userId);
+
+    // 비밀번호 조회
+    public String selectPassword(String userId);
+
+    // 아아디 중복 검사
+    public int checkId(String userId);
+
 }

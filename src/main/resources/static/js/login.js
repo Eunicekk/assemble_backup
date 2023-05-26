@@ -62,6 +62,16 @@ $loginPwInput.on('blur', function(){
     $loginPwDiv.css('border', '1px solid #dadada');
 })
 
+// 로그인 확인
+function loginCheck(data) {
+    if(data) {
+        console.log("success");
+        $("#login-form").submit();
+    } else {
+        $errorMsg.text("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
+    }
+}
+
 // 아이디 혹은 비밀번호가 입력되지 않은 상태로 로그인 버튼을 누를 경우 경고 문구 노출
 $loginBtn.on('click', function(){
     if($loginIdInput.val() == ''){
@@ -69,6 +79,45 @@ $loginBtn.on('click', function(){
     }else if($loginPwInput.val() == ''){
         $errorMsg.text("비밀번호를 입력해 주세요.");
     }else{
-        $errorMsg.text("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/check/login', // 로그인 체크 API 엔드포인트
+        //     data: {
+        //         id: $loginIdInput.val(),
+        //         password: $loginPwInput.val()
+        //     },
+        //     success: loginCheck,
+        //     error: function(xhr, status, error) {
+        //         console.log(this.data);
+        //         // AJAX 요청 실패 시 처리
+        //         console.log(xhr.responseText); // 서버로부터 받은 응답 내용 출력
+        //         console.log(error); // 발생한 오류 출력
+        //         alert('서버 오류가 발생했습니다.');
+        //     }
+        // });
     }
-})
+});
+
+// $loginBtn.on('click', function(){
+//     if($loginIdInput.val() == ''){
+//         $errorMsg.text("아이디를 입력해 주세요.");
+//     }else if($loginPwInput.val() == ''){
+//         $errorMsg.text("비밀번호를 입력해 주세요.");
+//     }else{
+//         $.ajax({
+//             type: 'POST',
+//             url: '/check/login', // 로그인 체크 API 엔드포인트
+//             data: JSON.stringify({
+//                 userId: $loginIdInput.val(),
+//                 password: $loginPwInput.val()
+//             }),
+//             contentType: 'application/json',
+//             success: loginCheck,
+//             error: function(xhr, status, error) {
+//                 console.log(xhr.responseText); // 서버로부터 받은 응답 내용 출력
+//                 console.log(error); // 발생한 오류 출력
+//                 alert('서버 오류가 발생했습니다.');
+//             }
+//         });
+//     }
+// });

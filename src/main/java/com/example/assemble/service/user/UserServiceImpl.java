@@ -15,26 +15,34 @@ public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
 
     // 회원가입
-    @Override
     public void signup(UserVO userVO){
         userDAO.setUserVO(userVO);
     }
 
     // 로그인
-    @Override
     public boolean login(UserVO userVO){
         return (userDAO.getUserVO(userVO) != null) ? true : false;
     }
 
     // 계정찾기
-    @Override
     public UserVO findUser(UserVO userVO){
         return userDAO.findUserVO(userVO);
     }
 
     // 아이디로 정보조회
-    @Override
     public UserVO findUserById(String userId){
         return userDAO.findUserById(userId);
+    }
+
+    public UserVO getUserVOById(String userId) {return userDAO.getUserVOById(userId);}
+
+    // 비밀번호 조회
+    public String findPassword(String userId){
+        return userDAO.findPassword(userId);
+    }
+
+    // 아이디 중복검사
+    public boolean checkId(String userId) {
+        return (userDAO.checkId(userId) < 1) ? true : false;
     }
 }

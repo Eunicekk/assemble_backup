@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
-    <link href="/css/signUp.css" rel="stylesheet">
+    <link href="/css/user/signUp.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/reset.css">
-    <link href="/css/tag.css " rel="stylesheet">
+    <link href="/css/user/tag.css " rel="stylesheet">
     <script src="/js/selectTag.js"></script>
 </head>
 <body>
@@ -17,14 +17,17 @@
                 <label>아이디</label>
                 <input name="loginId" type="text" class="id" placeholder="아이디" th:field="*{userId}">
                 <input type="button" id="id_check" value="중복확인">
+                <p class="error-msg-01"></p>
             </div>
             <div class="textForm">  <!-- 비밀번호 !-->
                 <label>비밀번호</label>
                 <input name="loginPw" type="password" class="pw" placeholder="비밀번호" th:field="*{userPassword}">
+                <p class="error-msg-02"></p>
             </div>
             <div class="textForm">  <!-- 비밀번호 확인 !-->
                 <label>비밀번호 재확인</label>
                 <input name="loginPwConfirm" type="password" class="pw_check" placeholder="비밀번호확인">
+                <p class="error-msg-03"></p>
             </div>
             <div class="textForm">  <!-- 이메일 !-->
                 <label>본인 확인 이메일</label>
@@ -32,17 +35,18 @@
             </div>
             <div class="textForm">  <!-- 이름 !-->
                 <label>이름</label>
-                <input name="name" type="text" class="name" placeholder="이름" th:field="*{userName}"
+                <input name="name" type="text" class="name" placeholder="이름" th:field="*{userName}">
             </div>
             <div class="textForm">  <!-- 닉네임 !-->
                 <label>닉네임</label>
                 <input name="nickname" type="text" class="nickname" placeholder="닉네임" th:field="*{userNickname}">
+                <p class="error-msg-04"></p>
             </div>
             <!--<div class="textForm">  &lt;!&ndash; 번호 !&ndash;&gt;
                 <label>휴대전화</label>
                 <input name="cellphoneNo" type="tel" class="cellphoneNo" placeholder="전화번호">
             </div>-->
-            <div class="tag">
+            <!--<div class="tag">
                 <label>관심태그</label>
                 <form>
                     <select
@@ -86,7 +90,7 @@
                         </optgroup>
                     </select>
                 </form>
-            </div>
+            </div>-->
             <input type="submit" class="signup_btn" value="가입하기"/>
         </div>
     </form>
@@ -99,4 +103,6 @@
         enable_search: false
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/signup.js"></script>
 </html>
