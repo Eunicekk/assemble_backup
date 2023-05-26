@@ -27,4 +27,19 @@
         FROM T_USER
         WHERE USER_ID = #{userId}
     </select>
+
+    <!-- 비밀번호 조회 -->
+    <select id="selectPassword" resultType="String">
+        SELECT USER_PASSWORD
+        FROM T_USER
+        WHERE USER_ID = #{userId}
+    </select>
+
+    <!-- 아이디 중복검사 -->
+    <select id="checkId" resultType="_int">
+        SELECT COUNT(USER_ID)
+        FROM T_USER
+        WHERE USER_ID = #{userId}
+    </select>
+
 </mapper>

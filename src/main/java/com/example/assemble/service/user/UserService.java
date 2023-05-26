@@ -16,4 +16,10 @@ public interface UserService {
     public UserVO findUserById(String userId);
 
     public UserVO getUserVOById(String userId);
+
+    // 비밀번호 조회
+    public String findPassword(String userId);
+
+    // 아이디 중복검사
+    public boolean checkId(String userId);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>assemble</title>
@@ -7,7 +7,7 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="/css/findUser.css">
+    <link rel="stylesheet" href="/css/user/findUser.css">
     <link rel="stylesheet" href="/css/reset.css">
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
 </head>
@@ -25,13 +25,13 @@
 
 <!--계정찾기 폼-->
 <section class="member-find">
-    <form action="/findUser" method="post" >
+    <form id="find-form" action="/checkUser" method="post" th:object="${userVO}">
         <label>
             <div class="find-id">
                     <span class="material-symbols-rounded">
                         person
                     </span>
-                <input type="text" placeholder="이름" id="name-input">
+                <input type="text" placeholder="이름" id="name-input" th:field="*{userName}">
             </div>
         </label>
         <label>
@@ -39,13 +39,13 @@
                     <span class="material-symbols-outlined">
                         mail
                     </span>
-                <input type="email" placeholder="이메일 주소" id="email-input">
+                <input type="email" placeholder="이메일 주소" id="email-input" th:field="*{userEmail}">
             </div>
         </label>
         <p class="find-error">해당 회원 정보가 존재하지 않습니다.</p>
         <p class="name-error">이름을 입력해 주세요.</p>
         <p class="email-error">이메일을 입력해 주세요.</p>
-        <button type="submit">계정찾기</button>
+        <button type="button">계정찾기</button>
     </form>
 </section>
 

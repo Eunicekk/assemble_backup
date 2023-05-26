@@ -40,12 +40,11 @@ public class UserController {
 
     @PostMapping("/login")
     public RedirectView login(UserVO userVO, Model model, HttpServletRequest request) {
-        boolean userCheck = true;
         HttpSession session = request.getSession();
         if(userService.login(userVO)) {
             userVO = userService.findUserById(userVO.getUserId());
+            session.setAttribute("userVO", userVO);
         }
-        session.setAttribute("userVO", userVO);
         return new RedirectView("/");
     }
 
@@ -56,12 +55,13 @@ public class UserController {
         return new RedirectView("/");
     }
 
-    @GetMapping("/findAccount")
-    public void findUser (Model model){
+    @GetMapping("/findUser")
+    public String findUser (Model model, UserVO userVO){
+        return "/user/findUser";
     }
 
     @PostMapping("/findUser")
-    public void findUser (Model model, UserVO userVO){
+    public String checkUser (Model model, UserVO userVO){
         UserVO findUserVO = userService.findUser(userVO);
         model.addAttribute("user", userService.findUser(userVO));
 
@@ -105,17 +105,16 @@ public class UserController {
 
             // Text
             String emailContent = userName + "님의 아이디와 패스워드를 알려드립니다.\n\n";
-            emailContent += "아이: " + userId + "\n";
+            emailContent += "아이디: " + userId + "\n";
             emailContent += "패스워드: " + userPassword + "\n";
             message.setText(emailContent);
 
             Transport.send(message);    // send message
-
-
         } catch (AddressException e) {
             e.printStackTrace();
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+        return "/user/checkUser";
     }
 }
