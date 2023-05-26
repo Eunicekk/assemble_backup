@@ -51,8 +51,6 @@ let topic = document.querySelectorAll("input[name=topic-radio]");
 let subject = document.querySelectorAll("input[name=filter]");
 let label = document.getElementsByClassName("filter-label");
 
-
-
 if(!subject.values()) {
     for(let k = 0; k < subject.length; k++) {
         label[k].style.opacity = "1";
@@ -61,6 +59,14 @@ if(!subject.values()) {
 
 for(let j = 0; j < label.length; j++) {
     if(label[j].className.indexOf("pop") !== -1) {
+        label[j].style.display = "initial";
+    } else {
+        label[j].style.display = "none";
+    }
+}
+let topicValue = $("input[name=topic-radio]:checked").val();
+for(let j = 0; j < label.length; j++) {
+    if(label[j].className.indexOf(topicValue) !== -1) {
         label[j].style.display = "initial";
     } else {
         label[j].style.display = "none";
@@ -79,33 +85,11 @@ for(let i = 0; i < topic.length; i++) {
         }
     })
 }
-$(".filter-label").each(function () {
-    this.style.opacity = "1";
-})
-for(let i = 0; i < subject.length; i++) {
-    subject[i].addEventListener("click", () => {
-        if($("input[name=filter]:checked").length === 0) {
-            $(".filter-label").each(function () {
-                this.style.opacity = "1";
-            })
-        } else {
-            $(".filter-label").each(function () {
-                this.style.opacity = "0.3";
-            })
-            $("input[name=filter]:checked + label").each(function () {
-                this.style.opacity = "1"
-            })
-        }
-    })
-}
 
 
 
 
-
-
-console.log(5)
-
+// 검색 클릭 시 검색 입력창 표시
 let searchButton = document.getElementById("search-button");
 let searchInput = document.getElementById("search-input");
 

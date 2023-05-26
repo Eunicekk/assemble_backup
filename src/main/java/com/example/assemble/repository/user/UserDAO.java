@@ -43,5 +43,4 @@ public class UserDAO {
     public int checkId(String userId){
         return userMapper.checkId(userId);
     }
-
 }

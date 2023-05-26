@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Data
 @NoArgsConstructor
@@ -21,6 +23,7 @@ public class StudyDTO {
     private String studyRecruitment;
     private String studyRegisterDate;
     private String studyUpdateDate;
+    private String[] topics;
     private Integer page = 1;
 
 

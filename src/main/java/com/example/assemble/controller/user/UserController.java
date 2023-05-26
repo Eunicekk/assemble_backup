@@ -71,6 +71,8 @@ public class UserController {
         String userPassword = findUserVO.getUserPassword();
 
         // 1. 발신자의 메일 계정과 비밀번호 설정
+        final String user = "aaa@gmail.com";
+        final String password = "1234";
 
         // 2. Property에 SMTP 서버 정보 설정
         Properties prop = new Properties();
@@ -115,6 +117,4 @@ public class UserController {
         }
         return "/user/checkUser";
     }
-
-
 }
