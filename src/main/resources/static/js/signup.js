@@ -15,7 +15,7 @@ $('#id_check').on('click', function(){
         type: 'GET',
         url: '/check/checkId',
         data: {
-            id: $id.val()
+            userId: $id.val()
         },
         success: idCheck,
         error: function(xhr, status, error) {
@@ -36,3 +36,9 @@ function idCheck(data){
         $msg01.text("이미 존재하는 아이디입니다.");
     }
 }
+
+// if($pw.val() === $pw_check.val()) {
+//     $msg03.text("비밀번호가 일치합니다.");
+// }else{
+//     $msg03.text("비밀번호가 일치하지 않습니다.");
+// }
