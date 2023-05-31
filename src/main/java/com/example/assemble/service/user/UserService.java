@@ -22,4 +22,7 @@ public interface UserService {
 
     // 아이디 중복검사
     public boolean checkId(String userId);
+
+    // 닉네임 중복검사
+    public boolean checkNickname(String userNickname);
 }

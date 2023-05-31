@@ -18,20 +18,15 @@ public class UserRestController {
         return userService.checkId(userId);
     }
 
+    @GetMapping("/check/checkNickname")
+    public Boolean checkNickname(@RequestParam("userNickname")String userNickname){
+        return userService.checkNickname(userNickname);
+    }
+
     @PostMapping("/check/login")
     public Boolean login(UserVO userVO){
         Boolean check = userService.login(userVO);
         return check;
     }
 
-//    @PostMapping("/check/login")
-//    public ResponseEntity<String> login(@RequestBody UserVO userVO) {
-//        boolean loginSuccess = userService.login(userVO);
-//
-//        if (loginSuccess) {
-//            return ResponseEntity.ok("로그인 성공");
-//        } else {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패");
-//        }
-//    }
 }

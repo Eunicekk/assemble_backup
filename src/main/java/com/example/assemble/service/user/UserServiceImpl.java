@@ -45,4 +45,9 @@ public class UserServiceImpl implements UserService {
     public boolean checkId(String userId) {
         return (userDAO.checkId(userId) < 1) ? true : false;
     }
+
+    // 닉네임 중복검사
+    public boolean checkNickname(String userNickname){
+        return (userDAO.checkNickname(userNickname) < 1) ? true : false;
+    }
 }

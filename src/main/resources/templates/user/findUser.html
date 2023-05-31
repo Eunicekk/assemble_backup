@@ -25,7 +25,7 @@
 
 <!--계정찾기 폼-->
 <section class="member-find">
-    <form id="find-form" action="/checkUser" method="post" th:object="${userVO}">
+    <form id="find-form" action="/findUser" method="post" th:object="${userVO}">
         <label>
             <div class="find-id">
                     <span class="material-symbols-rounded">
@@ -45,7 +45,7 @@
         <p class="find-error">해당 회원 정보가 존재하지 않습니다.</p>
         <p class="name-error">이름을 입력해 주세요.</p>
         <p class="email-error">이메일을 입력해 주세요.</p>
-        <button type="button">계정찾기</button>
+        <button type="submit">계정찾기</button>
     </form>
 </section>
 
