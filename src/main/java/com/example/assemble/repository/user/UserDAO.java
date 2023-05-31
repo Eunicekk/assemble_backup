@@ -44,8 +44,12 @@ public class UserDAO {
         return userMapper.checkId(userId);
     }
 
+
     // 닉네임 중복검사
     public int checkNickname(String userNickname){
         return userMapper.checkNickname(userNickname);
     }
+
+    public void updateUserInfo(UserVO userVO){userMapper.updateUser(userVO);}
+
 }
