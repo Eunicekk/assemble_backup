@@ -21,7 +21,7 @@ body{
 
 .textForm>input{
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 10px;
     width: 100%;
     padding: 14px 17px 13px 17px;
@@ -43,6 +43,12 @@ body{
     border: none;
     padding: 13px 0;
     border-radius: 6px;
-    width: 100%;
+    width: 475.6px;
     height: 50px;
+}
+
+.error-msg-01, .error-msg-02, .error-msg-03, .error-msg-04{
+    font-size: 12px;
+    color: #ff0000;
+    margin-bottom: 18px;
 }

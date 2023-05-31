@@ -43,4 +43,9 @@ public class UserDAO {
     public int checkId(String userId){
         return userMapper.checkId(userId);
     }
+
+    // 닉네임 중복검사
+    public int checkNickname(String userNickname){
+        return userMapper.checkNickname(userNickname);
+    }
 }
