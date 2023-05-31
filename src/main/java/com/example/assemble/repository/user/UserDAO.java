@@ -43,4 +43,6 @@ public class UserDAO {
     public int checkId(String userId){
         return userMapper.checkId(userId);
     }
+
+    public void updateUserInfo(UserVO userVO){userMapper.updateUser(userVO);}
 }

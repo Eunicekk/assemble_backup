@@ -45,4 +45,7 @@ public class UserServiceImpl implements UserService {
     public boolean checkId(String userId) {
         return (userDAO.checkId(userId) < 1) ? true : false;
     }
+
+    @Override
+    public void updateInfo(UserVO userVO){userDAO.updateUserInfo(userVO);}
 }

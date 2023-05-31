@@ -2,175 +2,358 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/user/myPage.css">
+    <!--    <script type="text/javascript" src="/javascript/myPage.js"></script>-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/js/myPage.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <title>마이페이지</title>
-    <link href="../../static/css/reset.css" rel="stylesheet">
-    <link href="../../static/css/user/myPage.css" rel="stylesheet">
-    <link href="../../static/css/user/tag.css " rel="stylesheet">
-    <script src="../../static/js/selectTag.js"></script>
-    <script th:src="@{/js/header.js}" defer></script>
 </head>
 <body>
-<header>
-    <nav>
-        <a href="/"><img src="/image/logo.png" width="240px" alt="assemble"></a>
-        <div id="menu">
-            <a href="">커뮤니티</a>
-            <a href="/study">스터디</a>
-        </div>
-        <div>
-            <a href="/study/add">스터디 만들기</a>
-            <!--            알림 버튼-->
-            <div>
-                <button id="notification-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-                    </svg>
-                </button>
-                <div id="notification-box">
-                    <div>
-                        <h1>읽지 않은 알림 (0)</h1>
-                        <button id="notification-box-close-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+<!--<header include-html="../../templates/mainPageHtml/header.html"></header>-->
+<div class="main">
+    <div class="main_top_margin">
+        <div class="main_without_margin">
+            <aside class="menu_bar">
+                <h2>내 계정</h2>
+                <div class="menu">
+                    <!--https://iconmonstr.com/ 사용 -->
+                    <ul>
+                        <!--<li id="link_1"><img src="../../img/account.svg"></img><span>회원 정보</span></li> -->
+                        <li id = "link_1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="text-gray-600 dark:text-gray-400 -ml-1 mr-3 h-6 w-6 shrink-0 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
-                        </button>
-                    </div>
-                    <p>알림함이 비어있습니다.</p>
+                            <span>회원정보</span>
+                        </li>
+                    </ul>
                 </div>
-                <input type="checkbox" id="notification-check" hidden>
-            </div>
-            <!--            내 정보 메뉴 버튼-->
-            <div>
-                <button id="my-menu-button" th:if="${userVO}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-                    </svg>
-                </button>
-                <div id="my-menu-box">
-                    <a href="">내 작성글</a>
-                    <a href="">내 관심글</a>
-                    <a href="">설정</a>
-                    <a href="/logout">로그아웃</a>
-                </div>
-                <input type="checkbox" id="my-menu-check" hidden>
-                <div th:unless="${userVO}">
-                    <a href="/login" id="login">로그인</a>
-                    <a href="/signup" id="signup">회원가입</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<div class="container">
-    <div class="my_profile">
-        <h2>내 프로필</h2>
-        <div class="myBox">
-            <!-- 수정이 가능한 부분(사진,닉네임,비밀번호,관심기술)-->
-            <div class="variable">
-                <div class="contents">
-                    <div class="profile-img">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png">
-                        <div class="img-button">
-                            <input type="button" value="이미지 선택">
-                            <input type="button" value="이미지 제거">
+            </aside>
+            <div class="content">
+                <!-- 계정관리 화면 -->
+                <div class="tabpage" id="tabpage_1">
+                    <form id="user_info" th:action="@{/myPage}" th:object="${userVO}" method="post" enctype="multipart/form-data">
+                        <div class="info">
+                            <h2>회원정보</h2>
+                            <div class="info_word">
+                                <div class="essentialInfo">
+                                    <div class="name">
+                                        <label for="username" class="username">이름</label>
+                                        <div class="name_enter">
+                                            <input type="text" id="username" th:field="*{userName}">
+                                        </div>
+                                    </div>
+                                    <div class="empty-name"></div>
+                                    <div class="nickname">
+                                        <label for="userNickname" class="userNickname">닉네임</label>
+                                        <div class="nickname_enter">
+                                            <input type="text" id="userNickname" th:field="*{userNickname}">
+                                        </div>
+                                    </div>
+                                    <div class="empty-nickname"></div>
+                                    <div class="nationality">
+                                        <div class="usernationality">국적</div>
+                                        <div class="nationality_enter">
+                                            <select id="usernationality" th:field="*{userNation}">
+                                                <option value="China">중국</option>
+                                                <option value="Vietnam">베트남</option>
+                                                <option value="Thailand">태국</option>
+                                                <option value="Usa">미국</option>
+                                                <option value="한국">한국</option>
+                                                <option value="Uzbekistan">우즈베키스탄</option>
+                                                <option value="Philippine">필리핀</option>
+                                                <option value="Japan">일본</option>
+                                                <option value="other">기타</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile">
+                                    <label id="profile-label" for="picture">
+                                        <img class="profile-img" src="/img/account.png" alt="" th:if="*{userProfile == null}">
+                                        <img class="profile-img" th:src="@{/file/display(userProfile = *{userProfile})}" alt="" th:unless="*{userProfile == null}">
+                                        <input type="hidden" id="profile-path" th:field="*{userProfile}">
+                                        <p id="profile-text">변경</p>
+                                    </label>
+                                    <input type="file" id="picture">
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="optionalInfo">
+                            <div class="age">
+                                <label for="userage" class="userage">나이 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>비공개</span></label>
+                                <div class="age_enter">
+                                    <input type="text" id="userage" th:field="*{userAge}">
+                                    <div class="btn">
+                                        <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()" th:field="*{userAgeCheck}">
+                                        <label for="toggle-slide1">
+                                            <span class="onf_btn1"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-agree">
+                            <div class="email-agree2">
+                                <div class="agree">
+                                    <h2>이메일 수신동의</h2>
+                                    <p>assemble 에서 주최하는 다양한 이벤트, 정보성 뉴스레터 및 광고 수신여부를 설정할 수 있습니다.</p>
+                                </div>
+                                <div class="marketing-agree">
+                                    <div>
+                                        <div class="marketing-info">
+                                            <p class="p-m1">뉴스레터 및 마케팅 메일 수신</p>
+                                            <p class="p-m2">유저가 만드는 다양한 컨텐츠를 뉴스레터로 받습니다.</p>
+                                        </div>
+                                        <div class="marketing-btn">
+                                            <input type="checkbox" id="toggle-slide3" onclick="checkSlide3()">
+                                            <label for="toggle-slide3">
+                                                <span class="onf_btn3"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" th:field="*{userId}">
+                            <div class="submit-div">
+                                <button type="submit" id="infoSubmit">저장</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="contents">
-                    <p>
-                        <label>닉네임</label>
-                        <input type="text" placeholder="원래아이디">
-                    </p>
-                </div>
-
-            </div>
-            <!-- 수정이 불가능한 부분(아이디,이름,번호)-->
-            <div class="immutability">
-                <div class="contents">
-                    <label>아이디</label>
-                    <span>아이디</span>
-                </div>
-                <div class="contents">
-                    <label>이름</label>
-                    <span>이름</span>
-                </div>
-                <div class="contents">
-                    <label>번호</label>
-                    <spanp>번호</spanp>
-                </div>
-            </div>
-            <input type="button" value="수정하기">
-        </div>
-    </div>
-    <div>
-        <div class="my_list">
-            <h2>내 게시글</h2>
-            <div class="myBox">
-                <p id="none-post">😢 보여드릴 내용이 없어요<br>
-                    게시글을 올려보세요</p>
-            </div>
-        </div>
-        <div class="my_scrap">
-            <h2>내 스크랩</h2>
-            <div class="myBox">
-                <p id="none-script">😢 보여드릴 내용이 없어요<br>
-                    관심가는 게시글을 모아보세요</p>
             </div>
         </div>
     </div>
 </div>
 </body>
 <script>
-    var select = document.getElementById("tag_select");
-    multi(select, {
-        enable_search: false
-    });
+    includeHTML();
 </script>
+<script th:inline="javascript">
+
+
+    $("input[type=file]").on("change", function () {
+        let formData = new FormData();
+        formData.append("upload", $(this)[0].files[0]);
+        console.log($(this)[0].files[0]);
+        $.ajax({
+            type: "post",
+            url: "/file/upload",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: showUploadResult
+        })
+    })
+
+    function showUploadResult(userProfile) {
+        $($(".profile-img")[0]).attr("src", "/file/display?userProfile=" + userProfile);
+
+        $("#profile-path").val(userProfile);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let userAge = [[${userVO.userAge}]];
+    if(!userAge){
+        document.getElementById("userage").value = "";
+    }
+
+    let userResidence =[[${userVO.userResidence}]];
+    if(!userResidence){
+        document.getElementById("userlivingplace").value = "";
+    }
+
+    let userAgeCheck = [[${userVO.userAgeCheck}]]
+    console.log(userAgeCheck);
+    if(userAgeCheck == false){
+        document.querySelector("#toggle-slide1").checked = false;
+        document.querySelector(".userage span").innerText = "비공개";
+        document.querySelector(".userage span").style.color = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide1]").style.borderColor = "#e5e7eb";
+        document.querySelector(".onf_btn1").style.left = "0px";
+    }else{
+        document.querySelector("#toggle-slide1").checked = true;
+        document.querySelector(".userage span").innerText = "공개";
+        document.querySelector(".userage span").style.color = "#8BC34A";
+        document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#8BC34A";
+        document.querySelector("label[for=toggle-slide1]").style.borderColor = "#8BC34A";
+        document.querySelector(".onf_btn1").style.left = "20px";
+    }
+
+    function checkSlide1(){
+        if(document.querySelector("#toggle-slide1").checked){
+            document.querySelector(".userage span").innerText = "공개";
+            document.querySelector(".userage span").style.color = "#8BC34A";
+            document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#8BC34A";
+            document.querySelector("label[for=toggle-slide1]").style.borderColor = "#8BC34A";
+            document.querySelector(".onf_btn1").style.left = "20px";
+
+        }else{
+            document.querySelector(".userage span").innerText = "비공개";
+            document.querySelector(".userage span").style.color = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide1]").style.borderColor = "#e5e7eb";
+            document.querySelector(".onf_btn1").style.left = "0px";
+        }
+    }
+
+    let userResidenceCheck = [[${userVO.userResidenceCheck}]]
+    console.log(userResidenceCheck);
+    if(userResidenceCheck == false){
+        document.querySelector("#toggle-slide2").checked = false;
+        document.querySelector(".userlivingplace span").innerText = "비공개";
+        document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide2]").style.borderColor = "#e5e7eb";
+        document.querySelector(".onf_btn2").style.left = "0px";
+    }else{
+        document.querySelector("#toggle-slide2").checked = true;
+        document.querySelector(".userlivingplace span").innerText = "공개";
+        document.querySelector(".userlivingplace span").style.color = "#8BC34A";
+        document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#8BC34A";
+        document.querySelector("label[for=toggle-slide2]").style.borderColor = "#8BC34A";
+        document.querySelector(".onf_btn2").style.left = "20px";
+    }
+
+    function checkSlide2(){
+        if(document.querySelector("#toggle-slide2").checked){
+            document.querySelector(".userlivingplace span").innerText = "공개";
+            document.querySelector(".userlivingplace span").style.color = "#8BC34A";
+            document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#8BC34A";
+            document.querySelector("label[for=toggle-slide2]").style.borderColor = "#8BC34A";
+            document.querySelector(".onf_btn2").style.left = "20px";
+
+        }else{
+            document.querySelector(".userlivingplace span").innerText = "비공개";
+            document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide2]").style.borderColor = "#e5e7eb";
+            document.querySelector(".onf_btn2").style.left = "0px";
+        }
+    }
+
+
+    let userEmailReceiveCheck = [[${userVO.userEmailReceiveCheck}]]
+    console.log(userEmailReceiveCheck);
+    if(userEmailRecieveCheck == false){
+        document.querySelector("#toggle-slide3").checked = false;
+        document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide3]").style.borderColor = "#e5e7eb";
+        document.querySelector(".onf_btn3").style.left = "0px";
+    }else{
+        document.querySelector("#toggle-slide3").checked = true;
+        document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#8BC34A";
+        document.querySelector("label[for=toggle-slide3]").style.borderColor = "#8BC34A";
+        document.querySelector(".onf_btn3").style.left = "20px";
+    }
+
+    function checkSlide3(){
+        if(document.querySelector("#toggle-slide3").checked){
+            document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#8BC34A";
+            document.querySelector("label[for=toggle-slide3]").style.borderColor = "#8BC34A";
+            document.querySelector(".onf_btn3").style.left = "20px";
+
+        }else{
+            document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide3]").style.borderColor = "#e5e7eb";
+            document.querySelector(".onf_btn3").style.left = "0px";
+        }
+    }
+
+    // 필수 정보 입력 여부
+
+    let changeName = null;
+    let changeNameCheck = 0;
+    let changeNickname = null;
+    let changeNicknameCheck = 0;
+    let nicknameDuplicate = false;
+
+    document.getElementById("username").addEventListener("change", function () {
+        changeName = document.getElementById("username").value;
+    })
+    document.getElementById("userNickname").addEventListener("change", function () {
+        changeNickname = document.getElementById("userNickname").value;
+    })
+
+    document.getElementById("infoSubmit").addEventListener("click",function (event) {
+
+        if(changeName != null && changeName.length == 0 && changeNameCheck == 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "empty-name-div";
+            div.innerText = "이름을 입력하지 않으셨습니다."
+            document.querySelector(".empty-name").append(div);
+            changeNameCheck++;
+        }else if(changeName != null && changeName.length == 0 && changeNameCheck != 0){
+            event.preventDefault();
+        }
+
+        if(changeNickname != null && changeNickname.length == 0 && changeNickname == 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "empty-nickname-div";
+            div.innerText = "닉네임을 입력하지 않으셨습니다."
+            document.querySelector(".empty-nickname").append(div);
+            changeNicknameCheck++;
+        }else if(changeNickname != null && changeNickname.length == 0 && changeNicknameCheck != 0){
+            event.preventDefault();
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+</script>
+<style>
+    #link_1{
+        background-color: #e5e7eb;
+    }
+    #link_5:hover{
+        background-color: #e5e7eb;
+    }
+
+    #profile-label {
+        cursor: pointer;
+        position: relative;
+    }
+    #profile-label:hover {
+        filter: brightness(0.7);
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+
+    }
+    #profile-text {
+        position: absolute;
+        bottom: 30px;
+        right: 36px;
+    }
+</style>
 </html>
 
-<!--<div class="contents">-->
-<!--    <label>관심태그</label>-->
-<!--    <form>-->
-<!--        <select-->
-<!--                required-->
-<!--                multiple="multiple"-->
-<!--                name="intrest_tag"-->
-<!--                id="tag_select"-->
-<!--        >-->
-<!--            <optgroup label="백엔드">-->
-<!--                <option value="Java">Java</option>-->
-<!--                <option value="C">C</option>-->
-<!--                <option value="Python">Python</option>-->
-<!--                <option value="Nodejs">Nodejs</option>-->
-<!--                <option value="Spring">Spring</option>-->
-<!--                <option value="Kotlin">Kotlin</option>-->
-<!--                <option value="Express">Express</option>-->
-<!--                <option value="MySQL">MySQL</option>-->
-<!--                <option value="MongoDB">MongoDB</option>-->
-<!--                <option value="Django">Django</option>-->
-<!--                <option value="PHP">PHP</option>-->
-<!--                <option value="GraphQL">GrapQL</option>-->
-<!--                <option value="Firebase">Firebase</option>-->
-<!--            </optgroup>-->
-<!--            <optgroup label="프론트앤드">-->
-<!--                <option value="JavaScript">JavaScript</option>-->
-<!--                <option value="TypeScript">TypeScript</option>-->
-<!--                <option value="React">React</option>-->
-<!--                <option value="Vue">Vue</option>-->
-<!--                <option value="Svelte">Svelte</option>-->
-<!--                <option value="Nextjs">Nextjs</option>-->
-<!--            </optgroup>-->
-<!--            <optgroup label="기타">-->
-<!--                <option value="Flutter">Flutter</option>-->
-<!--                <option value="Swift">Swift</option>-->
-<!--                <option value="Unity">Unity</option>-->
-<!--                <option value="AWS">AWS</option>-->
-<!--                <option value="Docker">Docker</option>-->
-<!--                <option value="git">git</option>-->
-<!--                <option value="Figma">Figma</option>-->
-<!--                <option value="Jest">Jest</option>-->
-<!--            </optgroup>-->
-<!--        </select>-->
-<!--    </form>-->
-<!--</div>-->
