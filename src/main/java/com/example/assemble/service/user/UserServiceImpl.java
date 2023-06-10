@@ -46,13 +46,10 @@ public class UserServiceImpl implements UserService {
         return (userDAO.checkId(userId) < 1) ? true : false;
     }
 
-<<<<<<< HEAD
     // 닉네임 중복검사
     public boolean checkNickname(String userNickname){
         return (userDAO.checkNickname(userNickname) < 1) ? true : false;
     }
-=======
     @Override
     public void updateInfo(UserVO userVO){userDAO.updateUserInfo(userVO);}
->>>>>>> scrap
 }
