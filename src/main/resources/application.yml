@@ -12,3 +12,12 @@ spring:
       jdbc-url: jdbc:log4jdbc:oracle:thin:@//localhost:1521/XE
       username: hr
       password: hr
+
+#  mail:
+#  host: smtp.gmail.com
+#  port: 587
+#    username: 17gallevent@gmail.com
+#    password: streaming_17
+#  properties:
+#    mail.smtp.auth: true
+#    mail.smtp.starttls.enable: true

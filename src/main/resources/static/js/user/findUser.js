@@ -54,7 +54,7 @@ $memberFindBtn.on('click', function(){
     }else{
         $.ajax({
             type: 'POST',
-            url: '/findUser', // 로그인 체크 API 엔드포인트
+            url: '/check/findUser', // 로그인 체크 API 엔드포인트
             data: {
                 name: $nameInput.val(),
                 email: $emailInput.val()

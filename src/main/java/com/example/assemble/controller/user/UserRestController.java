@@ -29,4 +29,10 @@ public class UserRestController {
         return check;
     }
 
+    @GetMapping("/check/findUser")
+    public Boolean findUser(UserVO userVO){
+        Boolean check = userService.findUser(userVO) != null ? true : false;
+        return check;
+    }
+
 }
