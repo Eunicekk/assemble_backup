@@ -1,6 +1,5 @@
 package com.example.assemble.controller.user;
 
-import com.example.assemble.domain.MailDTO;
 import com.example.assemble.domain.user.UserVO;
 import com.example.assemble.service.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -8,8 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.mail.*;
@@ -24,6 +22,11 @@ import java.util.Properties;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+
+    @Value("${myapp.email}")
+    private String email;
+    @Value("${myapp.password}")
+    private String emailPassword;
 
     @GetMapping("/signup")
     public String signup(UserVO userVO) {
@@ -74,8 +77,8 @@ public class UserController {
         String userPassword = findUserVO.getUserPassword();
 
         // 1. 발신자의 메일 계정과 비밀번호 설정
-        final String user = "aaa@gmail.com";
-        final String password = "1234";
+        final String user = email;
+        final String password = emailPassword;
 
         // 2. Property에 SMTP 서버 정보 설정
         Properties prop = new Properties();
@@ -121,25 +124,4 @@ public class UserController {
         return "/user/checkUser";
     }
 
-    @GetMapping("/myPage")
-    public void getInfoById(Model model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        String userId = null;
-        UserVO userVO = new UserVO();
-        if(session != null) {
-            userId = (String)session.getAttribute("userId");
-        }
-        if(userId != null) {
-            userVO = userService.getUserVOById(userId);
-        }
-        model.addAttribute("userVO", userVO);
-
-    }
-
-    @PostMapping("/myPage")
-    public RedirectView updateInfo(UserVO userVO, RedirectAttributes redirectAttributes){
-        userService.updateInfo(userVO);
-
-        return new RedirectView("/myPage");
-    }
 }

@@ -17,7 +17,7 @@
     <!-- 계정찾기 -->
     <select id="selectUser" resultType="userVO">
         SELECT USER_ID, USER_PASSWORD
-        FROM TBL_USER
+        FROM T_USER
         WHERE USER_NAME = #{userName} AND USER_EMAIL = #{userEmail}
     </select>
 
