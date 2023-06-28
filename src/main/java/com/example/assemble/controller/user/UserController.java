@@ -124,4 +124,10 @@ public class UserController {
         return "/user/checkUser";
     }
 
+    @GetMapping("/mypage")
+    public String mypage(){
+        return "/user/myPage";
+    }
+
+
 }

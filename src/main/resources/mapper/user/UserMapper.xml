@@ -49,4 +49,18 @@
         WHERE USER_NICKNAME = #{userNickname}
     </select>
 
+    <!-- 회원정보 수정 -->
+    <update id="update">
+        UPDATE T_USER
+        SET USER_PASSWORD = #{userPassword}, USER_NICKNAME = #{userNickname}, USER_EMAIL = #{userEmail},
+            USER_NAME = #{userName}
+        WHERE USER_ID = #{userId}
+    </update>
+
+    <!-- 회원 탈퇴 -->
+    <delete id="delete">
+        DELETE FROM T_USER
+        WHERE USER_ID = #{userId} AND USER_PASSWORD = #{userPassword}
+    </delete>
+
 </mapper>

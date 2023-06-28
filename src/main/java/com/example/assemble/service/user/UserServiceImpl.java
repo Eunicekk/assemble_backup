@@ -34,10 +34,12 @@ public class UserServiceImpl implements UserService {
         return userDAO.findUserById(userId);
     }
 
-    public UserVO getUserVOById(String userId) {return userDAO.getUserVOById(userId);}
+    public UserVO getUserVOById(String userId) {
+        return userDAO.getUserVOById(userId);
+    }
 
     // 비밀번호 조회
-    public String findPassword(String userId){
+    public String findPassword(String userId) {
         return userDAO.findPassword(userId);
     }
 
@@ -47,9 +49,17 @@ public class UserServiceImpl implements UserService {
     }
 
     // 닉네임 중복검사
-    public boolean checkNickname(String userNickname){
+    public boolean checkNickname(String userNickname) {
         return (userDAO.checkNickname(userNickname) < 1) ? true : false;
     }
-    @Override
-    public void updateInfo(UserVO userVO){userDAO.updateUserInfo(userVO);}
+
+    // 회원정보 수정
+    public void modify(UserVO userVO){
+        userDAO.modify(userVO);
+    }
+
+    // 회원정보 삭제
+    public void delete(UserVO userVO){
+        userDAO.remove(userVO);
+    }
 }

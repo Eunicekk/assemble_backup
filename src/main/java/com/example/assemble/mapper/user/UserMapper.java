@@ -16,7 +16,7 @@ public interface UserMapper {
 
     // 아이디로 정보조회
     public UserVO selectUserById(String userId);
-
+    
     public UserVO selectById(String userId);
 
     // 비밀번호 조회
@@ -28,6 +28,10 @@ public interface UserMapper {
     // 닉네임 중복 검사
     public int checkNickname(String userNickname);
 
-    public void updateUser(UserVO userVO);
+    // 회원정보 수정
+    public void update(UserVO userVO);
+
+    // 회원정보 삭제
+    public void delete(UserVO userVO);
 
 }
