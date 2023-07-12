@@ -53,6 +53,7 @@
     <update id="update">
         UPDATE T_USER
         SET USER_NICKNAME = #{userNickname}, USER_EMAIL = #{userEmail}
+        WHERE USER_ID = #{userId}
     </update>
 
     <!-- 회원 탈퇴 -->
