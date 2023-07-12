@@ -23,10 +23,12 @@ public interface UserService {
     // 아이디 중복검사
     public boolean checkId(String userId);
 
-
     // 닉네임 중복검사
     public boolean checkNickname(String userNickname);
 
-    public void updateInfo(UserVO userVO);
+    // 회원정보 수정
+    public void modify(UserVO userVO);
 
+    // 회원정보 삭제
+    public void remove(String userId);
 }

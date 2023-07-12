@@ -49,6 +49,14 @@ public class UserDAO {
         return userMapper.checkNickname(userNickname);
     }
 
-    public void updateUserInfo(UserVO userVO){userMapper.updateUser(userVO);}
+    // 회원정보 수정
+    public void modify(UserVO userVO){
+        userMapper.update(userVO);
+    }
+
+    // 회원정보 삭제
+    public void remove(String userId){
+        userMapper.delete(userId);
+    }
 
 }
