@@ -8,11 +8,12 @@ $(".modify-btn").click(function(){
     $.ajax({
         url: "/check/modify",
         type: "PATCH",
-        data: JSON.stringify({ userVO: {
+        data: JSON.stringify({
                 userNickname: $("#userNickname").val(),
-                userEmail: $("#userEmail").val()
-            }}),
-        contentType: "application/json",
+                userEmail: $("#userEmail").val(),
+                userId: $("#userId").text()
+            }),
+        contentType: "application/json-patch+json; charset=utf-8",
         success: function(){
             alert("회원 정보가 수정되었습니다.");
             window.location.href = "/mypage";

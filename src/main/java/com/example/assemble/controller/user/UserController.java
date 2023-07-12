@@ -130,14 +130,17 @@ public class UserController {
     public String mypage(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         UserVO userVO = (UserVO) session.getAttribute("userVO");
-        model.addAttribute("userVO", userVO);
+        model.addAttribute("userVO", userService.findUserById(userVO.getUserId()));
 
         return "/user/myPage";
     }
 
     @GetMapping("/remove")
-    public RedirectView remove(@RequestBody String userId){
-        userService.remove(userId);
+    public RedirectView remove(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        UserVO userVO = (UserVO) session.getAttribute("userVO");
+        userService.remove(userVO.getUserId());
+        session.invalidate();
         return new RedirectView("/");
     }
 
