@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     // 회원정보 삭제
-    public void delete(UserVO userVO){
-        userDAO.remove(userVO);
+    public void remove(String userId){
+        userDAO.remove(userId);
     }
 }

@@ -5,9 +5,11 @@ import com.example.assemble.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.mail.*;
@@ -62,7 +64,7 @@ public class UserController {
     }
 
     @GetMapping("/findUser")
-    public String findUser (Model model, UserVO userVO){
+    public String findUser (){
         return "/user/findUser";
     }
 
@@ -125,9 +127,18 @@ public class UserController {
     }
 
     @GetMapping("/mypage")
-    public String mypage(){
+    public String mypage(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        UserVO userVO = (UserVO) session.getAttribute("userVO");
+        model.addAttribute("userVO", userVO);
+
         return "/user/myPage";
     }
 
+    @GetMapping("/remove")
+    public RedirectView remove(@RequestBody String userId){
+        userService.remove(userId);
+        return new RedirectView("/");
+    }
 
 }

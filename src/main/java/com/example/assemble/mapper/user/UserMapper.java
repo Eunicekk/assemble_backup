@@ -32,6 +32,6 @@ public interface UserMapper {
     public void update(UserVO userVO);
 
     // 회원정보 삭제
-    public void delete(UserVO userVO);
+    public void delete(String userId);
 
 }

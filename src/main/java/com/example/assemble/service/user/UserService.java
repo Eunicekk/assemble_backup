@@ -30,5 +30,5 @@ public interface UserService {
     public void modify(UserVO userVO);
 
     // 회원정보 삭제
-    public void delete(UserVO userVO);
+    public void remove(String userId);
 }

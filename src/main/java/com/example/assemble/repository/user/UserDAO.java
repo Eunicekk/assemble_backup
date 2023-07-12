@@ -55,8 +55,8 @@ public class UserDAO {
     }
 
     // 회원정보 삭제
-    public void remove(UserVO userVO){
-        userMapper.delete(userVO);
+    public void remove(String userId){
+        userMapper.delete(userId);
     }
 
 }

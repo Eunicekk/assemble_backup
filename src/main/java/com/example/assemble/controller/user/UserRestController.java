@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,12 +30,9 @@ public class UserRestController {
         return check;
     }
 
-/*
-    @PostMapping("/check/findUser")
-    public Boolean findUser(UserVO userVO){
-        Boolean check = userService.findUser(userVO) != null ? true : false;
-        return check;
+    @PatchMapping("/check/modify")
+    public void modify(@RequestBody UserVO userVO){
+        userService.modify(userVO);
     }
-*/
 
 }
