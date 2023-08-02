@@ -18,6 +18,11 @@ public class StudyDAO {
         return studyMapper.countAll(studyDTO);
     }
 
+    // 해당 유저 스터디 총 수
+    public Integer getStudyCountByUserId(StudyDTO studyDTO) {
+        return studyMapper.countByUser(studyDTO);
+    }
+
     // 스터디 목록
     public List<StudyVO> getStudyAll(StudyDTO studyDTO) {
         return studyMapper.selectAll(studyDTO);

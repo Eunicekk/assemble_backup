@@ -50,11 +50,16 @@ public class StudyController {
 
     // 해당 유저가 가입 되어 있는 스터디 목록
     @GetMapping("/study")
-    public String getStudyListByUserId(Model model, HttpServletRequest request) {
+    public String getStudyListByUserId(StudyDTO studyDTO, Model model, HttpServletRequest request) {
         UserVO sessionUser = getSessionUser(request);
         if(sessionUser == null) return "/login";
+        studyDTO.setUserId(sessionUser.getUserId());
+
         model.addAttribute("studyList", joinStudyService.studyList(sessionUser.getUserId()));
         model.addAttribute("userVO", sessionUser);
+
+        Integer pageTotal = studyService.countStudyByUserId(studyDTO);
+        model.addAttribute("pagination", new PageDTO().createPageDTO(studyDTO.getPage(), pageTotal));
         return "/study/groupList";
     }
 

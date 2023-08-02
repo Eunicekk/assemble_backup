@@ -25,6 +25,7 @@ public class StudyDTO {
     private String studyUpdateDate;
     private String[] topics;
     private Integer page = 1;
+    private String userId;
 
 
 
