@@ -5,11 +5,9 @@ import com.example.assemble.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.mail.*;
@@ -64,14 +62,15 @@ public class UserController {
     }
 
     @GetMapping("/findUser")
-    public String findUser (){
-        return "/user/findUser";
+    public String findUser (Model model){
+        model.addAttribute("user", new UserVO());
+        return "user/findUser";
     }
 
     @PostMapping("/findUser")
-    public String checkUser (Model model, UserVO userVO){
+    public String checkUser (Model model, @ModelAttribute("user") UserVO userVO){
         UserVO findUserVO = userService.findUser(userVO);
-        model.addAttribute("user", userService.findUser(userVO));
+        model.addAttribute("user", findUserVO);
 
         String recipientEmail = userVO.getUserEmail();
         String userName = userVO.getUserName();
@@ -133,6 +132,17 @@ public class UserController {
         model.addAttribute("userVO", userService.findUserById(userVO.getUserId()));
 
         return "/user/myPage";
+    }
+
+    @PostMapping("/mypage")
+    public RedirectView update(HttpServletRequest request, UserVO userVO, @RequestParam("userFile")MultipartFile multipartFile){
+        HttpSession session = request.getSession();
+        UserVO user = (UserVO) session.getAttribute("userVO");
+
+        userVO.setUserId(user.getUserId());
+        userService.modify (userVO, multipartFile);
+
+        return new RedirectView("/user/myPage");
     }
 
     @GetMapping("/remove")

@@ -1,6 +1,7 @@
 package com.example.assemble.service.user;
 
 import com.example.assemble.domain.user.UserVO;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
     // 회원가입
@@ -27,7 +28,7 @@ public interface UserService {
     public boolean checkNickname(String userNickname);
 
     // 회원정보 수정
-    public void modify(UserVO userVO);
+    public void modify(UserVO userVO, MultipartFile multipartFile);
 
     // 회원정보 삭제
     public void remove(String userId);

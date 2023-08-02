@@ -15,7 +15,6 @@ public class UserDTO {
     private String userName;
     private String userRegisterDate;
     private String userUpdateDate;
-    private String userProfile;
     private boolean userAdmin;
     private int rating;
 }

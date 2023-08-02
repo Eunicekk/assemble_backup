@@ -30,9 +30,9 @@ public class UserRestController {
         return check;
     }
 
-    @PatchMapping("/check/modify")
-    public void modify(@RequestBody UserVO userVO){
-        userService.modify(userVO);
-    }
+//    @PatchMapping("/check/modify")
+//    public void modify(@RequestBody UserVO userVO){
+//        userService.modify(userVO);
+//    }
 
 }

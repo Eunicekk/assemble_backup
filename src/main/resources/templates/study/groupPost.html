@@ -14,8 +14,8 @@
         <nav>
             <a href="/"><img src="/image/logo.png" width="240px" alt="assemble"></a>
             <div id="menu">
-                <a href="">커뮤니티</a>
-                <a href="">스터디</a>
+                <a href="#">커뮤니티</a>
+                <a href="/study">스터디</a>
             </div>
             <div>
                 <a href="">새 글 쓰기</a>
@@ -60,7 +60,7 @@
     <div class="header">
         <div class="back">
             <!-- 뒤로가기 버튼 링크 삽입 -->
-            <a href="#">
+            <a href="/">
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" color="808080" cursor="pointer" height="30" width="30" xmlns="http://www.w3.org/2000/svg" style="color: rgb(128, 128, 128);"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
             </a>
         </div>
@@ -79,7 +79,7 @@
         </div>
         <div class="study-info">
             <span class="info-title">모집 인원</span>
-            <span class="info-text" th:text="*{studyMaxNumber}">3명</span>
+            <span class="info-text" th:text="*{studyMaxNumber}"></span>
         </div>
         <div class="study-info">
             <span class="info-title">진행 방식</span>
@@ -88,7 +88,7 @@
         </div>
         <div class="study-info" th:unless="*{studyOnline}">
             <span class="info-title">모임 지역</span>
-            <span class="info-text" th:text="*{studyArea}">서울</span>
+            <span class="info-text" th:text="*{studyArea}"></span>
         </div>
     </section>
 
@@ -115,7 +115,7 @@
     <section class="study-comment-read">
         <div class="study-comment">
             <div class="comment-profile">
-                <img src="https://hola-post-image.s3.ap-northeast-2.amazonaws.com/default.PNG" alt="프로필 사진" width="52px" height="52px">
+                <img class="image-box" src="https://www.thechooeok.com/common/img/default_profile.png" alt="프로필 사진" width="52px" height="52px">
                 <div>
                     <span class="comment-writer">댓쓴이</span>
                     <span class="comment-date">2023-03-02 13:42:55</span>

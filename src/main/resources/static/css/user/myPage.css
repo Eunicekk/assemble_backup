@@ -48,7 +48,7 @@ h2{
     margin-bottom: 20px;
     height: 120px;
 }
-.profile-img>img{
+.profile-img img{
     width: 120px;
     height: 120px;
     box-shadow: 0 0 8px rgb(0 0 0 / 9%);

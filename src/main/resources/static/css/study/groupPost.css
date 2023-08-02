@@ -78,6 +78,7 @@
 .study-content div{
     font-size: 18px;
     margin-top: 30px;
+    line-height: 1.3;
 }
 
 /* study-comment-write */
@@ -149,6 +150,11 @@
 }
 .study-comment p{
     font-size: 18px;
+}
+
+.image-box{
+    border: 1px solid #999;
+    border-radius: 50%;
 }
 
 .body{

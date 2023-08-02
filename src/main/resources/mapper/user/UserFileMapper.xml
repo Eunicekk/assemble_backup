@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.assemble.mapper.user.UserFileMapper">
+    <!-- 프로필 이미지 추가 -->
+    <insert id="insert">
+        <selectKey keyProperty="userFileNumber" resultType="_int" order="BEFORE">
+            SELECT S_USER_FILE.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO T_USER_FILE(USER_FILE_NUMBER, USER_FILE_NAME, USER_FILE_UPLOAD_PATH, USER_FILE_UUID, USER_ID)
+        VALUES(#{userFileNumber}, #{userFileName}, #{userFileUploadPath}, #{userFileUuid}, #{userId})
+    </insert>
+
+    <!-- 프로필 이미지 삭제 -->
+    <delete id="delete">
+        DELETE FROM T_USER_FILE
+        USER_ID = #{userId}
+    </delete>
+
+    <!-- 프로필 이미지 선택 -->
+    <select id="select" resultType="UserFileDTO">
+        SELECT USER_FILE_NUMBER, USER_FILE_NAME, USER_FILE_UPLOAD_PATH, USER_FILE_UUID, USER_ID
+        FOM T_USER_FILE
+        WHERE USER_ID = #{userId}
+    </select>
+</mapper>

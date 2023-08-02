@@ -186,10 +186,12 @@
 }
 
 #main {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 50px auto 0;
 }
 #option {
+    margin: 0 auto;
+    width: 1180px;
     display: flex;
     justify-content: space-between;
 }
@@ -289,12 +291,11 @@
 }
 #study-list {
     display: flex;
-    grid-gap: 27px;
-    gap: 27px;
+    gap: 22px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .study {
     padding: 20px 20px 0;
@@ -302,7 +303,7 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    width: 260px;
+    width: 240px;
     height: 320px;
     transition: 0.2s;
 }
@@ -384,7 +385,7 @@
     justify-content: space-between;
     align-items: center;
     border-top: 2px solid rgb(227, 227, 227);
-    padding-top: 20px;
+    padding-top: 14px;
 }
 .views-comment {
     display: flex;
@@ -403,6 +404,12 @@
     display: flex;
     align-items: center;
 }
+
+.user img{
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+
 .user > span {
     margin-left: 10px;
     font-weight: bold;
@@ -443,12 +450,11 @@
     color: #1a4568;
 }
 #scroll-move-top {
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    border: 0px solid transparent;
     border: 3px solid #1a4568;
     border-radius: 100%;
     padding: 10px;

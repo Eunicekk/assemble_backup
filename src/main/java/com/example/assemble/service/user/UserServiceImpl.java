@@ -2,10 +2,14 @@ package com.example.assemble.service.user;
 
 import com.example.assemble.domain.user.UserVO;
 import com.example.assemble.repository.user.UserDAO;
+import com.example.assemble.repository.user.UserFileDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
@@ -13,6 +17,7 @@ import org.springframework.stereotype.Service;
 @Primary
 public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
+    private final UserFileService userFileService;
 
     // 회원가입
     public void signup(UserVO userVO){
@@ -54,8 +59,16 @@ public class UserServiceImpl implements UserService {
     }
 
     // 회원정보 수정
-    public void modify(UserVO userVO){
+    public void modify(UserVO userVO, MultipartFile multipartFile){
         userDAO.modify(userVO);
+
+        if(multipartFile == null || multipartFile.isEmpty()){return;}
+        userFileService.remove(userVO.getUserId());
+        try {
+            userFileService.registerAndSaveFiles(multipartFile, userVO.getUserId());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // 회원정보 삭제

@@ -61,7 +61,7 @@ h2{
 .user-info span{
     margin-left: 20px;
     color: #333333;
-    font-family: 500;
+    font-weight: 500;
 }
 
 .user-info .material-symbols-rounded{

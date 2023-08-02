@@ -18,7 +18,16 @@
             <div class="variable">
                 <div class="contents">
                     <div class="profile-img">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png">
+                        <form class="signup-form" action="/mypage" method="post" enctype="multipart/form-data">
+                        <th:block th:if="${userVO.userFileName == null}">
+                            <img class="image-box" src="https://www.thechooeok.com/common/img/default_profile.png">
+                            <input type="file" class="post-image" name="userFile" accept="image/*"/>
+                        </th:block>
+                        <th:block th:unless="${userVO.userFileName == null}">
+                            <img class="image-box" th:src="@{'/upload/' + ${userVO.userFileUploadPath} + '/th_' + ${userVO.userFileUuid} + '_' + ${userVO.userFileName}}">
+                            <input type="file" class="post-image" name="userFile" accept="image/*"/>
+                        </th:block>
+                        </form>
                         <div class="img-button">
                             <input type="button" value="이미지 선택">
                             <input type="button" value="이미지 제거">

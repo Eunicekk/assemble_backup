@@ -12,7 +12,12 @@ spring:
       jdbc-url: jdbc:log4jdbc:oracle:thin:@//localhost:1521/XE
       username: hr
       password: hr
+
 #이메일 변수
 myapp:
   email: 17gallevent@gmail.com
-  password: mmbstkmulndgybrj
+  password: isxbkfyffkdwbsax
+
+#파일 경로 설정
+file:
+  dir: D:/project/upload/
