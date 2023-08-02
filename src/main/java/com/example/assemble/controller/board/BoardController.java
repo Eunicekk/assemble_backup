@@ -32,8 +32,9 @@ public class BoardController {
 
     // 게시글 추가
     @GetMapping("/write")
-    public void writeBoard(Model model){
+    public String writeBoard(Model model){
         model.addAttribute("boardVO", new BoardVO());
+        return "/addCommunityPost";
     }
 
     @PostMapping("/write")

@@ -5,11 +5,15 @@ import com.example.assemble.domain.study.StudyDTO;
 import com.example.assemble.domain.study.StudyVO;
 import com.example.assemble.domain.user.UserVO;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface StudyService {
     // 스터디 수
     public Integer countStudy(StudyDTO studyDTO);
+
+    // 해당 유저 스터디 수
+    public Integer countStudyByUserId(StudyDTO studyDTO);
     
     // 스터디 목록
     public List<StudyVO> list(StudyDTO studyDTO);
