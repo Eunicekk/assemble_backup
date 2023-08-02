@@ -26,6 +26,11 @@ public class StudyServiceImpl implements StudyService {
     }
 
     @Override
+    public Integer countStudyByUserId(StudyDTO studyDTO) {
+        return studyDAO.getStudyCountByUserId(studyDTO);
+    }
+
+    @Override
     public List<StudyVO> list(StudyDTO studyDTO) {
         return studyDAO.getStudyAll(studyDTO);
     }

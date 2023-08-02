@@ -11,6 +11,9 @@ import java.util.List;
 public interface StudyMapper {
     // 스터디 총 갯수
     public Integer countAll(StudyDTO studyDTO);
+
+    // 해당 유저 스터디 총 갯수
+    public Integer countByUser(StudyDTO studyDTO);
     
     // 스터디 전체 목록
     public List<StudyVO> selectAll(StudyDTO studyDTO);

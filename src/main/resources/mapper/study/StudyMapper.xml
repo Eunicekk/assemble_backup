@@ -18,6 +18,23 @@
             </foreach>
         </if>
     </select>
+    <select id="countByUser" resultType="Integer">
+        SELECT COUNT(S.STUDY_ID)
+        FROM T_STUDY S JOIN T_JOIN_STUDY J ON S.STUDY_ID = J.STUDY_ID
+        WHERE STUDY_MAX_NUMBER != STUDY_CURRENT_NUMBER AND J.USER_ID = #{userId}
+        <if test="studyOnline != null">
+            AND STUDY_ONLINE = #{studyOnline}
+        </if>
+        <if test="studyComplete == null or studyComplete == false">
+            AND STUDY_COMPLETE = 0
+        </if>
+        <if test="topics != null">
+            AND STUDY_TOPIC IN
+            <foreach collection="topics" index="index" item="topic" open="(" close=")" separator=",">
+                #{topic}
+            </foreach>
+        </if>
+    </select>
     <select id="selectAll" resultType="studyVO">
         SELECT STUDY_ID, STUDY_NAME, STUDY_ONLINE, STUDY_AREA, STUDY_TOPIC, STUDY_NOTICE, STUDY_COMPLETE, STUDY_LEADER, STUDY_MAX_NUMBER, STUDY_CURRENT_NUMBER, STUDY_RECRUITMENT, STUDY_REGISTER_DATE, STUDY_UPDATE_DATE
         FROM
